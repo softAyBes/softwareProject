@@ -10,8 +10,11 @@ public class customer {
 	private String address;
 	//oooooooooooooooo
 	//lklklklkl
-	//jjhjuiohouijkhoipuhjb
+	//jjhjuiohouijkhoipuhjbkl;njjjjjjjjjjjjjjjjjjjjjjjjj
 	//tnvktnktmghffffffff
+	
+	
+	///kopijkmopijk;
 	int x;
 	//jjjj
 	private Main main=new Main();
