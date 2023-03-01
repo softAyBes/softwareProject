@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import mypackage.customer;
 public class product {
-	
+	//hehehe
 	private String name_p;
 	private String Code;
 	private String picture;
