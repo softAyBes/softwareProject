@@ -10,42 +10,51 @@ public class product {
 	private String material;
 	private int Length;
 	private int width;
+	
 	public customer cust= new customer();
 	productList proList=new productList();
 	
-	public String getName_p() {
+	public String getName_p() 
+	{
 		return name_p;
 	}
-	public void setName_p(String name_p) {
+	public void setName_p(String name_p) 
+	{
 		this.name_p = name_p;
 	}
-	public String getPicture() {
+	public String getPicture()
+	{
 		return picture;
 	}
-	public void setPicture(String picture) {
+	public void setPicture(String picture) 
+	{
 		this.picture = picture;
 	}
-	public String getMaterial() {
+	public String getMaterial() 
+	{
 		return material;
 	}
-	public void setMaterial(String material) {
+	public void setMaterial(String material)
+	{
 		this.material = material;
 	}
-	public int getLength() {
+	public int getLength() 
+	{
 		return Length;
 	}
-	public void setLength(int length) {
+	public void setLength(int length) 
+	{
 		Length = length;
 	}
-	public int getWidth() {
+	public int getWidth() 
+	{
 		return width;
 	}
-	public void setWidth(int width) {
+	public void setWidth(int width)
+	{
 		this.width = width;
 	}
 
-	
-	
 	public static void addtoproductList(product pro) {
 		// TODO Auto-generated method stub
 		

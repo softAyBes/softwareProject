@@ -1,5 +1,4 @@
 package stepdefinitions_;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import io.cucumber.java.en.And;
@@ -93,20 +92,23 @@ public void product_code_is_exist(String string)
 public void delete_product_successfully()
 {
 
+	
+	
 }
-
 @Given("admin want to update product with code {string} and product is exist")
 public void admin_want_to_update_product_with_code_and_product_is_exist(String string)
 {
    
+	
 }
 
 @When("admin enter {string}")
 public void admin_enter(String string) 
 {
 
+	
+	
 }
-
 @Then("product updated successfully")
 public void product_updated_successfully() 
 {

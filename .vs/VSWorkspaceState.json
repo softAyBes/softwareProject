@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\mypackage",
+    "\\src\\test",
+    "\\src\\test\\java",
+    "\\src\\test\\java\\stepdefinitions_",
+    "\\src\\test\\resources"
+  ],
+  "SelectedNode": "\\src\\test\\java\\stepdefinitions_\\Run_test_product.java",
+  "PreviewInSolutionExplorer": false
+}

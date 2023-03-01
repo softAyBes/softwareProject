@@ -8,7 +8,12 @@ public class customer {
 	private String name;
 	private int phone;
 	private String address;
-	
+	//oooooooooooooooo
+	//lklklklkl
+	//jjhjuiohouijkhoipuhjb
+	//tnvktnktm
+	int x;
+	//jjjj
 	private Main main=new Main();
 	public String getId() {
 		return id;
@@ -63,8 +68,10 @@ public class customer {
 		
 	}
 	
-	public void update(String newValue) {
-		// TODO Auto-generated method stub
+	public void update(String newValue) 
+	{
+	
+		
 		
 	}
 	
