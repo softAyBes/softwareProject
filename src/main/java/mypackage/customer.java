@@ -11,7 +11,7 @@ public class customer {
 	//oooooooooooooooo
 	//lklklklkl
 	//jjhjuiohouijkhoipuhjb
-	//tnvktnktm
+	//tnvktnktmghffffffff
 	int x;
 	//jjjj
 	private Main main=new Main();
