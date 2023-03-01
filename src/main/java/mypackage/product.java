@@ -1,11 +1,11 @@
 package mypackage;
-
 import java.util.ArrayList;
 import java.util.List;
 import mypackage.customer;
 public class product {
 	
 	private String name_p;
+	private String Code;
 	private String picture;
 	private String material;
 	private int Length;
@@ -13,12 +13,6 @@ public class product {
 	public customer cust= new customer();
 	productList proList=new productList();
 	
-	public List <String> getproductList()
-	{
-		List<String> productList=new ArrayList<String>();
-		return productList;
-		
-	}
 	public String getName_p() {
 		return name_p;
 	}
@@ -56,6 +50,15 @@ public class product {
 		// TODO Auto-generated method stub
 		
 		productList.Products.add(pro);
+	}
+	public String getcode() {
+		// TODO Auto-generated method stub
+		return Code;
+	}
+	public boolean checkisexist(String getcode) 
+	{
+		
+		return false;
 	}
 	
 	

@@ -10,7 +10,6 @@ public class customer {
 	private String address;
 	
 	private Main main=new Main();
-	
 	public String getId() {
 		return id;
 	}
