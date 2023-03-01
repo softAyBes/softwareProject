@@ -8,6 +8,7 @@ public class customer {
 	private String name;
 	private int phone;
 	private String address;
+	//'';'asdasdasaassdsaasdasdasdasasd
 	//oooooooooooooooo
 	//lklklklkl
 	//jjhjuiohouijkhoipuhjbkl;njjjjjjjjjjjjjjjjjjjjjjjjj
