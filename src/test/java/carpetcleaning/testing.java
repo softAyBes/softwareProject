@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "casese",  monochrome = true,
+@CucumberOptions(features = "cases",  monochrome = true,
 glue="carpetcleaning"
 //, snippets = SnippetType.CAMELCASE
 )

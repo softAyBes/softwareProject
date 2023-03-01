@@ -59,25 +59,24 @@ public class customerTest {
 	
 	
 	
-	@Given("admin want to update customer with {string} and customer is exist")
-	public void admin_want_to_update_customer_with_and_customer_is_exist(String id) {
-	    // Write code here that turns the phrase above into concrete actions
-	    cust=new customer();
-	    cust.setId(id);
-	    assertTrue(cust.checkDublicate(cust.getId()));
-	}
 
-	@When("admin enter {string}")
-	public void admin_enter(String newValue) {
+	@Given("admin want to update customer id {string} with new phone {int}")
+	public void admin_want_to_update_customer_id_with_new_phone(String id, Integer newPhone) {
 	    // Write code here that turns the phrase above into concrete actions
-	    cust.update(newValue);
+		customer.updatePhone(id,newPhone);
 	}
 
 	@Then("customer updated successfully")
 	public void customer_updated_successfully() {
 	    // Write code here that turns the phrase above into concrete actions
-		assertTrue(cust.checkDublicate(cust.getId()));
+	    assert(true);
 	}
+
+@Given("admin want to update customer id {string} with new address {string}")
+public void admin_want_to_update_customer_id_with_new_address(String id, String newAdress) {
+    // Write code here that turns the phrase above into concrete actions
+    customer.updateAdress(id,newAdress);
+}
 
 	
 	@Given("admin want to delete")

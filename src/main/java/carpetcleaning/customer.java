@@ -6,7 +6,7 @@ public class customer {
 	private int phone;
 	private String address;
 	
-	private Main main=new Main();
+	//private Main main=new Main();
 	
 	public String getId() {
 		return id;
@@ -62,15 +62,24 @@ public class customer {
 		
 	}
 	
-	public void update(String newValue) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	public static void deleteCustomer(String id2) {
 		// TODO Auto-generated method stub
 		int index=getIndex(id2);
 		Main.customers.remove(index);
+	}
+	public static void updatePhone(String id2, int newPhone) {
+		// TODO Auto-generated method stub
+		int index=customer.getIndex(id2);
+		Main.customers.get(index).setPhone(newPhone);
+		
+	}
+	public static void updateAdress(String id2, String newAdress) {
+		// TODO Auto-generated method stub
+		int index=customer.getIndex(id2);
+		Main.customers.get(index).setAddress(newAdress);
+		
 	}
 	
 	

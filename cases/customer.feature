@@ -1,21 +1,3 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
 @tag
 Feature: create new customer
 
@@ -33,9 +15,12 @@ Feature: create new customer
     And admin enter "id","name","phone","address"
     Then customer added successfully
 
-Scenario: update customer
-    Given admin want to update customer with "id" and customer is exist
-    When admin enter "new val" 
+Scenario: update customer phone
+    Given admin want to update customer id "3" with new phone 0599
+    Then customer updated successfully
+    
+Scenario: update customer address
+    Given admin want to update customer id "3" with new address "Rafidya"
     Then customer updated successfully
     
 Scenario: Delete customer

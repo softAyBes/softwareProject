@@ -18,17 +18,15 @@
 #Sample Feature Definition Template
 
 
-@tag
+
 Feature:  login feature
 
-  @tag1
   Scenario: login successfully
     Given that admin is not logged in
     When user is "admin"
     And password is "IamAdmin"
     Then admin logged in successfully
 
-  @tag2
   Scenario: login failed
    Given that the admin is not logged in
 		When user is "admin"

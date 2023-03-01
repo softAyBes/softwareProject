@@ -16,8 +16,7 @@ import io.cucumber.java.en.When;
 public class adminTest {
 	Admin admin = new Admin();
 
-	
-	  public adminTest(Admin admin) { 
+	 public adminTest(Admin admin) { 
 		  this.admin=admin; admin.setStatus(true);
 		  admin.setName("admin");
 		  admin.setPass("IamAdmin");
