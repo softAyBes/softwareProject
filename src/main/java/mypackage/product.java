@@ -3,82 +3,174 @@ import java.util.ArrayList;
 import java.util.List;
 import mypackage.customer;
 public class product {
-	//hehehe
+	
 	private String name_p;
 	private String Code;
 	private String picture;
 	private String material;
 	private int Length;
 	private int width;
+	private String status;
+	private String category;
+	private String isspecial;
 	
-	public customer cust= new customer();
-	productList proList=new productList();
+    public customer cust= new customer();
+	//productList proList=new productList();
 	
-	public String getName_p() 
-	{
-		return name_p;
+    public static int get_Index(String code) {
+		int index=-1;
+		
+		for(int i=0;i<productList.Products.size();i++) {
+			
+			if(productList.Products.get(i).Code.equalsIgnoreCase(code)) {
+				
+				return i;
+			}
+		}return index;
 	}
-	public void setName_p(String name_p) 
-	{
-		this.name_p = name_p;
+
+	
+    public boolean check_is_exist(String c2) {
+		// TODO Auto-generated method stub
+		// create common class contains all arrays list (customer, product ......)
+		if(get_Index(c2)==-1)
+		{
+			
+			return false;
+		}
+		
+		return true;
+		}
+
+
+	public void setCategory(String category2) {
+		// TODO Auto-generated method stub
+		category=category2;
 	}
-	public String getPicture()
-	{
-		return picture;
+
+
+	public void setStatus(String status2) {
+		// TODO Auto-generated method stub
+		status=status2;
 	}
-	public void setPicture(String picture) 
-	{
-		this.picture = picture;
+
+
+	public void setMaterial(String product_material) {
+		// TODO Auto-generated method stub
+		material=product_material;
 	}
-	public String getMaterial() 
-	{
-		return material;
+
+
+	public void setName_p(String product_name) {
+		// TODO Auto-generated method stub
+		name_p=product_name;
 	}
-	public void setMaterial(String material)
-	{
-		this.material = material;
+
+
+	public  void setLength(String product_length) {
+		// TODO Auto-generated method stub 
+		int L=Integer.parseInt(product_length);
+		L=Length;
 	}
-	public int getLength() 
-	{
-		return Length;
+
+
+	public void setPicture(String product_picture) {
+		// TODO Auto-generated method stub
+	picture=product_picture;
 	}
-	public void setLength(int length) 
-	{
-		Length = length;
+
+
+	public void setCode(String product_Code) {
+		// TODO Auto-generated method stub
+	Code=product_Code;
 	}
-	public int getWidth() 
-	{
+
+
+	public void setIsspecial(String isspecial2) {
+		// TODO Auto-generated method stub
+		
+		isspecial=isspecial2;
+		
+	}
+
+
+	public void setwidth(String product_width) {
+		// TODO Auto-generated method stub
+	     int W=Integer.parseInt(product_width);
+		width=W;
+	}
+
+	public Integer getWidth() {
 		return width;
 	}
-	public void setWidth(int width)
-	{
-		this.width = width;
+
+	public customer getCust() {
+		return cust;
 	}
 
-	public static void addtoproductList(product pro) {
-		// TODO Auto-generated method stub
-		
-		productList.Products.add(pro);
+
+	public void setCust(customer cust) {
+		this.cust = cust;
 	}
-	public String getcode() {
-		// TODO Auto-generated method stub
+
+
+	public String getName_p() {
+		return name_p;
+	}
+
+
+	public String getPicture() {
+		return picture;
+	}
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+	public String getCode() {
 		return Code;
 	}
-	public boolean checkisexist(String getcode) 
-	{
-		
-		return false;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
+
+	public String getMaterial() {
+		return material;
+	}
+
+
+	public Integer getLength() {
+		return Length;
+	}
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public String getIsspecial() {
+		return isspecial;
+	}
+
+
+	public static void record_product(product pro) 
+	
+	{
+		productList.Products.add(pro);
+	}
+
+
+    /*
+public void delete_product(String str)
+	{
+		int i=get_Index(str);
+		productList.Products.remove(i);
+		
+	}
+}
+	
+	
+	
+	*/
 }
