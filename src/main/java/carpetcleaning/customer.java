@@ -3,12 +3,12 @@ package carpetcleaning;
 public class customer extends person{
 	private String id;
 	private String name;
-	private int phone;
+	private String phone;
 	private String address;
 
 	public customer(){
 		super();
-		this.type="client";
+		this.type="customer";
 	}
 	
 	//private Main main=new Main();
@@ -16,7 +16,7 @@ public class customer extends person{
 	public String getId() {
 		return id;
 	}
-	public void setId(String id2) {
+	public void setId(String id2) { 
 		this.id = id2;
 	}
 	
@@ -27,10 +27,10 @@ public class customer extends person{
 		this.name = name;
 	}
 	
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	
@@ -51,9 +51,9 @@ public class customer extends person{
 			}
 		}
 		
-		return index;
+		return index; 
 	}
-	public boolean isExist(String id2) {
+	public static boolean isExist(String id2) {
 		// TODO Auto-generated method stub
 		// create common class contains all arrays list (customer, product ......)
 		if(getIndex(id2)==-1) {
@@ -79,7 +79,7 @@ public class customer extends person{
 		int index=getIndex(id2);
 		Main.customers.remove(index);
 	}
-	public static void updatePhone(String id2, int newPhone) {
+	public static void updatePhone(String id2, String newPhone) {
 		// TODO Auto-generated method stub
 		int index=customer.getIndex(id2);
 		Main.customers.get(index).setPhone(newPhone);
