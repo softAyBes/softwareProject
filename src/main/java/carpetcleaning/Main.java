@@ -6,7 +6,7 @@ public class Main {
 	public static ArrayList<customer> customers= new ArrayList<customer>();
 	public static person uesr;
 	
-
+ 
 	public static int setCutomers() {
 		uesr=new person();
 		customer c2=new customer();
@@ -17,9 +17,13 @@ public class Main {
 		c2.setId("3");
 		c2.setPhone("0599");
 		customer.createCustomer(c2); 
-		System.out.println("Hello hony");
 		}
 		return 1;
+	}
+	public static void printArray(){
+		for(int i=0;i<customers.size();i++) {
+			System.out.println(customers.get(i).getId());
+		}
 	}
 	
 	

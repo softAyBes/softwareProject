@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class mainFunc {
 	public static ArrayList<customer> customers= new ArrayList<customer>();
+	
  
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
