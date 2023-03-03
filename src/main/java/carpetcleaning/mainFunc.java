@@ -1,14 +1,16 @@
 package carpetcleaning;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class mainFunc {
-
+	public static ArrayList<customer> customers= new ArrayList<customer>();
+ 
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		String name,password;
-		String emptyLine="|						                     						                |";
+		String emptyLine="|						                      						                |";
 		int logged=0;
 		Admin admin=new Admin();
 		// TODO Auto-generated method stub
@@ -28,7 +30,7 @@ public class mainFunc {
 			name=input.nextLine();
 			System.out.println("|						        Enter you user password						        |");
 			password=input.nextLine();
-			if(name.equalsIgnoreCase(admin.getName()) && password.equalsIgnoreCase(admin.getPass())) {
+			if(name.equalsIgnoreCase(admin.getName()) && password.equalsIgnoreCase(admin.getPassword())) {
 				System.out.println("|						Welcome Back						|");
 				logged=1;
 				admin.setStatus(true);

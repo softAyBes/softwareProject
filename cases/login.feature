@@ -28,7 +28,7 @@ Feature:  login feature
     Then admin logged in successfully
 
   Scenario: login failed
-   Given that the admin is not logged in
+    Given that admin is not logged in
 		When user is "admin"
-		And password is "false"
+		And password is "wrong"
     Then login failed
