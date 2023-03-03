@@ -5,7 +5,7 @@ public class customer extends person{
 	private String name;
 	private String phone;
 	private String address;
-
+////
 	public customer(){
 		super();
 		this.type="customer";
