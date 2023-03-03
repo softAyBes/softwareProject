@@ -11,11 +11,13 @@ public class customerTest {
 	public customer cust;
 	public boolean actual;
 	public boolean expected;
-	private int x=Main.setCutomers();
+	private int x;
 	
 	@Given("admin want to create new customer with id {string}")
 	public void admin_want_to_create_new_customer_with_id(String id) {
 	    // Write code here that turns the phrase above into concrete actions
+		
+		x=Main.setCutomers();
 	   cust=new customer();
 	   cust.setId(id);
 	}
@@ -39,6 +41,7 @@ public class customerTest {
 	public void id_is_not_exist(String id) {
 	    // Write code here that turns the phrase above into concrete actions
 		  cust=new customer();
+		 x=Main.setCutomers();
 	}
 
 	@When("admin enter id {string} Name {string} phone {string} address {string}")
@@ -51,6 +54,7 @@ public class customerTest {
 	    cust.setPhone(phone);
 	    cust.setId(id);
 	    cust.setType("client");
+	
 	   
 	    
 	}
@@ -68,6 +72,7 @@ public class customerTest {
 	@Given("user is {string} with id {string} want to update  phone to {string}")
 	public void user_is_with_id_want_to_update_phone_to(String role, String id, String phone) {
 		Main.uesr.setType("customer");
+		 x=Main.setCutomers();
 		cust=new customer();
 	  cust.logged=1;
 	  customer.updatePhone(id, phone);
@@ -83,19 +88,36 @@ public class customerTest {
 		   actual=customer.isExist(id);
 		   assertEquals(expected,actual);
 	}
+
+
+	
+	@Given("admin want to update customer id {string} with new address {string}")
+	public void admin_want_to_update_customer_id_with_new_address(String id, String newAddress) {
+	    // Write code here that turns the phrase above into concrete actions
+		Main.uesr.setType("customer");
+		x=Main.setCutomers();
+		cust=new customer();
+		cust.logged=1;
+		customer.updatePhone(id, newAddress);
+	}
+
+	@Then("customer address id {string} updated successfully")
+	public void customer_address_id_updated_successfully(String id) {
+	    // Write code here that turns the phrase above into concrete actions
+		expected=true;
+		   actual=customer.isExist(id);
+		   assertEquals(expected,actual);
+	}
 	
 	
 	@Given("admin want to delete customer id {string}")
 	public void admin_want_to_delete_customer_id(String id) {
 		Main.uesr.setType("admin");
-		for(int i=0;i<Main.customers.size();i++) {
-			System.out.println(Main.customers.get(i).getId());
-		}
+		 x=Main.setCutomers();
+		if(customer.isExist(id)) {
 		customer.deleteCustomer(id);
-		System.out.println("After delete");
-		for(int i=0;i<Main.customers.size();i++) {
-			System.out.println(Main.customers.get(i).getId());
 		}
+	
 	    
 	}
 
@@ -104,6 +126,18 @@ public class customerTest {
 	    actual=customer.isExist(string);
 	    expected=false;
 	    assertEquals(actual,expected);
+	}
+	
+	@Given("customer id {string} is not exist")
+	public void customer_id_is_not_exist(String string) {
+	   actual=customer.isExist(string);
+	}
+
+	@Then("delete customer {string} faild")
+	public void delete_customer_faild(String string) {
+	    expected=false;
+	    assertEquals(actual,expected);
+	    
 	}
 	
 	
