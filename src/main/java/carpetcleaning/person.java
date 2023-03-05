@@ -1,11 +1,13 @@
 package carpetcleaning;
 
+import java.util.ArrayList;
+
 public class person {
-	public String name;
-	public String password;
-	public String id_person;
-	public String type;
-	public int logged;  //1 log in  0 log out
+	private String name;
+	private String password;
+	private String id_person;
+	private String type;
+	private int logged;  //1 log in  0 log out
 	
 	
 	
@@ -50,6 +52,31 @@ public class person {
 	}
 	public void setLogged(int logged) {
 		this.logged = logged;
+	}
+	
+	
+	public static int getIndex(String name,ArrayList<person>persons) {
+		int index=-1;
+
+		for(int i=0;i<persons.size();i++) {
+			
+			if(persons.get(i).getName().equals(name)) { 
+				
+				return i;
+			}
+		}
+		
+		return index; 
+	}
+	public static boolean isExist(String id2,ArrayList<person>persons) {
+		// TODO Auto-generated method stub
+		// create common class contains all arrays list (customer, product ......)
+		if(getIndex(id2,persons)==-1) {
+			
+			return false;
+		}
+		
+		return true;
 	}
 	
 	

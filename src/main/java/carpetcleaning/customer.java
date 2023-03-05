@@ -11,16 +11,16 @@ public class customer extends person{
 	
 	public customer(){ 
 		super();
-		this.type="customer";
+		this.setType("customer"); 
 	}
 	public customer(person pers,String id,String phone,String address) {
 		super();
 		this.id=id;
-		this.name=pers.name;
-		this.password=pers.password;
+		this.setName(pers.getName());
+		this.setPassword(pers.getPassword());
 		this.phone=phone;
 		this.address=address;
-		this.type="customer";	 
+		this.setType("customer"); 
 	}
 	
 	

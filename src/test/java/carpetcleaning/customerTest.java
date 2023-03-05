@@ -86,7 +86,7 @@ public class customerTest {
 	@Given("user is {string} with id {string} want to update  phone to {string}")
 	public void user_is_with_id_want_to_update_phone_to(String role, String id, String phone) {
 		cust=new customer();
-	  cust.logged=1;
+	  cust.setLogged(1);
 	  customer.updatePhone(id, phone,customers);
 	  }
 	 
@@ -107,7 +107,7 @@ public class customerTest {
 	public void admin_want_to_update_customer_id_with_new_address(String id, String newAddress) {
 	    // Write code here that turns the phrase above into concrete actions
 		cust=new customer();
-		cust.logged=1;
+		cust.setLogged(1);
 		customer.updatePhone(id, newAddress,customers);
 	}
 

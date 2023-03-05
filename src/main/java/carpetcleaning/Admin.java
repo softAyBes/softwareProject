@@ -6,15 +6,15 @@ public class Admin extends person{
 	private boolean status;
 
 	public Admin(person pers) {
-		this.name=pers.name;
-		this.password=pers.getPassword();
-		this.type="admin";
+		this.setName(pers.getName());
+		this.setPassword(pers.getPassword());
+		this.setType("admin");
 	}
 		
 
 	
 	public Admin() {
-		this.type="admin";
+		this.setType("admin");
 	}
 	
 
