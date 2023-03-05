@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 glue="carpetcleaning", 
 snippets = SnippetType.CAMELCASE
 )
-  
+   
 public class testing {
 	
 }

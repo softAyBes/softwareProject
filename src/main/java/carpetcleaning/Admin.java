@@ -1,17 +1,29 @@
 package carpetcleaning;
 
 public class Admin extends person{
-	private String name;
+	private String id;
 
 	private boolean status;
 
+	public Admin(person pers) {
+		this.name=pers.name;
+		this.password=pers.getPassword();
+		this.type="admin";
+		
+	}
+	
+	public Admin() {
+		this.type="admin";
+	}
+	
 
-	public String getName() {
-		return name;
+
+	public String getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public boolean isStatus() {

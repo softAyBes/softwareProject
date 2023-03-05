@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 
 public class customerTest {
 	public customer cust;
+	public person pers;
 	public boolean actual;
 	public boolean expected;
 	private int x;
@@ -40,20 +41,15 @@ public class customerTest {
 	
 	public void id_is_not_exist(String id) {
 	    // Write code here that turns the phrase above into concrete actions
-		  cust=new customer();
+		expected=customer.isExist(id);
 		 x=Main.setCutomers();
 	}
 
 	@When("admin enter id {string} Name {string} phone {string} address {string}")
 	public void admin_enter_id_name_phone_address(String id, String name, String phone, String address) {
-	  
-	
-	    // Write code here that turns the phrase above into concrete actions
-	    cust.setAddress(address);
-	    cust.setName(name);
-	    cust.setPhone(phone);
-	    cust.setId(id);
-	    cust.setType("client");
+		pers=new person(name,"123",id);
+		 cust=new customer(pers,id,phone,address);
+	    
 	
 	   
 	    
@@ -61,7 +57,7 @@ public class customerTest {
 
 	@Then("customer id {string} added successfully")
 	public void customer_id_added_successfully(String id) {
-		expected=false;
+		
 		   actual=customer.isExist(id);
 		   customer.createCustomer(cust);
 		   assertEquals(expected,actual);

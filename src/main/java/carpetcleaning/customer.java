@@ -1,18 +1,39 @@
 package carpetcleaning;
 
+import java.util.ArrayList;
+
 public class customer extends person{
 	private String id;
-	private String name;
 	private String phone;
 	private String address;
+	private  ArrayList<product> productsForCusomer=new ArrayList<product>();
 ////
+	
 	public customer(){
 		super();
 		this.type="customer";
 	}
+	public customer(person pers,String id,String phone,String address) {
+		super();
+		this.id=id;
+		this.name=pers.name;
+		this.password=pers.password;
+		this.phone=phone;
+		this.address=address;
+		this.type="customer";	
+	}
 	
-	//private Main main=new Main();
 	
+	public ArrayList<product> getProductsForCusomer() {
+		return productsForCusomer;
+	}
+
+
+	public void setProductsForCusomer(ArrayList<product> productsForCusomer) {
+		this.productsForCusomer = productsForCusomer;
+	}
+
+
 	public String getId() {
 		return id;
 	}
@@ -20,12 +41,7 @@ public class customer extends person{
 		this.id = id2;
 	}
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	
 	public String getPhone() {
 		return phone;
@@ -45,7 +61,7 @@ public class customer extends person{
 		
 		for(int i=0;i<Main.customers.size();i++) {
 			
-			if(Main.customers.get(i).id.equalsIgnoreCase(id)) {
+			if(Main.customers.get(i).id.equalsIgnoreCase(id)) { 
 				
 				return i;
 			}
@@ -91,10 +107,22 @@ public class customer extends person{
 		Main.customers.get(index).setAddress(newAdress);
 		
 	}
+	public void addProduct(product pro) {
+		this.productsForCusomer.add(pro);
+	}
 	
-	
-	
-	
-	
+	public  int getIndexforProduct (String code) {
+			int index=-1;
+		
+		for(int i=0;i<Main.customers.size();i++) {
+			
+			if(this.productsForCusomer.get(i).getcode().equals(code)) {
+				
+				return i;
+			}
+		}
+		
 
+		return index;
+}
 }
