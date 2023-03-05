@@ -9,7 +9,7 @@ public class customer extends person{
 	private  ArrayList<product> productsForCusomer=new ArrayList<product>();
 ////
 	
-	public customer(){
+	public customer(){ 
 		super();
 		this.type="customer";
 	}

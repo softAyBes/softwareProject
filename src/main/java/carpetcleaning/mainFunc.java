@@ -8,8 +8,9 @@ public class mainFunc {
 	
  
 	public static void main(String[] args) {
+		
 		@SuppressWarnings("resource")
-		Scanner input = new Scanner(System.in);
+		Scanner input = new Scanner(System.in); 
 		String name,password;
 		String emptyLine="|						                      						                |";
 		int logged=0;

@@ -8,6 +8,8 @@ public class Main {
 	public static person uesr;
 	public static int autoId=4;
 	
+
+	
  
 	public static int setCutomers() {
 		uesr=new person();

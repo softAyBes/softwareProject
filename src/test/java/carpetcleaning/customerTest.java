@@ -17,7 +17,7 @@ public class customerTest {
 	@Given("admin want to create new customer with id {string}")
 	public void admin_want_to_create_new_customer_with_id(String id) {
 	    // Write code here that turns the phrase above into concrete actions
-		
+	
 		x=Main.setCutomers();
 	   cust=new customer();
 	   cust.setId(id);

@@ -10,7 +10,7 @@ public class Admin extends person{
 		this.password=pers.getPassword();
 		this.type="admin";
 		
-	}
+	} 
 	
 	public Admin() {
 		this.type="admin";
