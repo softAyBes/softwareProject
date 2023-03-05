@@ -9,8 +9,9 @@ public class Admin extends person{
 		this.name=pers.name;
 		this.password=pers.getPassword();
 		this.type="admin";
+	}
 		
-	} 
+
 	
 	public Admin() {
 		this.type="admin";

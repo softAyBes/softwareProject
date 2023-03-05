@@ -23,12 +23,12 @@ public class customerTest {
 		pro1.setName_p("nn");
 		pro1.setStatus("waiting");
 		pro1.setCode("100");
-		c2.getProductsForCusomer().add(pro1);
+		c2.getProductsForCusomer().add(pro1);  
 		
 		if(!customer.isExist(c2.getId(), customers)) {
 		customers.add(c2);
 		}
-		System.out.println(customers.get(0).getName());
+		
 		
 	}
 	
@@ -43,9 +43,8 @@ public class customerTest {
 
 	@When("user id {string} already exist")
 	public void user_id_already_exist(String id) {
-		System.out.println(customers.get(0).getName()+"hm here");
-		System.out.print(customer.isExist(id,customers)); 
-		System.out.println(customers.get(0).getName()+"hm here");
+	customer.isExist(id,customers);
+		
 	}
 
 	@Then("creating customer id {string} faild")

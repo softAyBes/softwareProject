@@ -24,7 +24,7 @@ public class workerTest {
 		if(!customer.isExist(c2.getId(), customers)) {
 		customers.add(c2);
 		}
-		System.out.println(customers.get(0).getName());
+		
 		
 	}
 	
