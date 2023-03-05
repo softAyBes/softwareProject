@@ -27,14 +27,14 @@ public class Main {
 		
 		product pro1=new product();
 		String id="3";
-		if(!customer.isExist(id)) {
+		if(!customer.isExist(id,customers)) {
 		
 		pro1.setName_p("nn");
 		pro1.setStatus("waiting");
 		pro1.setCode("100");
 		c2.getProductsForCusomer().add(pro1);
 		
-		customer.createCustomer(c2); 
+		customer.createCustomer(c2,customers); 
 		}
 		return 1;
 	}

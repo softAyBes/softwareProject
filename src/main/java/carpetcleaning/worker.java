@@ -31,13 +31,13 @@ public class worker extends person{
 	public void setProductsForWorker(ArrayList<product> productsForWorker) {
 		this.productsForWorker = productsForWorker;
 	}
-	public static String updateStatusCustomer(String code,String id,String newStatus) {
+	public static String updateStatusCustomer(String code,String id,String newStatus,ArrayList<customer>customers) {
 		customer cust=new customer();
-		int CustomerIndex=customer.getIndex(id);
-	    cust=Main.customers.get(CustomerIndex);
-	    int productIndex=cust.getIndexforProduct(code);
-	    Main.customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);
-	    return Main.customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).getStatus();
+		int CustomerIndex=customer.getIndex(id,customers);
+	    cust=customers.get(CustomerIndex);
+	    int productIndex=cust.getIndexforProduct(code,customers);
+	    customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);
+	    return customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).getStatus();
 	}
 	
 	

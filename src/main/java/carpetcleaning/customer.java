@@ -20,7 +20,7 @@ public class customer extends person{
 		this.password=pers.password;
 		this.phone=phone;
 		this.address=address;
-		this.type="customer";	
+		this.type="customer";	 
 	}
 	
 	
@@ -56,12 +56,12 @@ public class customer extends person{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public static int getIndex(String id) {
+	public static int getIndex(String id,ArrayList<customer>customers) {
 		int index=-1;
-		
-		for(int i=0;i<Main.customers.size();i++) {
+
+		for(int i=0;i<customers.size();i++) {
 			
-			if(Main.customers.get(i).id.equalsIgnoreCase(id)) { 
+			if(customers.get(i).id.equalsIgnoreCase(id)) { 
 				
 				return i;
 			}
@@ -69,10 +69,10 @@ public class customer extends person{
 		
 		return index; 
 	}
-	public static boolean isExist(String id2) {
+	public static boolean isExist(String id2,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
 		// create common class contains all arrays list (customer, product ......)
-		if(getIndex(id2)==-1) {
+		if(getIndex(id2,customers)==-1) {
 			
 			return false;
 		}
@@ -83,38 +83,38 @@ public class customer extends person{
 	
 	
 	
-	public static void createCustomer(customer cust) {
+	public static void createCustomer(customer cust,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		Main.customers.add(cust);	
+		customers.add(cust);	
 	}
 	
 
 	
-	public static void deleteCustomer(String id2) {
+	public static void deleteCustomer(String id2,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=getIndex(id2);
-		Main.customers.remove(index);
+		int index=getIndex(id2,customers);
+		customers.remove(index);
 	}
-	public static void updatePhone(String id2, String newPhone) {
+	public static void updatePhone(String id2, String newPhone,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=customer.getIndex(id2);
-		Main.customers.get(index).setPhone(newPhone);
+		int index=customer.getIndex(id2,customers);
+		customers.get(index).setPhone(newPhone);
 		
 	}
-	public static void updateAdress(String id2, String newAdress) {
+	public static void updateAdress(String id2, String newAdress,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=customer.getIndex(id2);
-		Main.customers.get(index).setAddress(newAdress);
+		int index=customer.getIndex(id2,customers);
+		customers.get(index).setAddress(newAdress);
 		
 	}
 	public void addProduct(product pro) {
 		this.productsForCusomer.add(pro);
 	}
 	
-	public  int getIndexforProduct (String code) {
+	public  int getIndexforProduct (String code,ArrayList<customer>customers) {
 			int index=-1;
 		
-		for(int i=0;i<Main.customers.size();i++) {
+		for(int i=0;i<customers.size();i++) {
 			
 			if(this.productsForCusomer.get(i).getcode().equals(code)) {
 				
