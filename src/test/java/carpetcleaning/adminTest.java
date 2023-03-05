@@ -17,7 +17,8 @@ public class adminTest {
 	boolean actual;
 	boolean expected;
 	String status;
-	private static ArrayList<person> persons=new ArrayList<person>();
+	private static ArrayList<person> persons=new ArrayList<person>(); 
+	
 	@Before public void createOutputFile() {
 		user=new person();
 		person adm1=new person("admin","IamAdmin","11");
