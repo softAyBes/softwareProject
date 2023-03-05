@@ -1,47 +1,36 @@
 package carpetcleaning;
 
-import java.util.ArrayList;
+public class Admin extends person{
+	private String id;
 
-public class worker extends person{
-	private String phone;
-	private String address;
-	private String salary;
-	private  ArrayList<product> productsForWorker=new ArrayList<product>();
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getSalary() {
-		return salary;
-	}
-	public void setSalary(String salary) {
-		this.salary = salary;
-	}
-	public ArrayList<product> getProductsForWorker() {
-		return productsForWorker;
-	}
-	public void setProductsForWorker(ArrayList<product> productsForWorker) {
-		this.productsForWorker = productsForWorker;
-	}
-	public static String updateStatusCustomer(String code,String id,String newStatus) {
-		customer cust=new customer();
-		int CustomerIndex=customer.getIndex(id);
-	    cust=Main.customers.get(CustomerIndex);
-	    int productIndex=cust.getIndexforProduct(code);
-	    Main.customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);
-	    return Main.customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).getStatus();
+	private boolean status;
+
+	public Admin(person pers) {
+		this.name=pers.name;
+		this.password=pers.getPassword();
+		this.type="admin";
+		
 	}
 	
-	
+	public Admin() {
+		this.type="admin";
+	}
 	
 
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 }
