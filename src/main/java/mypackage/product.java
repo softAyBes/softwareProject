@@ -14,9 +14,9 @@ public class product {
 	private String category;
 	private String isspecial;
 	
-    public customer cust= new customer();
+   // public customer cust= new customer();
 	//productList proList=new productList();
-	
+	/*
     public static int get_Index(String code) {
 		int index=-1;
 		
@@ -42,7 +42,7 @@ public class product {
 		return true;
 		}
 
-
+*/
 	public void setCategory(String category2) {
 		// TODO Auto-generated method stub
 		category=category2;
@@ -104,15 +104,6 @@ public class product {
 		return width;
 	}
 
-	public customer getCust() {
-		return cust;
-	}
-
-
-	public void setCust(customer cust) {
-		this.cust = cust;
-	}
-
 
 	public String getName_p() {
 		return name_p;
@@ -152,14 +143,20 @@ public class product {
 	public String getIsspecial() {
 		return isspecial;
 	}
-
-
+	/*
+	public static int Price()
+	{
+		
+	}
+	
+*/
+/*
 	public static void record_product(product pro) 
 	
 	{
 		productList.Products.add(pro);
 	}
-
+*/
 
     /*
 public void delete_product(String str)
