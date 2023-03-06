@@ -14,11 +14,11 @@ public class Main {
 	public static int setCutomers() {
 		uesr=new person();
 								//(String id,String name,String pass,String phone,String address)
-		person pers1=new person("Ayabaara","123456","3");
+		person pers1=new person("Ayabaara","123456","3","customer");
 		customer c2=new customer(pers1,"3", "059967", "Arsad");
 		
 		
-		person adm1=new person("admin1","admin123",Integer. toString(Main.autoId++));
+		person adm1=new person("admin1","admin123",Integer. toString(Main.autoId++),"admin");
 		Admin admin1=new Admin(adm1);
 		
 		persons.add(pers1);

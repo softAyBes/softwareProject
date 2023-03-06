@@ -4,25 +4,26 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class mainFunc {
-	public static ArrayList<customer> customers= new ArrayList<customer>();
+	static person user=new person();
+	Main main=new Main();
+	
 	
  
 	public static void main(String[] args) {
-		
+		int x;
+		String in;
+		Main.setCutomers();
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in); 
 		String name,password;
 		String emptyLine="|						                      						                |";
 		int logged=0;
-		Admin admin=new Admin();
+		String stat;
 		// TODO Auto-generated method stub
 			System.out.println(emptyLine);
 			System.out.println(emptyLine);
 			System.out.println("|						Welcome to  carpet cleaning foundation						|");
 			System.out.println(emptyLine);
-			System.out.println("|						press:  1. Enter as Admin 						        |");
-			System.out.println("|						        2. Enter as client						        |");
-				
 			
 			while(logged==0) {
 				System.out.println(emptyLine);
@@ -32,14 +33,90 @@ public class mainFunc {
 			name=input.nextLine();
 			System.out.println("|						        Enter you user password						        |");
 			password=input.nextLine();
-			if(name.equalsIgnoreCase(admin.getName()) && password.equalsIgnoreCase(admin.getPassword())) {
-				System.out.println("|						Welcome Back						|");
-				logged=1;
-				admin.setStatus(true);
+			stat=Admin.login(name, password);
+			if(stat.equals("false")) {
+				logged=0;
+				System.out.println("|						        Login faild						        |");
+
 			}
 			else {
-					System.out.println("Login faild .... try again");
+				logged=1;
+				user=Main.persons.get(person.getIndex(name, Main.persons));
+				System.out.println("|_______________________________________________________________________________________________________________________________"
+						+ "|");
+				System.out.println("|                                                Welcome Back "+ user.getName()+"                               | ");
+				System.out.println(emptyLine);
+				System.out.println(emptyLine);
+				System.out.println(emptyLine);
+			}
+			
+			
+			//// Admin 
+			if(stat.equalsIgnoreCase("admin")) {
+				while(logged==1) {
+						x=0;
+						System.out.println("press 1. to add new customer ");
+						System.out.println(emptyLine);
+						System.out.println("      2. to Delete customer ");
+						System.out.println(emptyLine);
+						System.out.println("      0. log out ");
+						x=input.nextInt();
+						if(x==1) {
+							// add new customer
+							customer cust =new customer();
+							in=input.nextLine();
+							System.out.println(" Enter Information : ID");
+							in=input.nextLine();
+							if(customer.isExist(in, Main.customers)) {
+									System.out.println("this Id already exist");
+									System.out.println(emptyLine);
+								}
+							else {
+								
+								cust.setId(in);
+								cust.setId_person(in);
+								System.out.println("Name");
+								in=input.nextLine();
+								cust.setName(in);
+								
+								System.out.println("phone");
+								in=input.nextLine();
+								cust.setPhone(in);
+								
+								System.out.println("Address");
+								in=input.nextLine();
+								cust.setAddress(in);
+								customer.createCustomer(cust, Main.customers);
+								System.out.println(" Added successfully");
+							
+							}
+							
+						}
+						else if(x==2) {
+							System.out.println(" What ID you want to delete");
+							in=input.nextLine();
+							if(!customer.isExist(in, Main.customers)) {
+									System.out.println("No customer with this id");
+									System.out.println(emptyLine);
+								}
+							else {
+								customer.deleteCustomer(in, Main.customers);
+								System.out.println(" Deleted successfully");
+
+							}
+						}
+						
+						else if(x==0) {
+							/// log out
+						}
+					
 				}
+				
+				
+				
+				
+			}
+			
 			}
 			
 			

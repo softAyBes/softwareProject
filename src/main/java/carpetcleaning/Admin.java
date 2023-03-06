@@ -34,4 +34,17 @@ public class Admin extends person{
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	
+	public static String login(String user,String pass) {
+		
+		for(int i=0;i<Main.persons.size();i++) {
+			if(Main.persons.get(i).getName().equals(user) && Main.persons.get(i).getPassword().equals(pass)) {
+				if(Main.persons.get(i).getType().equalsIgnoreCase("admin")) { return "admin";}
+				if(Main.persons.get(i).getType().equalsIgnoreCase("customer")) { return "customer";}
+				if(Main.persons.get(i).getType().equalsIgnoreCase("worker")) { return "worker";}
+			}
+			
+		}
+		return "false";
+	}
 }

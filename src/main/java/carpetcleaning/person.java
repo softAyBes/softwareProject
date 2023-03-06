@@ -9,7 +9,7 @@ public class person {
 	private String type;
 	private int logged;  //1 log in  0 log out
 	
-	
+
 	
 	
 	public person(String name,String pass,String id) {
@@ -17,12 +17,23 @@ public class person {
 		this.password=pass;	
 		this.id_person=id;
 	}
+
 	public person() {
 		this.logged=0;
 	}
 	
 	
 	
+	public person(String name2, String pass, String id, String type2) {
+		
+		this.name=name2;
+		this.password=pass;	
+		this.id_person=id;
+		this.type=type2;
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public String getId_person() {
 		return id_person;
 	}
