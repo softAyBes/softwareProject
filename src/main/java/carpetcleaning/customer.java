@@ -7,7 +7,6 @@ public class customer extends person{
 	private String phone;
 	private String address;
 	private  ArrayList<product> productsForCusomer=new ArrayList<product>();
-////
 	
 	public customer(){ 
 		super();
@@ -61,8 +60,7 @@ public class customer extends person{
 
 		for(int i=0;i<customers.size();i++) {
 			
-			if(customers.get(i).id.equalsIgnoreCase(id)) { 
-				
+			if(customers.get(i).id.equalsIgnoreCase(id)){ 	
 				return i;
 			}
 		}
@@ -81,7 +79,41 @@ public class customer extends person{
 	}
 	
 	
+	/////This part for product check
 	
+	public static int getIndex_for_product(String Code,ArrayList<product> productsForCusomer) {
+		int index=-1;
+
+		for(int i=0;i<productsForCusomer.size();i++)
+		{
+			
+			if(productsForCusomer.get(i).getCode().equalsIgnoreCase(Code))
+			{ 	
+				
+				return i;
+			}
+		}
+		
+		return index; 
+	}
+	public static boolean check_is_exist_1(String code, customer Customer) {
+		if(getIndex_for_product(code,Customer.productsForCusomer)==-1)
+		{
+			System.out.println("hh");
+			
+			return false;
+		}System.out.println("333");
+		
+		return true;
+	}
+	
+	public static void delete_product(String Code,customer Customer)
+	{
+		int index=getIndex_for_product(Code,Customer.productsForCusomer);
+		Customer.productsForCusomer.remove(index);
+	}
+
+/////This part for product check
 	
 	public static void createCustomer(customer cust,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
@@ -111,12 +143,12 @@ public class customer extends person{
 		this.productsForCusomer.add(pro);
 	}
 	
-	public  int getIndexforProduct (String code,ArrayList<customer>customers) {
+	public int getIndexforProduct (String code,ArrayList<customer>customers) {
 			int index=-1;
 		
 		for(int i=0;i<customers.size();i++) {
 			
-			if(this.productsForCusomer.get(i).getcode().equals(code)) {
+			if(this.productsForCusomer.get(i).getCode().equals(code)) {
 				
 				return i;
 			}
@@ -124,5 +156,11 @@ public class customer extends person{
 		
 
 		return index;
-}
-}
+		}
+	
+	public static void updatepicture(String code, String N_picture, customer Customer) {
+		
+		int i=Customer.getIndex_for_product(code,Customer.getProductsForCusomer());
+		Customer.productsForCusomer.get(i).setPicture(N_picture);
+	}
+	}
