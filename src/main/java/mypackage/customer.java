@@ -160,10 +160,17 @@ public class customer extends person{
 	}
 	public static void updatepicture(String code, String N_picture, customer Customer) {
 		
-		int i=Customer.getIndex_for_product(code,Customer.getProductsForCusomer());
+		int i=customer.getIndex_for_product(code,Customer.getProductsForCusomer());
 		Customer.productsForCusomer.get(i).setPicture(N_picture);
 	}
-		
+	public static void update_width(String code, String width, customer CCust) {
+		int i=customer.getIndex_for_product(code,CCust.getProductsForCusomer());
+		 CCust.productsForCusomer.get(i).setwidth(width);
+	}
+	public static void update_Length(String code, String length, customer CCust) {
+		int i=customer.getIndex_for_product(code,CCust.getProductsForCusomer());
+		 CCust.productsForCusomer.get(i).setLength(length);
+	}		
 }
 /*
 import java.util.ArrayList;

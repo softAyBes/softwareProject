@@ -118,27 +118,35 @@ public class mainFunc
 			//customer
 			if(stat.equalsIgnoreCase("customer"))
 			{
+				customer cust=new customer();
+			    cust=Main.customers.get(customer.getIndex(user.getId_person(),Main.customers));
 				while(logged==1)
 				{
 					x=0;
+					
 					System.out.println("press 1. to add new product ");
 					System.out.println(emptyLine);
 					System.out.println("      2. to Update product ");
 					System.out.println(emptyLine);
 					System.out.println("      3. to Delete product ");
 					System.out.println(emptyLine);
+					System.out.println("      4. to Update your Address ");
+					System.out.println(emptyLine);
+					System.out.println("      5. to Update your phone ");
+					System.out.println(emptyLine);
 					System.out.println("      0. log out ");
 					x=input.nextInt();
 					if(x==1)
 					{
-					    customer cust=new customer();
+					   
 						product pro=new product();
-						in=input.nextLine();
-						System.out.println(" Enter Youre : ID");
-						in=input.nextLine();
-						if(customer.isExist(in,Main.customers))
-						{
+						//in=input.nextLine();
+						//System.out.println(" Enter Youre : ID");
+						//in=input.nextLine();
+						//if(customer.isExist(in,Main.customers))
+						//{
 							System.out.println(" Enter Code to your product"); 
+							in=input.nextLine();
 							in=input.nextLine();
 							if(customer.check_is_exist_1(in,cust)) 
 							 {
@@ -147,45 +155,42 @@ public class mainFunc
 								
 							 }
 							
-							else if(customer.check_is_exist_1(in,cust) == false)
+							else if(!customer.check_is_exist_1(in,cust))
 					        	{
-							 System.out.println(" jjjjjj");
-							    cust.setId(in);
+							   //cust.setId(in);
 								pro.setCode(in);
 								System.out.println("Name");
 								in=input.nextLine();
 								pro.setName_p(in);
 								
 								
-								System.out.print("Category");
+								System.out.print("Category \n");
 								in=input.nextLine();
 								pro.setCategory(in);
 							
 
-								System.out.print("picture");
+								System.out.print("picture \n");
 								in=input.nextLine();
 								pro.setPicture(in);
 							
-								System.out.print("material");
+								System.out.print("material \n");
 								in=input.nextLine();
 								pro.setMaterial(in);
 								
-								System.out.print("Length");
+								System.out.print("Length \n");
 								in=input.nextLine();
 								pro.setLength(in);
 								
 
-								System.out.print("width");
+								System.out.print("width \n");
 								in=input.nextLine();
 								pro.setwidth(in);
 								
 								
-								System.out.print("status");
-								in=input.nextLine();
-								pro.setStatus(in);
+						
+								pro.setStatus("Waiting");
 								
-								System.out.print("isspecial");
-								System.out.print("just true or false");
+								System.out.print("isspecial \n");
 								in=input.nextLine();
 								pro.setIsspecial(in);
 								
@@ -194,38 +199,105 @@ public class mainFunc
 								System.out.println(emptyLine);
 								System.out.println(" Added successfully");
 						}
-						}
+						
 						else
 						{
 							System.out.print("try later");
 						}
 						
-				    }
+				}
+			
+			
 					
-					else if(x==2)
+					else if(x==3)
 					{
-						customer cust=new customer();
-						System.out.println(" What your id");
-						in=input.nextLine();
-						if(customer.isExist(in, Main.customers)) 
-						{
+						
 							System.out.println(" What Code you want to delete");
+							in=input.nextLine();
 							in=input.nextLine();
 							if(!customer.check_is_exist_1(in,cust)) 
 							{
 							System.out.println("No product with this Code");
 						 	System.out.println(emptyLine);
 						    }
-				  	else
-					{
-						customer.delete_product(in, cust);
-						System.out.println(" Deleted successfully");
-
-					}}}
+				  	     else
+				        	{
+						    customer.delete_product(in, cust);
+						  System.out.println(" Deleted successfully");
+				        	}
 					}
 					
-				}
+					else if(x==2)
+					{
+						System.out.println(" What Code your product ");
+						in=input.nextLine();
+						in=input.nextLine();
+					
+						if(!customer.check_is_exist_1(in,cust)) 
+						{
+						System.out.println("No product with this Code");
+					 	System.out.println(emptyLine);
+					    }
+			  	     else
+			        	{
+			  	    	String CODE=in;
+			  	    	System.out.println("What you want to update");
+			  	    	in=input.nextLine();
+						
+			  	       	if("Length".equalsIgnoreCase(in))
+			  	       	{
+			  	       	 System.out.println(" new Length: ");
+			  	       		in=input.nextLine();
+			  	         customer.update_Length(CODE,in,cust);	
+						 System.out.println(" Update Length successfully");
+			  	       	}
+			  	       	else if("Picture".equalsIgnoreCase(in))
+			  	       	{
+			  	       	 System.out.println(" new picture: ");
+			  	      	in=input.nextLine();
+			  	        customer.updatepicture(CODE, in, cust);	
+			  	       	 System.out.println(" Update Picture successfully");
+			  	       	}
+			  	       	else if("Width".equalsIgnoreCase(in))
+			  	       	{
+			  	       	 System.out.println(" new width: ");
+			  	        	in=input.nextLine();
+			  	       		customer.update_width(CODE,in,cust);	
+			  	       		System.out.println(" Update Width successfully");
+			  	       	}
+			        	}
+						
+						
+						
+					}
+					else if(x==4)
+					{
+						
+						
+							 System.out.println(" new Addres: ");
+				  	        	in=input.nextLine();
+				  	        	in=input.nextLine();
+							customer.updateAdress(user.getId_person(), in,Main.customers);
+							System.out.println(" Update Addres successfully");
+					}
+					
+					else if(x==5)
+					{
+							 System.out.println(" new Phone: ");
+				  	        	in=input.nextLine();
+				  	        	in=input.nextLine();
+							customer.updatePhone(user.getId_person(), in, Main.customers);
+							System.out.println(" Update phone successfully");
+					}
+					else if(x==0) {
+						//logOut
+					}
+					
+			}//end while
+					
+				}//end if
 			}
+
 				
 			
 

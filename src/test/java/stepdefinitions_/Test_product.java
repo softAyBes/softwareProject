@@ -159,7 +159,7 @@ public void customer_want_to_update_product_with_new_length(String code, String 
 {
        int i=customer.getIndex("3",customers);
        Customer=customers.get(i);
-       customer.updatepicture(code,Length,Customer);
+       customer.update_Length(code,Length,Customer);
 }
 
 @When("customer want to Update product {string} with new width {string}")
@@ -168,7 +168,7 @@ public void customer_want_to_update_product_with_new_width(String code, String w
 
 	  int i=customer.getIndex("3",customers);
       Customer=customers.get(i);
-      customer.updatepicture(code,width,Customer);
+      customer.update_width(code,width,Customer);
 }
 	
 }
