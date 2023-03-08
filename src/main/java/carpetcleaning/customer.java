@@ -99,7 +99,6 @@ public class customer extends person{
 	public static boolean check_is_exist_1(String code, customer Customer) {
 		if(getIndex_for_product(code,Customer.productsForCusomer)==-1)
 		{
-			System.out.println("hh");
 			
 			return false;
 		}System.out.println("333");

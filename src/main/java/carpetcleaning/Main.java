@@ -5,6 +5,7 @@ public class Main {
 	
 	public static ArrayList<customer> customers= new ArrayList<customer>();
 	public static ArrayList<person> persons= new ArrayList<person>();
+	public static ArrayList<worker> workers= new ArrayList<worker>();
 	public static person uesr;
 	public static int autoId=4;
 	
@@ -21,8 +22,17 @@ public class Main {
 		person adm1=new person("admin1","admin123",Integer. toString(Main.autoId++),"admin");
 		Admin admin1=new Admin(adm1);
 		
+		person work1=new person("worker1","work123456",Integer. toString(Main.autoId++),"worker");
+		worker worker1=new worker(work1);
+		
+		person work2=new person("worker2","work123456",Integer. toString(Main.autoId++),"worker");
+		worker worker2=new worker(work2);
+		
+		
 		persons.add(pers1);
 		persons.add(adm1);
+		persons.add(work1);
+		persons.add(work2);
 		
 		
 		product pro1=new product();
@@ -35,6 +45,8 @@ public class Main {
 		c2.getProductsForCusomer().add(pro1);
 		
 		customer.createCustomer(c2,customers); 
+		workers.add(worker2);
+		workers.add(worker1);
 		}
 		return 1;
 	}

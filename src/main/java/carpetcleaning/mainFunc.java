@@ -108,18 +108,71 @@ public class mainFunc {
 						
 						else if(x==0) {
 							/// log out
+							logged=0;
+							
 						}
 					
+					}
+				
+				
+				
+				
+			}
+else if(stat.equalsIgnoreCase("worker")) {
+	while(logged==1) {
+		System.out.println("IS there any change in product status? Enter 1");
+		System.out.println("Enter 0 to log out");
+		
+		x=input.nextInt();
+		
+		if(x==1) {
+			String proId;
+			customer cust=new customer();
+			
+			System.out.println("If yes please enter customer id");
+			in=input.nextLine();
+			if(!customer.isExist(in, Main.customers)) {
+					System.out.println("No customer with this id");
+					System.out.println(emptyLine);
 				}
+			else {
+				cust=Main.customers.get(customer.getIndex(in, Main.customers));
 				
-				
-				
+				System.out.println("What product id you want to change");
+				in=input.nextLine();
+				proId=in;
+				if(!customer.check_is_exist_1(in, cust)) {
+					System.out.println("No product with this id");
+					System.out.println(emptyLine);
+				}
+				else {
+					System.out.println("what is the new status of the product ? waiting ... in treatment ... ready");
+					in=input.nextLine();
+					worker.updateStatusCustomer(proId, cust.getId(), in, Main.customers);
+					System.out.println("Updated successfully");
+					
+						
+				}
+			}
+			
+			
+	
+		}
+		else if(x==0) {
+			logged=0;
+		}
+	}
+	
+	
 				
 			}
 			
 			}
+			
 			
 			
 	}
+	
+	
 
 }
