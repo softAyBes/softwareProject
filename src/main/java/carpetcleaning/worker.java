@@ -6,7 +6,23 @@ public class worker extends person{
 	private String phone;
 	private String address;
 	private String salary;
+	String id;
+	
 	private  ArrayList<product> productsForWorker=new ArrayList<product>();
+	public worker(person work1) {
+		// TODO Auto-generated constructor stub
+		this.id=work1.getId_person();
+		
+	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getPhone() {
 		return phone;
 	}
