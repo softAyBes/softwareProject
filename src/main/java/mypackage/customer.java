@@ -98,11 +98,12 @@ public class customer extends person{
 	}
 	public static boolean check_is_exist_1(String code, customer Customer) {
 		if(getIndex_for_product(code,Customer.productsForCusomer)==-1)
+		
 		{
-			System.out.println("hh");
+			
 			
 			return false;
-		}System.out.println("333");
+		}
 		
 		return true;
 	}
@@ -121,6 +122,21 @@ public class customer extends person{
 	}
 	
 
+	public int getIndexforProduct (String code,ArrayList<customer>customers) {
+			int index=-1;
+		
+		for(int i=0;i<customers.size();i++) {
+			
+			if(this.productsForCusomer.get(i).getCode().equals(code)) {
+				
+				return i;
+			}
+		}
+		
+
+		return index;
+		}
+	
 	
 	public static void deleteCustomer(String id2,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
@@ -142,22 +158,6 @@ public class customer extends person{
 	public void addProduct(product pro) {
 		this.productsForCusomer.add(pro);
 	}
-	
-	public int getIndexforProduct (String code,ArrayList<customer>customers) {
-			int index=-1;
-		
-		for(int i=0;i<customers.size();i++) {
-			
-			if(this.productsForCusomer.get(i).getCode().equals(code)) {
-				
-				return i;
-			}
-		}
-		
-
-		return index;
-		}
-	
 	public static void updatepicture(String code, String N_picture, customer Customer) {
 		
 		int i=Customer.getIndex_for_product(code,Customer.getProductsForCusomer());

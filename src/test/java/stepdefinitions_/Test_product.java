@@ -154,24 +154,25 @@ public void product_picture_code_update_successfully(String Code)
 }
 
 
-/*
-@When("customer delete product with code {string}")
-public void customer_delete_product_with_code(String Str) 
+@When("customer want to Update product {string} with new Length {string}")
+public void customer_want_to_update_product_with_new_length(String code, String Length) 
 {
-   Pro.delete_product(Str);
-	
-	
+       int i=customer.getIndex("3",customers);
+       Customer=customers.get(i);
+       customer.updatepicture(code,Length,Customer);
 }
-@Then("product with code {string} deleted successfully")
-public void product_with_code_deleted_successfully(String S) 
-{
-    predict=false;
-	act=Pro.check_is_exist(S);
-    assertEquals(predict,act);    
 
-} 
-*/
+@When("customer want to Update product {string} with new width {string}")
+public void customer_want_to_update_product_with_new_width(String code, String width) 
+{
+
+	  int i=customer.getIndex("3",customers);
+      Customer=customers.get(i);
+      customer.updatepicture(code,width,Customer);
 }
+	
+}
+
 
 
 
