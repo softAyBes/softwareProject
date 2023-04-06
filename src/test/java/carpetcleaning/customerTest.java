@@ -19,12 +19,10 @@ public class customerTest {
 	@Before public void createOutputFile() {
 		person pers1=new person("Ayabaara","123456","3");
 		customer c2=new customer(pers1,"3", "059967", "Arsad");
-		product pro1=new product();
-		pro1.setName_p("nn");
-		pro1.setStatus("waiting");
-		pro1.setCode("100");
+		product pro1=new product("nn","100");
+		product pro2=new product("nn","200");
 		c2.getProductsForCusomer().add(pro1);  
-		
+		c2.getProductsForCusomer().add(pro2); 
 		if(!customer.isExist(c2.getId(), customers)) {
 		customers.add(c2);
 		}

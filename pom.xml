@@ -3,6 +3,10 @@
   <groupId>SoftwareProj</groupId>
   <artifactId>carpetcleaning</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
   
   
   
@@ -35,12 +39,20 @@
 </dependency>
 
 
+<dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
 
-	<dependency>
+
+
+
+<!--	<dependency>
 		<groupId>training</groupId>
 		<artifactId>aya</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
+	</dependency>-->
   </dependencies>
 </project>
 

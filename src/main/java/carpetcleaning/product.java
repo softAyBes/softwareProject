@@ -12,11 +12,25 @@ public class product {
 	private String status;
 	private String category;
 	private String isspecial;
+	private String responsibleWorkerId;
+	private String custId;
 	
+	public String getCustId() {
+		return custId;
+	}
+	public void setCustId(String custId) {
+		this.custId = custId;
+	}
 	public product(String name_p,String Code) {
 		this.name_p=name_p;
 		this.Code=Code;
 		
+	}
+	public String getResponsibleWorkerId() {
+		return responsibleWorkerId;
+	}
+	public void setResponsibleWorkerId(String responsibleWorkerId) {
+		this.responsibleWorkerId = responsibleWorkerId;
 	}
 	public product() {
 		status="waiting";

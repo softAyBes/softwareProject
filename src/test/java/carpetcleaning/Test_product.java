@@ -18,22 +18,39 @@ public class Test_product {
 	product Pro=new product();
 	customer Customer;
 	public static ArrayList<customer> customers= new ArrayList<customer>();
-	@Before public void createOutputFile() {
-		person pers1=new person("Ayabaara","123456","3");
-		customer c2=new customer(pers1,"3", "059967", "Arsad");
-		product pro1=new product();
-		pro1.setName_p("nn");
-		pro1.setStatus("waiting");
-		pro1.setCode("20");
-		c2.getProductsForCusomer().add(pro1);  
-		product pro2=new product();
-		pro2.setName_p("B");
-		pro2.setStatus("waiting");
-		pro2.setCode("12");
-		c2.getProductsForCusomer().add(pro2);  
+	public static ArrayList<worker> workers= new ArrayList<worker>();
 
+	@Before public void createOutputFile() {
+		person pers1=new person("w1","123","7");
+		worker w1=new worker(pers1);
 		
-		if(!customer.isExist(c2.getId(),customers)) {
+		person pers2=new person("w2","123","8");
+		worker w2=new worker(pers2);
+		
+		person pers3=new person("w3","123","9");
+		worker w3=new worker(pers3);
+		
+		
+		if(worker.getIndexOfWorker("9", workers)==-1) {
+		workers.add(w3);
+		workers.add(w2);
+		workers.add(w1);
+		person pers11=new person("Ayabaara","123456","3");
+		customer c2=new customer(pers11,"3", "059967", "Arsad");
+		product pro1=new product("nn","20");
+		pro1.setResponsibleWorkerId(w1.id);
+		product pro11=new product("nn","70");
+		pro1.setStatus("in treatment");
+		pro11.setStatus("in treatment");
+		product pro2=new product("nn","12");
+		pro2.setStatus("in treatment");
+		c2.getProductsForCusomer().add(pro1);  
+		c2.getProductsForCusomer().add(pro2);
+		
+		worker.AddProductToWorker(pro1, w1, workers);
+		worker.AddProductToWorker(pro11, w1, workers);
+		worker.AddProductToWorker(pro2, w2, workers);
+		c2.getProductsForCusomer().add(pro2);
 		customers.add(c2);
 		}
 		
@@ -67,7 +84,7 @@ public void the_product_has_a_code_name_picture_isspecial_status_category_length
 		
 		int index =customer.getIndex("3",customers);
 		Customer=customers.get(index);
-		Customer.addProduct(Pro);
+		Customer.addProduct(Pro,Test_product.workers);
 	}
 
 	@Then("customer record product with code {string} successfully")
@@ -115,7 +132,7 @@ public void customer_id_want_to_delete_product_code(String id, String CODE)
 	Customer=customers.get(index);
 	 if(customer.check_is_exist_1(CODE,Customer))
 	 {
-		 customer.delete_product(CODE,Customer);
+		 customer.delete_product(CODE,Customer,workers);
 	 }
 }
 
@@ -149,21 +166,5 @@ public void product_picture_code_update_successfully(String Code)
 }
 
 
-/*
-@When("customer delete product with code {string}")
-public void customer_delete_product_with_code(String Str) 
-{
-   Pro.delete_product(Str);
-	
-	
-}
-@Then("product with code {string} deleted successfully")
-public void product_with_code_deleted_successfully(String S) 
-{
-    predict=false;
-	act=Pro.check_is_exist(S);
-    assertEquals(predict,act);    
 
-} 
-*/
 }

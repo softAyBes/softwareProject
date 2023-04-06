@@ -1,7 +1,10 @@
 package carpetcleaning;
 
+import java.util.ArrayList;
+
 import org.junit.runner.RunWith;
 
+import io.cucumber.java.Before;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.CucumberOptions.SnippetType;
@@ -14,5 +17,8 @@ snippets = SnippetType.CAMELCASE
 )
    
 public class testing {
-	
+	testing(){
+		System.out.println("hiii");
+	}
+
 }

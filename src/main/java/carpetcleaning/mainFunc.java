@@ -1,6 +1,5 @@
 package carpetcleaning;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class mainFunc {
@@ -10,6 +9,7 @@ public class mainFunc {
 	
  
 	public static void main(String[] args) {
+		sendingEmail.email();
 		int x;
 		String in;
 		Main.setCutomers();
@@ -244,7 +244,7 @@ else if(stat.equalsIgnoreCase("worker")) {
 								pro.setIsspecial(in);
 								
 								
-								cust.addProduct(pro);
+								cust.addProduct(pro,Main.workers);
 								System.out.println(emptyLine);
 								System.out.println(" Added successfully");
 						}
@@ -271,7 +271,7 @@ else if(stat.equalsIgnoreCase("worker")) {
 						    }
 				  	     else
 				        	{
-						    customer.delete_product(in, cust);
+						    customer.delete_product(in, cust,Main.workers);
 						  System.out.println(" Deleted successfully");
 				        	}
 					}

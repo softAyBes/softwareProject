@@ -35,14 +35,11 @@ public class Main {
 		persons.add(work2);
 		
 		
-		product pro1=new product();
 		String id="3";
 		if(!customer.isExist(id,customers)) {
+			product pro1=new product("nn","100");
 		
-		pro1.setName_p("nn");
-		pro1.setStatus("waiting");
-		pro1.setCode("100");
-		c2.getProductsForCusomer().add(pro1);
+			c2.getProductsForCusomer().add(pro1);
 		
 		customer.createCustomer(c2,customers); 
 		workers.add(worker2);
@@ -54,6 +51,13 @@ public class Main {
 		for(int i=0;i<customers.size();i++) {
 			System.out.println(customers.get(i).getId());
 		}
+	}
+	public static int itemsNum(ArrayList<customer> cust) {
+		int num=0;
+		for(int i=0;i<cust.size();i++) {
+			num+=cust.get(i).getProductsForCusomer().size();
+		}
+		return num;
 	}
 	
 	

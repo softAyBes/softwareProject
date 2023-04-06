@@ -59,7 +59,6 @@ public class customer extends person{
 		int index=-1;
 
 		for(int i=0;i<customers.size();i++) {
-			
 			if(customers.get(i).id.equalsIgnoreCase(id)){ 	
 				return i;
 			}
@@ -106,10 +105,21 @@ public class customer extends person{
 		return true;
 	}
 	
-	public static void delete_product(String Code,customer Customer)
+	public static void delete_product(String Code,customer Customer,ArrayList<worker>workers)
 	{
 		int index=getIndex_for_product(Code,Customer.productsForCusomer);
+		
+		
+		int pid=Customer.getIndex_for_product(Code, Customer.getProductsForCusomer());
+		product pro =Customer.getProductsForCusomer().get (pid);
+		
+		int WID=worker.getIndexOfWorker(pro.getResponsibleWorkerId(),workers);
+		System.out.println(WID);
+		worker w=workers.get(WID);
+		worker.deleteProductToWorker(pro, w.getId(), workers);
 		Customer.productsForCusomer.remove(index);
+		
+		
 	}
 
 /////This part for product check
@@ -138,8 +148,9 @@ public class customer extends person{
 		customers.get(index).setAddress(newAdress);
 		
 	}
-	public void addProduct(product pro) {
+	public void addProduct(product pro,ArrayList<worker> workers) {
 		this.productsForCusomer.add(pro);
+		worker.distributeOrder(pro, workers);
 	}
 	
 	public int getIndexforProduct (String code,ArrayList<customer>customers) {
@@ -159,7 +170,7 @@ public class customer extends person{
 	
 	public static void updatepicture(String code, String N_picture, customer Customer) {
 		
-		int i=Customer.getIndex_for_product(code,Customer.getProductsForCusomer());
+		int i=customer.getIndex_for_product(code,Customer.getProductsForCusomer());
 		Customer.productsForCusomer.get(i).setPicture(N_picture);
 	}
 	
