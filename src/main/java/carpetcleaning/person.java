@@ -90,6 +90,16 @@ public class person {
 		return true;
 	}
 	
+	public static String getIdFromName(String name,ArrayList<person>arr) {
+		for(int i=0;i<arr.size();i++) {
+			if(arr.get(i).getName().equals(name)) {
+				return arr.get(i).getId_person();
+			}
+		}
+		return "-1";
+		
+	}
+	
 	
 
 }

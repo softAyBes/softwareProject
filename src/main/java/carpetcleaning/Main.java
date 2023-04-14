@@ -19,31 +19,32 @@ public class Main {
 		customer c2=new customer(pers1,"3", "059967", "Arsad");
 		
 		
-		person adm1=new person("admin1","admin123",Integer. toString(Main.autoId++),"admin");
+		person adm1=new person("admin1","admin123","5","admin");
 		Admin admin1=new Admin(adm1);
 		
-		person work1=new person("worker1","work123456",Integer. toString(Main.autoId++),"worker");
+		person work1=new person("worker1","work123456","6","worker");
 		worker worker1=new worker(work1);
 		
-		person work2=new person("worker2","work123456",Integer. toString(Main.autoId++),"worker");
+		person work2=new person("worker2","work123456","7","worker");
 		worker worker2=new worker(work2);
 		
-		
+	
 		persons.add(pers1);
 		persons.add(adm1);
 		persons.add(work1);
 		persons.add(work2);
 		
-		
 		String id="3";
 		if(!customer.isExist(id,customers)) {
+		
+			workers.add(worker2);
+			workers.add(worker1);
 			product pro1=new product("nn","100");
 		
-			c2.getProductsForCusomer().add(pro1);
-		
-		customer.createCustomer(c2,customers); 
-		workers.add(worker2);
-		workers.add(worker1);
+			c2.addProduct(pro1, workers);
+			customer.createCustomer(c2,customers); 
+
+	
 		}
 		return 1;
 	}
@@ -59,6 +60,7 @@ public class Main {
 		}
 		return num;
 	}
+
 	
 	
 	

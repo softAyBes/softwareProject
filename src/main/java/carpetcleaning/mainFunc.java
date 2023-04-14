@@ -9,7 +9,8 @@ public class mainFunc {
 	
  
 	public static void main(String[] args) {
-		sendingEmail.email();
+		
+		
 		int x;
 		String in;
 		Main.setCutomers();
@@ -42,6 +43,7 @@ public class mainFunc {
 			else {
 				logged=1;
 				user=Main.persons.get(person.getIndex(name, Main.persons));
+				user.setId_person(person.getIdFromName(name, Main.persons));
 				System.out.println("|_______________________________________________________________________________________________________________________________"
 						+ "|");
 				System.out.println("|                                                Welcome Back "+ user.getName()+"                               | ");
@@ -120,16 +122,39 @@ public class mainFunc {
 			}
 else if(stat.equalsIgnoreCase("worker")) {
 	while(logged==1) {
-		System.out.println("IS there any change in product status? Enter 1");
+		// worker ::::::::::::Main.workers.get(worker.getIndexOfWorker(user.getId_person(), Main.workers))
+		
+	
+		
+		System.out.println("To see your products enter 1");
+		System.out.println("IS there any change in product status? Enter 2");
 		System.out.println("Enter 0 to log out");
 		
 		x=input.nextInt();
-		
 		if(x==1) {
+			
+			worker w=Main.workers.get(worker.getIndexOfWorker(user.getId_person(), Main.workers));
+			int size=w.getProductsForWorker().size();
+
+			System.out.println(" Code		::	 	Category		::		status		::		CustomerName		::		cusomerPhone		");
+			product proo1=w.getProductsForWorker().get(0);
+			
+			for(int i=0;i<size;i++) {
+				product proo=w.getProductsForWorker().get(i);
+				customer cust=Main.customers.get(customer.getIndex(proo.getCustId(), Main.customers));
+				System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getName()+"		::		"+cust.getPhone()+"		");
+
+				
+			}
+			
+		}
+		
+		else if(x==2) {
 			String proId;
 			customer cust=new customer();
 			
 			System.out.println("If yes please enter customer id");
+			in=input.nextLine();
 			in=input.nextLine();
 			if(!customer.isExist(in, Main.customers)) {
 					System.out.println("No customer with this id");
@@ -141,6 +166,7 @@ else if(stat.equalsIgnoreCase("worker")) {
 				System.out.println("What product id you want to change");
 				in=input.nextLine();
 				proId=in;
+				
 				if(!customer.check_is_exist_1(in, cust)) {
 					System.out.println("No product with this id");
 					System.out.println(emptyLine);

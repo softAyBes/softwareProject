@@ -100,7 +100,7 @@ public class customer extends person{
 		{
 			
 			return false;
-		}System.out.println("333");
+		}
 		
 		return true;
 	}
@@ -149,7 +149,9 @@ public class customer extends person{
 		
 	}
 	public void addProduct(product pro,ArrayList<worker> workers) {
+		pro.setCustId(this.id);
 		this.productsForCusomer.add(pro);
+		
 		worker.distributeOrder(pro, workers);
 	}
 	

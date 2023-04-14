@@ -80,7 +80,6 @@ public class worker extends person{
 					min=workers.get(i);
 				}
 			}
-		
 		return min;
 	}
 	public static int getIndexOfWorker(String id,ArrayList<worker> workers) {
@@ -137,7 +136,7 @@ public class worker extends person{
 	public static void distributeOrder(product pro,ArrayList<worker> workers) {
 		worker w=getWorkerForOrder(workers);
 		pro.setResponsibleWorkerId(w.getId());
-		int index=worker.getIndexOfWorker(w.id, workers);	
+		int index=worker.getIndexOfWorker(w.getId(), workers);		
 		workers.get(index).productsForWorker.add(pro);
 
 	}
