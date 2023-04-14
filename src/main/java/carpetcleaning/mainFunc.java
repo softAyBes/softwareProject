@@ -156,6 +156,7 @@ else if(stat.equalsIgnoreCase("worker")) {
 			System.out.println("If yes please enter customer id");
 			in=input.nextLine();
 			in=input.nextLine();
+			
 			if(!customer.isExist(in, Main.customers)) {
 					System.out.println("No customer with this id");
 					System.out.println(emptyLine);

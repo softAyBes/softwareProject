@@ -1,6 +1,7 @@
 
 package carpetcleaning;
 
+
 public class product {
 	
 	private String name_p;

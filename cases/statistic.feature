@@ -24,3 +24,4 @@ Feature: statistic
     Given I want to check the total number of items
     Then total number sent
 
+
