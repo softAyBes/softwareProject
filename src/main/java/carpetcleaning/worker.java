@@ -60,7 +60,7 @@ public class worker extends person{
 	public int getNumInTreatment () {
 		int count=0;
 		for(int j=0;j<this.getProductsForWorker().size();j++) {
-			if(this.getProductsForWorker().get(j).getStatus().equalsIgnoreCase(" in treatment")) {
+			if(this.getProductsForWorker().get(j).getStatus().equalsIgnoreCase(" in treatment")||this.getProductsForWorker().get(j).getStatus().equalsIgnoreCase("waiting")) {
 				count++;
 			}
 		
@@ -80,6 +80,7 @@ public class worker extends person{
 					min=workers.get(i);
 				}
 			}
+
 		return min;
 	}
 	public static int getIndexOfWorker(String id,ArrayList<worker> workers) {
@@ -136,6 +137,7 @@ public class worker extends person{
 	
 	public static void distributeOrder(product pro,ArrayList<worker> workers) {
 		worker w=getWorkerForOrder(workers);
+		System.out.println(w.getId());
 		pro.setResponsibleWorkerId(w.getId());
 		int index=worker.getIndexOfWorker(w.getId(), workers);		
 		workers.get(index).productsForWorker.add(pro);

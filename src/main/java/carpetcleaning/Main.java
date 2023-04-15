@@ -15,7 +15,7 @@ public class Main {
 	public static int setCutomers() {
 		uesr=new person();
 								//(String id,String name,String pass,String phone,String address)
-		person pers1=new person("Ayabaara","123456","3","customer");
+		person pers1=new person("aya","123456","3","customer");
 		customer c2=new customer(pers1,"3", "059967", "Arsad");
 		
 		
@@ -40,7 +40,7 @@ public class Main {
 			workers.add(worker2);
 			workers.add(worker1);
 			product pro1=new product("nn","100");
-		
+			pro1.setStatus("waiting");
 			c2.addProduct(pro1, workers);
 			customer.createCustomer(c2,customers); 
 

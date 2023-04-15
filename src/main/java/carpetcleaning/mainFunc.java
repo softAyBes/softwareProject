@@ -234,10 +234,12 @@ else if(stat.equalsIgnoreCase("worker")) {
 							else if(!customer.check_is_exist_1(in,cust))
 					        	{
 							   //cust.setId(in);
+								pro.setStatus("Waiting");
 								pro.setCode(in);
 								System.out.println("Name");
 								in=input.nextLine();
 								pro.setName_p(in);
+								
 								
 								
 								System.out.print("Category \n");
