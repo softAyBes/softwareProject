@@ -24,4 +24,12 @@ Feature: statistic
     Given I want to check the total number of items
     Then total number sent
 
-
+  @tag1
+  Scenario: total number of Money
+    Given I want to check the total number of Money
+    Then total Money sent
+    
+   @tag1
+  Scenario: total number of debts
+    Given I want to check the total number of debts
+    Then total debts sent

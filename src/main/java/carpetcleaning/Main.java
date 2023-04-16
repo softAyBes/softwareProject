@@ -7,10 +7,7 @@ public class Main {
 	public static ArrayList<person> persons= new ArrayList<person>();
 	public static ArrayList<worker> workers= new ArrayList<worker>();
 	public static person uesr;
-	public static int autoId=4;
-	
 
-	
  
 	public static int setCutomers() {
 		uesr=new person();
@@ -53,10 +50,49 @@ public class Main {
 			System.out.println(customers.get(i).getId());
 		}
 	}
+	
+	
 	public static int itemsNum(ArrayList<customer> cust) {
 		int num=0;
 		for(int i=0;i<cust.size();i++) {
 			num+=cust.get(i).getProductsForCusomer().size();
+		}
+		return num;
+	}
+	
+
+	
+	public static int totalWaitingNum(ArrayList<customer> cust) {
+		int num=0;
+		for(int i=0;i<cust.size();i++) {
+			num+=	customer.WaitingProduct(cust.get(i));
+		
+		}
+		return num;
+	}
+	
+	public static int totalIntreatment(ArrayList<customer> cust) {
+		int num=0;
+		for(int i=0;i<cust.size();i++) {
+			num+=	customer.inTreatmentProduct(cust.get(i));
+		
+		}
+		return num;
+	}
+	
+	public static int totalDebts(ArrayList<customer> cust) {
+		int num=0;
+		for(int i=0;i<cust.size();i++) {
+			num+=	cust.get(i).getDebt();
+		
+		}
+		return num;
+	}
+	public static int totalMoney(ArrayList<customer> cust) {
+		int num=0;
+		for(int i=0;i<cust.size();i++) {
+			num+=	cust.get(i).getMoney();
+		
 		}
 		return num;
 	}

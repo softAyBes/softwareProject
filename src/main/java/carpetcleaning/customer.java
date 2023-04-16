@@ -6,6 +6,29 @@ public class customer extends person{
 	private String id;
 	private String phone;
 	private String address;
+	private String email;
+	private int money=0;
+	private int debt=0;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getMoney() {
+		return money;
+	}
+	public void setMoney(int money) {
+		this.money = money;
+	}
+	public int getDebt() {
+		return debt;
+	}
+	public void setDebt(int debt) {
+		this.debt = debt;
+	}
+
+
 	private  ArrayList<product> productsForCusomer=new ArrayList<product>();
 	
 	public customer(){ 
@@ -188,4 +211,25 @@ public class customer extends person{
 		 CCust.productsForCusomer.get(i).setLength(length);
 	}
 	
+	
+	public static int WaitingProduct(customer cust) {
+		int num=0;
+		for(int i=0;i<cust.getProductsForCusomer().size();i++) {
+			if(cust.getProductsForCusomer().get(i).getStatus().equalsIgnoreCase("waiting")) {
+				num++;
+			}
+		}
+		return num;
+	}
+	
+	
+	public static int inTreatmentProduct(customer cust) {
+		int num=0;
+		for(int i=0;i<cust.getProductsForCusomer().size();i++) {
+			if(cust.getProductsForCusomer().get(i).getStatus().equalsIgnoreCase("in treatment")) {
+				num++;
+			}
+		}
+		return num;
+	}
 	}

@@ -137,7 +137,6 @@ public class worker extends person{
 	
 	public static void distributeOrder(product pro,ArrayList<worker> workers) {
 		worker w=getWorkerForOrder(workers);
-		System.out.println(w.getId());
 		pro.setResponsibleWorkerId(w.getId());
 		int index=worker.getIndexOfWorker(w.getId(), workers);		
 		workers.get(index).productsForWorker.add(pro);

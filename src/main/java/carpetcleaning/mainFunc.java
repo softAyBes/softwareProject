@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class mainFunc {
 	static person user=new person();
 	Main main=new Main();
-	
+	 
 	
  
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		
 		
 		int x;
@@ -57,9 +57,11 @@ public class mainFunc {
 			if(stat.equalsIgnoreCase("admin")) {
 				while(logged==1) {
 						x=0;
-						System.out.println("press 1. to add new customer ");
+						System.out.println("press 1. To add new customer ");
 						System.out.println(emptyLine);
-						System.out.println("      2. to Delete customer ");
+						System.out.println("      2. To Delete customer ");
+						System.out.println(emptyLine);
+						System.out.println("      3. To get statistic ");
 						System.out.println(emptyLine);
 						System.out.println("      0. log out ");
 						x=input.nextInt();
@@ -88,11 +90,16 @@ public class mainFunc {
 								System.out.println("Address");
 								in=input.nextLine();
 								cust.setAddress(in);
+								
+								
+								System.out.println("Email");
+								in=input.nextLine();
+								cust.setEmail(in);
 								customer.createCustomer(cust, Main.customers);
 								System.out.println(" Added successfully");
 							
 							}
-							
+							 
 						}
 						else if(x==2) {
 							System.out.println(" What ID you want to delete");
@@ -108,10 +115,57 @@ public class mainFunc {
 							}
 						}
 						
+						else if (x==3) {
+							System.out.println(" 		enter 1 to get total number of products");
+							System.out.println(" 		enter 2 to get total number of waiting products");
+							System.out.println(" 		enter 3 to get total number of in treatment products");
+							System.out.println(" 		enter 4 to get total number of Money");
+							System.out.println(" 		enter 5 to get total number of debts");
+
+							x=input.nextInt();
+							if (x==1) {
+								System.out.println("Total number of products  "+Main.itemsNum(Main.customers));
+								System.out.println(emptyLine);
+								System.out.println(emptyLine);
+
+								
+							}
+							else if(x==2) {
+								System.out.println("Total number of waiting products is  "+Main.totalWaitingNum(Main.customers));
+								System.out.println(emptyLine);
+								System.out.println(emptyLine);
+
+							}
+							
+							else if(x==3) {
+								System.out.println("Total number of waiting products is "+Main.totalIntreatment(Main.customers));
+								System.out.println(emptyLine);
+								System.out.println(emptyLine);
+
+							}
+							else if(x==4) {
+								System.out.println("Total number of Money "+Main.totalMoney(Main.customers));
+								System.out.println(emptyLine);
+								System.out.println(emptyLine);
+
+							}
+							else if(x==5) {
+								System.out.println("Total number of debts "+Main.totalDebts(Main.customers));
+								System.out.println(emptyLine);
+								System.out.println(emptyLine);
+
+							}
+							
+						}
+						
 						else if(x==0) {
 							/// log out
 							logged=0;
 							
+						}
+						else {
+							System.out.println("Enter valid number");
+							System.out.println();
 						}
 					
 					}
@@ -135,16 +189,21 @@ else if(stat.equalsIgnoreCase("worker")) {
 			
 			worker w=Main.workers.get(worker.getIndexOfWorker(user.getId_person(), Main.workers));
 			int size=w.getProductsForWorker().size();
-
-			System.out.println(" Code		::	 	Category		::		status		::		CustomerName		::		cusomerPhone		");
-			product proo1=w.getProductsForWorker().get(0);
-			
-			for(int i=0;i<size;i++) {
-				product proo=w.getProductsForWorker().get(i);
-				customer cust=Main.customers.get(customer.getIndex(proo.getCustId(), Main.customers));
-				System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getName()+"		::		"+cust.getPhone()+"		");
-
+			if(size==0) {
+				System.out.println("No products added yet");
+				System.out.println(emptyLine);
+			}
+			else {
+				System.out.println(" Code		::	 	Category	::		status		::		CustomerName	::		cusomerPhone	");
 				
+				for(int i=0;i<size;i++) {
+					product proo=w.getProductsForWorker().get(i);
+					customer cust=Main.customers.get(customer.getIndex(proo.getCustId(), Main.customers));
+					System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getName()+"		::		"+cust.getPhone()+"		");
+					System.out.println(emptyLine);
+
+					
+				}
 			}
 			
 		}
@@ -186,8 +245,13 @@ else if(stat.equalsIgnoreCase("worker")) {
 			
 	
 		}
+		
 		else if(x==0) {
 			logged=0;
+		}
+		else {
+			System.out.println("Enter valid number");
+			System.out.println();
 		}
 	}
 	
@@ -370,6 +434,10 @@ else if(stat.equalsIgnoreCase("worker")) {
 					else if(x==0) {
 						//logOut
 						logged=0;
+					}
+					else {
+						System.out.println("Enter valid number");
+						System.out.println();
 					}
 					
 			}//end while

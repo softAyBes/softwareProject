@@ -19,6 +19,8 @@ public class customerTest {
 	@Before public void createOutputFile() {
 		person pers1=new person("Ayabaara","123456","3");
 		customer c2=new customer(pers1,"3", "059967", "Arsad");
+		c2.setMoney(200);
+		c2.setDebt(100);
 		product pro1=new product("nn","100");
 		product pro2=new product("nn","200");
 		c2.getProductsForCusomer().add(pro1);  
