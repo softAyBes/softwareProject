@@ -78,7 +78,7 @@ public class customer extends person{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public static int getIndex(String id,ArrayList<customer>customers) {
+	public static int getIndex1(String id,ArrayList<customer>customers) {
 		int index=-1;
 
 		for(int i=0;i<customers.size();i++) {
@@ -89,10 +89,10 @@ public class customer extends person{
 		
 		return index; 
 	}
-	public static boolean isExist(String id2,ArrayList<customer>customers) {
+	public static boolean isExist1(String id2,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
 		// create common class contains all arrays list (customer, product ......)
-		if(getIndex(id2,customers)==-1) {
+		if(getIndex1(id2,customers)==-1) {
 			
 			return false;
 		}
@@ -158,18 +158,18 @@ public class customer extends person{
 	
 	public static void deleteCustomer(String id2,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=getIndex(id2,customers);
+		int index=getIndex1(id2,customers);
 		customers.remove(index);
 	}
 	public static void updatePhone(String id2, String newPhone,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=customer.getIndex(id2,customers);
+		int index=customer.getIndex1(id2,customers);
 		customers.get(index).setPhone(newPhone);
 		
 	}
 	public static void updateAdress(String id2, String newAdress,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=customer.getIndex(id2,customers);
+		int index=customer.getIndex1(id2,customers);
 		customers.get(index).setAddress(newAdress);
 		
 	}

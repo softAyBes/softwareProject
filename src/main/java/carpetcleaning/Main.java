@@ -32,7 +32,7 @@ public class Main {
 		persons.add(work2);
 		
 		String id="3";
-		if(!customer.isExist(id,customers)) {
+		if(!customer.isExist1(id,customers)) {
 		
 			workers.add(worker2);
 			workers.add(worker1);

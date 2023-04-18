@@ -2,15 +2,34 @@ package carpetcleaning;
 
 import java.util.Scanner;
 
+import org.apache.catalina.core.ApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.mail.javamail.JavaMailSender;
+@SpringBootApplication
 public class mainFunc {
 	static person user=new person();
 	Main main=new Main();
+	
+	  static sendingEmail email=new sendingEmail();
+	  
+	  @Autowired private JavaMailSender mailSender;
 	 
 	
  
 	public static void main(String[] args) { 
 		
+		String recipientEmail = "ayabaara4@gmail.com";
+		String subject = "Hello from my Spring Boot app!";
+		String message = "This is a test email from my Spring Boot application.";
 		
+		  try { 
+			  System.out.println("hi");
+			  email.sendEmail(recipientEmail, subject, message); } catch (Exception
+		  e) { // TODO Auto-generated catch block e.printStackTrace(); }
+		 
 		int x;
 		String in;
 		Main.setCutomers();
@@ -71,7 +90,7 @@ public class mainFunc {
 							in=input.nextLine();
 							System.out.println(" Enter Information : ID");
 							in=input.nextLine();
-							if(customer.isExist(in, Main.customers)) {
+							if(customer.isExist1(in, Main.customers)) {
 									System.out.println("this Id already exist");
 									System.out.println(emptyLine);
 								}
@@ -104,7 +123,7 @@ public class mainFunc {
 						else if(x==2) {
 							System.out.println(" What ID you want to delete");
 							in=input.nextLine();
-							if(!customer.isExist(in, Main.customers)) {
+							if(!customer.isExist1(in, Main.customers)) {
 									System.out.println("No customer with this id");
 									System.out.println(emptyLine);
 								}
@@ -198,7 +217,7 @@ else if(stat.equalsIgnoreCase("worker")) {
 				
 				for(int i=0;i<size;i++) {
 					product proo=w.getProductsForWorker().get(i);
-					customer cust=Main.customers.get(customer.getIndex(proo.getCustId(), Main.customers));
+					customer cust=Main.customers.get(customer.getIndex1(proo.getCustId(), Main.customers));
 					System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getName()+"		::		"+cust.getPhone()+"		");
 					System.out.println(emptyLine);
 
@@ -216,12 +235,12 @@ else if(stat.equalsIgnoreCase("worker")) {
 			in=input.nextLine();
 			in=input.nextLine();
 			
-			if(!customer.isExist(in, Main.customers)) {
+			if(!customer.isExist1(in, Main.customers)) {
 					System.out.println("No customer with this id");
 					System.out.println(emptyLine);
 				}
 			else {
-				cust=Main.customers.get(customer.getIndex(in, Main.customers));
+				cust=Main.customers.get(customer.getIndex1(in, Main.customers));
 				
 				System.out.println("What product id you want to change");
 				in=input.nextLine();
@@ -263,7 +282,7 @@ else if(stat.equalsIgnoreCase("worker")) {
 			if(stat.equalsIgnoreCase("customer"))
 			{
 				customer cust=new customer();
-			    cust=Main.customers.get(customer.getIndex(user.getId_person(),Main.customers));
+			    cust=Main.customers.get(customer.getIndex1(user.getId_person(),Main.customers));
 				while(logged==1)
 				{
 					x=0;
@@ -451,7 +470,12 @@ else if(stat.equalsIgnoreCase("worker")) {
 			
 			
 			
-	}
+	}}
+	
+	  @Bean public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+	  return args -> { System.out.println("Checking for mailSender bean...");
+	  System.out.println(mailSender); }; }
+	 
 	
 	
 

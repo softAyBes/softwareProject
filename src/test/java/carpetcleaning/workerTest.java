@@ -21,7 +21,7 @@ public class workerTest {
 		pro1.setCode("100");
 		c2.getProductsForCusomer().add(pro1);
 		
-		if(!customer.isExist(c2.getId(), customers)) {
+		if(!customer.isExist1(c2.getId(), customers)) {
 		customers.add(c2);
 		}
 		

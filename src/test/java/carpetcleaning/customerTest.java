@@ -25,7 +25,7 @@ public class customerTest {
 		product pro2=new product("nn","200");
 		c2.getProductsForCusomer().add(pro1);  
 		c2.getProductsForCusomer().add(pro2); 
-		if(!customer.isExist(c2.getId(), customers)) {
+		if(!customer.isExist1(c2.getId(), customers)) {
 		customers.add(c2);
 		}
 		
@@ -43,7 +43,7 @@ public class customerTest {
 
 	@When("user id {string} already exist")
 	public void user_id_already_exist(String id) {
-	customer.isExist(id,customers);
+	customer.isExist1(id,customers);
 		
 	}
 
@@ -51,7 +51,7 @@ public class customerTest {
 	public void creating_customer_id_faild(String id) {
 	    // Write code here that turns the phrase above into concrete actions
 		expected=true; 
-	   actual=customer.isExist(id,customers);
+	   actual=customer.isExist1(id,customers);
 	   assertEquals(expected,actual);
 	}
 	
@@ -60,7 +60,7 @@ public class customerTest {
 	
 	public void id_is_not_exist(String id) {
 	    // Write code here that turns the phrase above into concrete actions
-		expected=customer.isExist(id,customers);
+		expected=customer.isExist1(id,customers);
 	}
 
 	@When("admin enter id {string} Name {string} phone {string} address {string}")
@@ -76,7 +76,7 @@ public class customerTest {
 	@Then("customer id {string} added successfully")
 	public void customer_id_added_successfully(String id) {
 		
-		   actual=customer.isExist(id,customers);
+		   actual=customer.isExist1(id,customers);
 		   customer.createCustomer(cust,customers);
 		   assertEquals(expected,actual);
 	}
@@ -97,7 +97,7 @@ public class customerTest {
 	public void customer_id_updated_successfully(String id) {
 	    // Write code here that turns the phrase above into concrete actions
 		expected=true;
-		   actual=customer.isExist(id,customers);
+		   actual=customer.isExist1(id,customers);
 		   assertEquals(expected,actual);
 	}
 
@@ -115,14 +115,14 @@ public class customerTest {
 	public void customer_address_id_updated_successfully(String id) {
 	    // Write code here that turns the phrase above into concrete actions
 		expected=true;
-		   actual=customer.isExist(id,customers);
+		   actual=customer.isExist1(id,customers);
 		   assertEquals(expected,actual);
 	}
 	
 	
 	@Given("admin want to delete customer id {string}")
 	public void admin_want_to_delete_customer_id(String id) {
-		if(customer.isExist(id,customers)) {
+		if(customer.isExist1(id,customers)) {
 		customer.deleteCustomer(id,customers);
 		}
 	
@@ -131,14 +131,14 @@ public class customerTest {
 
 	@Then("customer {string} deleted successfully")
 	public void customer_deleted_successfully(String string) {
-	    actual=customer.isExist(string,customers);
+	    actual=customer.isExist1(string,customers);
 	    expected=false;
 	    assertEquals(actual,expected);
 	}
 	
 	@Given("customer id {string} is not exist")
 	public void customer_id_is_not_exist(String string) {
-	   actual=customer.isExist(string,customers);
+	   actual=customer.isExist1(string,customers);
 	}
 
 	@Then("delete customer {string} faild")
