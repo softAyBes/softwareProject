@@ -14,6 +14,7 @@ public class Main {
 								//(String id,String name,String pass,String phone,String address)
 		person pers1=new person("aya","123456","3","customer");
 		customer c2=new customer(pers1,"3", "059967", "Arsad");
+		c2.setEmail("ayabaara4@gmail.com");
 		
 		
 		person adm1=new person("admin1","admin123","5","admin");

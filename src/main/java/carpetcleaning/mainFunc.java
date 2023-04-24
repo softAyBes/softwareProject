@@ -2,38 +2,24 @@ package carpetcleaning;
 
 import java.util.Scanner;
 
-import org.apache.catalina.core.ApplicationContext;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.mail.javamail.JavaMailSender;
-@SpringBootApplication
 public class mainFunc {
 	static person user=new person();
 	Main main=new Main();
 	
-	  static sendingEmail email=new sendingEmail();
+	/*
+	 * static sendingEmail email=new sendingEmail();
+	 */	   static sendEmailllll email=new sendEmailllll();
 	  
-	  @Autowired private JavaMailSender mailSender;
+
 	 
 	
  
 	public static void main(String[] args) { 
 		
-		String recipientEmail = "ayabaara4@gmail.com";
-		String subject = "Hello from my Spring Boot app!";
-		String message = "This is a test email from my Spring Boot application.";
 		
-		  try { 
-			  System.out.println("hi");
-			  email.sendEmail(recipientEmail, subject, message); } catch (Exception
-		  e) { // TODO Auto-generated catch block e.printStackTrace(); }
-		 
 		int x;
 		String in;
 		Main.setCutomers();
-		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in); 
 		String name,password;
 		String emptyLine="|						                      						                |";
@@ -197,7 +183,8 @@ else if(stat.equalsIgnoreCase("worker")) {
 	while(logged==1) {
 		// worker ::::::::::::Main.workers.get(worker.getIndexOfWorker(user.getId_person(), Main.workers))
 		
-	
+		worker w=Main.workers.get(worker.getIndexOfWorker(user.getId_person(), Main.workers));
+
 		
 		System.out.println("To see your products enter 1");
 		System.out.println("IS there any change in product status? Enter 2");
@@ -206,7 +193,6 @@ else if(stat.equalsIgnoreCase("worker")) {
 		x=input.nextInt();
 		if(x==1) {
 			
-			worker w=Main.workers.get(worker.getIndexOfWorker(user.getId_person(), Main.workers));
 			int size=w.getProductsForWorker().size();
 			if(size==0) {
 				System.out.println("No products added yet");
@@ -253,9 +239,18 @@ else if(stat.equalsIgnoreCase("worker")) {
 				else {
 					System.out.println("what is the new status of the product ? waiting ... in treatment ... ready");
 					in=input.nextLine();
+					
 					worker.updateStatusCustomer(proId, cust.getId(), in, Main.customers);
 					System.out.println("Updated successfully");
-					
+					if(in.equalsIgnoreCase("ready")) {
+						System.out.println("Send email to notify customer that the product is ready ? Y/N");
+						in=input.nextLine();
+						if(in.equalsIgnoreCase("y")) {
+							email.email(cust.getEmail(),"your product is ready for more information visit us \n by: " +w.getName());
+						}
+						
+						System.out.println(emptyLine);
+					}
 					
 						
 				}
@@ -470,11 +465,13 @@ else if(stat.equalsIgnoreCase("worker")) {
 			
 			
 			
-	}}
+	}
 	
-	  @Bean public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-	  return args -> { System.out.println("Checking for mailSender bean...");
-	  System.out.println(mailSender); }; }
+	/*
+	 * @Bean public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+	 * return args -> { System.out.println("Checking for mailSender bean...");
+	 * System.out.println(mailSender); }; }
+	 */
 	 
 	
 	
