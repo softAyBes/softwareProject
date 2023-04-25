@@ -16,6 +16,7 @@ public class product {
 	private String responsibleWorkerId;
 	private String custId;
 	
+	
 	public String getCustId() {
 		return custId;
 	}
@@ -25,6 +26,7 @@ public class product {
 	public product(String name_p,String Code) {
 		this.name_p=name_p;
 		this.Code=Code;
+		this.status="waiting";
 		
 	}
 	public String getResponsibleWorkerId() {

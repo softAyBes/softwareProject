@@ -12,17 +12,25 @@ public class Main {
 	public static int setCutomers() {
 		uesr=new person();
 								//(String id,String name,String pass,String phone,String address)
+		
+		////customer1
 		person pers1=new person("aya","123456","3","customer");
 		customer c2=new customer(pers1,"3", "059967", "Arsad");
 		c2.setEmail("ayabaara4@gmail.com");
 		
+		///// customer2
+		person pers11=new person("beesan","123456","8","customer");
+		customer c22=new customer(pers11,"8", "58585", "Rafidya");
+		c22.setEmail("ayabaara4@gmail.com");
 		
+		// admin
 		person adm1=new person("admin1","admin123","5","admin");
 		Admin admin1=new Admin(adm1);
 		
+		///worker1
 		person work1=new person("worker1","work123456","6","worker");
 		worker worker1=new worker(work1);
-		
+		///worker2
 		person work2=new person("worker2","work123456","7","worker");
 		worker worker2=new worker(work2);
 		
@@ -37,10 +45,31 @@ public class Main {
 		
 			workers.add(worker2);
 			workers.add(worker1);
-			product pro1=new product("nn","100");
-			pro1.setStatus("waiting");
+			
+			/// 3 products for cust1
+			product pro1=new product("carpet12","100");
+			pro1.setCategory("Carpets");
 			c2.addProduct(pro1, workers);
+			
+			product pro2=new product("Salon carpet","110");
+			pro2.setCategory("Carpets");
+			c2.addProduct(pro2, workers);
+			
+			product pro3=new product("cover","120");
+			pro3.setCategory("Bed Cover");
+			c2.addProduct(pro3, workers);
+			
+			product pro4=new product("carpet","150");
+			pro4.setCategory("Carpets");
+			c22.addProduct(pro4, workers);
+			
+			product pro5=new product("Salon carpet","170");
+			pro5.setCategory("Carpets");
+			c22.addProduct(pro5, workers);
+			
 			customer.createCustomer(c2,customers); 
+			customer.createCustomer(c22,customers);
+			
 
 	
 		}

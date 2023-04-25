@@ -102,12 +102,14 @@ public class mainFunc {
 								cust.setEmail(in);
 								customer.createCustomer(cust, Main.customers);
 								System.out.println(" Added successfully");
+								cust.setPassword("123456");
 							
 							}
 							 
 						}
 						else if(x==2) {
 							System.out.println(" What ID you want to delete");
+							in=input.nextLine();
 							in=input.nextLine();
 							if(!customer.isExist1(in, Main.customers)) {
 									System.out.println("No customer with this id");
@@ -199,13 +201,13 @@ else if(stat.equalsIgnoreCase("worker")) {
 				System.out.println(emptyLine);
 			}
 			else {
-				System.out.println(" Code		::	 	Category	::		status		::		CustomerName	::		cusomerPhone	");
+				System.out.println(" Code		::	 	Category	::		status		::	Customer ID	::	Customer Name	::		cusomerPhone	");
 				
 				for(int i=0;i<size;i++) {
 					product proo=w.getProductsForWorker().get(i);
 					customer cust=Main.customers.get(customer.getIndex1(proo.getCustId(), Main.customers));
-					System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getName()+"		::		"+cust.getPhone()+"		");
-					System.out.println(emptyLine);
+					System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getId()+"	::		"+cust.getName()+"	::	"+cust.getPhone()+"		");
+					System.out.println();
 
 					
 				}
@@ -238,10 +240,10 @@ else if(stat.equalsIgnoreCase("worker")) {
 				}
 				else {
 					System.out.println("what is the new status of the product ? waiting ... in treatment ... ready");
-					in=input.nextLine();
-					
+					in=input.nextLine();					
 					worker.updateStatusCustomer(proId, cust.getId(), in, Main.customers);
 					System.out.println("Updated successfully");
+					
 					if(in.equalsIgnoreCase("ready")) {
 						System.out.println("Send email to notify customer that the product is ready ? Y/N");
 						in=input.nextLine();

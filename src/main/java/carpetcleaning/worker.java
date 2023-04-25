@@ -56,7 +56,7 @@ public class worker extends person{
 	    return customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).getStatus();
 	}
 	
-	
+	//////to distribute products over workers
 	public int getNumInTreatment () {
 		int count=0;
 		for(int j=0;j<this.getProductsForWorker().size();j++) {

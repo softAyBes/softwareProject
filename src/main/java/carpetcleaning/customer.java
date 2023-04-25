@@ -183,7 +183,7 @@ public class customer extends person{
 	public int getIndexforProduct (String code,ArrayList<customer>customers) {
 			int index=-1;
 		
-		for(int i=0;i<customers.size();i++) {
+		for(int i=0;i<this.productsForCusomer.size();i++) {
 			
 			if(this.productsForCusomer.get(i).getCode().equals(code)) {
 				
