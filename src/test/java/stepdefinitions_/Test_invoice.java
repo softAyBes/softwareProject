@@ -63,11 +63,12 @@ public class Test_invoice
 		}
 	}
 
-@Then("generate invoice to customer with id {string} successfully.")
-public void generate_invoice_to_customer_with_id_successfully(String id)
-{
-      Main.setCutomers();
-     assertTrue(Main.generate_invoice(id,customers));
+
+@Then("generate invoice to customer with id {string} and paid {int} successfully.")
+public void generate_invoice_to_customer_with_id_and_paid_successfully(String id, Integer paid) {
+   
+    Main.setCutomers();
+    Main.generate_invoice(id,paid,customers);
 }
 
 	

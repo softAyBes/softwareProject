@@ -185,7 +185,7 @@ public class customer extends person{
 	public int getIndexforProduct (String code,ArrayList<customer>customers) {
 			int index=-1;
 		
-		for(int i=0;i<customers.size();i++) {
+		for(int i=0;i<this.productsForCusomer.size();i++) {
 			
 			if(this.productsForCusomer.get(i).getCode().equals(code)) {
 				
@@ -255,22 +255,30 @@ public class customer extends person{
 	public static boolean check_price(int p) {
 		return p>=550;
 	}
-	
-	public static int discount(String code,String dis,customer CCust)
+	public static int get_total_price(customer CCust)
+	{
+		int total=0;
+		for(int i=0;i<CCust.productsForCusomer.size();i++)
+		{
+		 total+=get_price(CCust.productsForCusomer.get(i).getCode(),CCust);
+		}
+		return total;
+	}
+	public static int discount(int total_price,int dis,customer CCust)
 	{
 			
 		//int indexxx=customer.getIndex(code,CCust.getProductsForCusomer());
-		int p=customer.get_price(code, CCust);
-		if(p<550)
-		{
-			return p;
-		}
-		else	
-		{
-		int disc=(p*Integer.parseInt(dis))/100;
-		int Discounted_price=p-disc;
+		//int p=customer.get_price(code, CCust);
+		//if(p<550)
+		//{
+		//	return p;
+		//}
+		//else	
+		//{
+		int disc=(total_price*dis)/100;
+		int Discounted_price=total_price-disc;
 		return Discounted_price;
-		}
+		//}
 	}
 }
 /*

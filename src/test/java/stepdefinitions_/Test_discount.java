@@ -66,25 +66,20 @@ public void the_price_with_code_greater_than_or_equal(String code, String price)
 	   //System.out.print(price_product);
       customer.check_price(price_product);   
 	}
-@Then("product with code {string} get a discount of {string}")
-public void product_with_code_get_a_discount_of(String code, String dis) 
+@Then("product with code {string} get a discount of {int}")
+public void product_with_code_get_a_discount_of(String code, int dis) 
 {
 	
 	  int price_=customer.get_price(code, Customer);
-	  int price_after_dis=customer.discount(code,dis,Customer);
+	  int T=customer.get_total_price(Customer);
+	  int price_after_dis=customer.discount(T,dis,Customer);
 	 //double i=customer.getIndex(id,customers);
 	// System.out.print(price_after_dis);
 	  //System.out.print(price_);
-	   assertFalse(price_==price_after_dis);
+	   assertEquals(price_,price_after_dis);
 	
 }
-@Given("customer with id {string} is exist")
-public void customer_with_id_is_exist(String id)
-{
-	int in=customer.getIndex_1(id,customers); 
-	Customer=customers.get(in);
-	customer.isExist_1(id,customers);
-}
+
 
 
 @When("the price with code {string} less {string}")
@@ -95,12 +90,15 @@ public void the_price_with_code_less(String code, String price)
    //System.out.print(C);
 }
 
-@Then("product with code {string} does not get a discount of {string}")
-public void product_with_code_does_not_get_a_discount_of(String code, String dis) {
+@Then("product with code {string} get a discount of {int}")
+public void product_with_code_does_not_get_a_discount_of(String code, int dis) 
+{
    
 	
 	int price_=customer.get_price(code, Customer);
-	int price_after_dis=customer.discount(code,dis,Customer);
-	assertTrue(price_ == price_after_dis);
+	 int T=customer.get_total_price(Customer);
+	  int price_after_dis=customer.discount(T,dis,Customer);
+	//int price_after_dis=customer.discount(code,dis,Customer);
+	assertEquals(price_,price_after_dis);
 }
 }

@@ -13,7 +13,17 @@ public class product {
 	private String category;
 	private String isspecial;
 	private String responsibleWorkerId;
+	
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+
 	private String custId;
+	private Integer price ;
 	
 	
 	public product(String name_p, String code,String material, int length, int width)

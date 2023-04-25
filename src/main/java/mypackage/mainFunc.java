@@ -26,7 +26,7 @@ public class mainFunc {
 		String message = "This is a test email from my Spring Boot application.";
 		
 		  try { 
-			  System.out.println("hi");
+			 
 			  email.sendEmail(recipientEmail, subject, message); } catch (Exception
 		  e) { // TODO Auto-generated catch block e.printStackTrace(); }
 		 
@@ -74,7 +74,8 @@ public class mainFunc {
 			
 			//// Admin 
 			if(stat.equalsIgnoreCase("admin")) {
-				while(logged==1) {
+				while(logged==1) 
+				{
 						x=0;
 						System.out.println("press 1. To add new customer ");
 						System.out.println(emptyLine);
@@ -82,9 +83,14 @@ public class mainFunc {
 						System.out.println(emptyLine);
 						System.out.println("      3. To get statistic ");
 						System.out.println(emptyLine);
+						System.out.println("      4. To generate reports  ");
+						System.out.println(emptyLine);
+						System.out.println("      5. To generate invoice  ");
+						System.out.println(emptyLine);
 						System.out.println("      0. log out ");
 						x=input.nextInt();
-						if(x==1) {
+						if(x==1) 
+						{
 							// add new customer
 							customer cust =new customer();
 							in=input.nextLine();
@@ -94,8 +100,8 @@ public class mainFunc {
 									System.out.println("this Id already exist");
 									System.out.println(emptyLine);
 								}
-							else {
-								
+							else 
+							{
 								cust.setId(in);
 								cust.setId_person(in);
 								System.out.println("Name");
@@ -123,8 +129,10 @@ public class mainFunc {
 						else if(x==2) {
 							System.out.println(" What ID you want to delete");
 							in=input.nextLine();
+							in=input.nextLine();
 							if(!customer.isExist_1(in, Main.customers)) {
 									System.out.println("No customer with this id");
+									System.out.println();
 									System.out.println(emptyLine);
 								}
 							else {
@@ -176,6 +184,40 @@ public class mainFunc {
 							}
 							
 						}
+						else if (x==4) 
+						{
+							System.out.println(" 		enter 1 to generet report about worker details.");
+							System.out.println(" 		enter 2 to generet report about customer details.");
+
+							x=input.nextInt();
+							if (x==1) 
+							{
+								Main.Show_all_worker_details(Main.workers);
+								System.out.println(emptyLine);
+								System.out.println(emptyLine);
+							}
+							else if(x==2) 
+							{
+								Main.Show_all_customers_details(Main.customers);
+								System.out.println(emptyLine);
+								System.out.println(emptyLine);
+
+							}
+							
+						}
+						else if (x==5) 
+						{
+							String z;
+							System.out.println("         Enter id customer to generet invoice.");
+							z=input.next();
+							System.out.println("         Enter the amount you paid");
+							x=input.nextInt();
+						    Main.generate_invoice(z,x,Main.customers);
+							System.out.println(emptyLine);
+							System.out.println(emptyLine);
+						
+						}	
+							
 						
 						else if(x==0) {
 							/// log out
@@ -286,16 +328,11 @@ else if(stat.equalsIgnoreCase("worker")) {
 				while(logged==1)
 				{
 					x=0;
-					
 					System.out.println("press 1. to add new product ");
 					System.out.println(emptyLine);
 					System.out.println("      2. to Update product ");
 					System.out.println(emptyLine);
 					System.out.println("      3. to Delete product ");
-					System.out.println(emptyLine);
-					System.out.println("      4. to Update your Address ");
-					System.out.println(emptyLine);
-					System.out.println("      5. to Update your phone ");
 					System.out.println(emptyLine);
 					System.out.println("      0. log out ");
 					x=input.nextInt();
@@ -383,73 +420,91 @@ else if(stat.equalsIgnoreCase("worker")) {
 						    }
 				  	     else
 				        	{
-						    customer.delete_product(in, cust,Main.workers);
-						  System.out.println(" Deleted successfully");
+						    customer.delete_product(in,cust,Main.workers);
+						    System.out.println("Deleted successfully");
 				        	}
 					}
 					
 					else if(x==2)
 					{
-						System.out.println(" What Code your product ");
-						in=input.nextLine();
-						in=input.nextLine();
+						
+						System.out.println("press 1. to Update Length of product");
+						System.out.println(emptyLine);
+						System.out.println("      2. to Update Width of product ");
+						System.out.println(emptyLine);
+						System.out.println("      3. to Update picture of product ");
+						System.out.println(emptyLine);
+						String code;
+                         x=input.nextInt();
+					     if(x==1)
+					     {
+					    	 System.out.println(" What Code of your product ");
+								 code=input.nextLine();
+								code=input.nextLine();
+							
+								if(!customer.check_is_exist_1(code,cust)) 
+								{
+									
+								System.out.println("No product with this Code");
+							 	System.out.println(emptyLine);
+								}
+								else
+								{
+									System.out.println(" new Length: ");
+					  	       		in=input.nextLine();
+					  	         customer.update_Length(code,in,cust);	
+								 System.out.println(" Update Length successfully");
+								}
+					     }
+						
+			  	     else if(x==2)
+			        	{
+			  	    	 System.out.println(" What Code of your product ");
+			  	    	code=input.nextLine();
+						code=input.nextLine();
+						
+							if(!customer.check_is_exist_1(code,cust)) 
+							{
+								
+							System.out.println("No product with this Code");
+						 	System.out.println(emptyLine);
+							}
+							else
+							{
+			  	    	 
+								System.out.println(" new width: ");
+				  	        	in=input.nextLine();
+				  	       		customer.update_width(code,in,cust);	
+				  	       		System.out.println(" Update Width successfully");
+			  	    	
+							}
+			  	    	 
+			        	}
+					     
+			  	   else if(x==3)
+		        	{
+		  	    	 System.out.println(" What Code of your product ");
+		  	    	code=input.nextLine();
+					code=input.nextLine();
 					
-						if(!customer.check_is_exist_1(in,cust)) 
+						if(!customer.check_is_exist_1(code,cust)) 
 						{
+							
 						System.out.println("No product with this Code");
 					 	System.out.println(emptyLine);
-					    }
-			  	     else
-			        	{
-			  	    	String CODE=in;
-			  	    	System.out.println("What you want to update");
-			  	    	in=input.nextLine();
-						
-			  	       	if("Length".equalsIgnoreCase(in))
-			  	       	{
-			  	       	 System.out.println(" new Length: ");
-			  	       		in=input.nextLine();
-			  	         customer.update_Length(CODE,in,cust);	
-						 System.out.println(" Update Length successfully");
-			  	       	}
-			  	       	else if("Picture".equalsIgnoreCase(in))
-			  	       	{
-			  	       	 System.out.println(" new picture: ");
-			  	      	in=input.nextLine();
-			  	        customer.updatepicture(CODE, in, cust);	
-			  	       	 System.out.println(" Update Picture successfully");
-			  	       	}
-			  	       	else if("Width".equalsIgnoreCase(in))
-			  	       	{
-			  	       	 System.out.println(" new width: ");
-			  	        	in=input.nextLine();
-			  	       		customer.update_width(CODE,in,cust);	
-			  	       		System.out.println(" Update Width successfully");
-			  	       	}
-			        	}
-						
-						
-						
+						}
+						else
+						{
+							 System.out.println(" new picture: ");
+					  	      	in=input.nextLine();
+					  	        customer.updatepicture(code, in, cust);	
+					  	       	 System.out.println(" Update Picture successfully");
+					  	       	}
+		  	    	
+						}
 					}
-					else if(x==4)
-					{
-						
-						
-							 System.out.println(" new Addres: ");
-				  	        	in=input.nextLine();
-				  	        	in=input.nextLine();
-							customer.updateAdress(user.getId_person(), in,Main.customers);
-							System.out.println(" Update Addres successfully");
-					}
+					     
 					
-					else if(x==5)
-					{
-							 System.out.println(" new Phone: ");
-				  	        	in=input.nextLine();
-				  	        	in=input.nextLine();
-							customer.updatePhone(user.getId_person(), in, Main.customers);
-							System.out.println(" Update phone successfully");
-					}
 					else if(x==0) {
 						//logOut
 						logged=0;

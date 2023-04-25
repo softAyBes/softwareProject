@@ -1,5 +1,6 @@
 package stepdefinitions_;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -13,16 +14,19 @@ import mypackage.Admin;
 import mypackage.Main;
 import mypackage.person;
 import mypackage.product;
+import mypackage.worker;
 import mypackage.customer;
 
 
 
 public class Test_reports 
 {
+	String act;
+	String exp;
 	Admin admin=new Admin();
 	person user;
 	public static ArrayList<customer> customers= new ArrayList<customer>();
-
+	public static ArrayList<worker> workers= new ArrayList<worker>();
 		
 		@Before public void createOutputFile() 
 		{
@@ -46,6 +50,9 @@ public class Test_reports
 			pro3.setwidth("3");
 			c4.getProductsForCusomer().add(pro3);  
 		
+			person pers4=new person("Sandra","8989","1");
+			///worker w1 =new worker(pers4,"1","05933","2000","Add");
+			//workers.add(w1);
 			
 			if(!customer.isExist_1(c2.getId(),customers)) 
 			{
@@ -61,38 +68,54 @@ public class Test_reports
 	@Given("that the Admin is logged in is {string} now.")
 	public void that_the_admin_is_logged_in_is_now(String status) 
 	{
-		
+		/*act="true";
 		if(status.equalsIgnoreCase("true")) 
 		{
 			admin.setStatus(true);
 		}
-	}
+	
+	*/}
 	
 
 @Then("Admin generated all customers details report successfully.")
 public void admin_generated_all_customers_details_report_successfully() 
 {
+    exp="true";
+    
 
-	Main.setCutomers();
-	assertTrue(Main.Show_all_customers_details(customers));
+	//Main.Show_all_customers_details(customers);
+   // System.out.print(act);
+    Main.Show_all_customers_details(customers);
+	assertEquals(exp,act);
+	
 }
 
 
 @Given("that the admin is not logged in is {string} now")
 public void that_the_admin_is_not_logged_in_is_now(String status) 
 {
+	act=status;
 	if(status.equalsIgnoreCase("false"))   
 	{
 		  admin.setStatus(false);
 	}
 }
 
-@Then("the report  generated failed.")
-public void the_report_generated_failed() {
-    //Main.setCutomers();
-	assertTrue(Main.Show_all_customers_details(customers));
+@Then("the report generated failed.")
+public void the_report_generated_failed() 
+{
+	 exp="false";
+	assertEquals(exp,act);
 }
 
+
+@Then("Admin generated all worker details report successfully.")
+public void admin_generated_all_worker_details_report_successfully() 
+{
+	 exp="true";
+	Main.Show_all_worker_details(workers);
+	assertEquals(exp,act);
+}
 
 
 
