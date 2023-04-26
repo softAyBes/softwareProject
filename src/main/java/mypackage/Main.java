@@ -33,10 +33,13 @@ Admin admin1=new Admin(adm1);
 
 ///worker1
 person work1=new person("worker1","work123456","6","worker");
-worker worker1=new worker(work1);
+//worker worker1=new worker(work1);
+worker worker1=new worker(work1,"6","05987","2000","nablus");
+
 ///worker2
 person work2=new person("worker2","work123456","7","worker");
-worker worker2=new worker(work2);
+//worker worker2=new worker(work2);
+worker worker2=new worker(work2,"7","05987","3500","hebron");
 
 
 persons.add(pers1);

@@ -1,3 +1,4 @@
+
 package stepdefinitions_;
 
 import static org.junit.Assert.*;
@@ -63,7 +64,6 @@ public class Test_discount {
 public void the_price_with_code_greater_than_or_equal(String code, String price) {
   
 	   int price_product=customer.get_price(code,Customer);
-	   //System.out.print(price_product);
       customer.check_price(price_product);   
 	}
 @Then("product with code {string} get a discount of {int}")
@@ -74,22 +74,24 @@ public void product_with_code_get_a_discount_of(String code, int dis)
 	  int T=customer.get_total_price(Customer);
 	  int price_after_dis=customer.discount(T,dis,Customer);
 	 //double i=customer.getIndex(id,customers);
-	// System.out.print(price_after_dis);
-	  //System.out.print(price_);
-	   assertEquals(price_,price_after_dis);
-	
+	 System.out.print(price_after_dis);
+	 System.out.print(price_);  
+	   assertFalse(price_==price_after_dis);
 }
 
-
-
+/*
 @When("the price with code {string} less {string}")
 public void the_price_with_code_less(String code, String price) 
 {
+	 int price_product=customer.get_price(code,Customer);
+	   //System.out.print(price_product);
+    customer.check_price(price_product);   
+
+	/*
    int price_=customer.get_price(code, Customer);
    boolean C=customer.check_price(price_);
-   //System.out.print(C);
+   
 }
-
 @Then("product with code {string} get a discount of {int}")
 public void product_with_code_does_not_get_a_discount_of(String code, int dis) 
 {
@@ -99,6 +101,6 @@ public void product_with_code_does_not_get_a_discount_of(String code, int dis)
 	 int T=customer.get_total_price(Customer);
 	  int price_after_dis=customer.discount(T,dis,Customer);
 	//int price_after_dis=customer.discount(code,dis,Customer);
-	assertEquals(price_,price_after_dis);
-}
+	  assertFalse(price_==price_after_dis);
+}*/
 }

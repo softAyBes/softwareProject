@@ -9,12 +9,22 @@ public class worker extends person{
 	String id;
 	
 	private  ArrayList<product> productsForWorker=new ArrayList<product>();
-	public worker(person work1) {
+	public worker(person work1) 
+	{
 		// TODO Auto-generated constructor stub
 		this.id=work1.getId_person();
 		
 	}
+	public worker(person pers4, String string, String string2, String string3, String string4)
+	{
+		this.setName(pers4.getName());
+		this.setId(string);
+		this.setPhone(string2);
+		this.setSalary(string3);
+		this.setAddress(string4);
 	
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -57,9 +67,11 @@ public class worker extends person{
 	}
 	
 	//////to distribute products over workers
-	public int getNumInTreatment () {
+	public int getNumInTreatment () 
+	{
 		int count=0;
-		for(int j=0;j<this.getProductsForWorker().size();j++) {
+		for(int j=0;j<this.getProductsForWorker().size();j++) 
+		{
 			if(this.getProductsForWorker().get(j).getStatus().equalsIgnoreCase(" in treatment")||this.getProductsForWorker().get(j).getStatus().equalsIgnoreCase("waiting")) {
 				count++;
 			}
@@ -171,9 +183,16 @@ public class worker extends person{
 
 
 	
-	
-	
-	
 
-	
 }
+
+
+
+
+
+
+
+
+
+
+
