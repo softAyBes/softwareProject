@@ -164,7 +164,7 @@ return 1;
 	{
 		System.out.println("-------------Report about customers details-----------------");	
 		System.out.println();
-		System.out.println("ID \tName \tAddress \tpro_code \tpro_Name \tpro_Material \tpro_Category  \tpro_Length \tpro_Width \tIsspecial ");
+		System.out.println("ID \tName \tAddress \t \tpro_code \tpro_Name \tpro_Material \tpro_Category  \tpro_Length \tpro_Width \tIsspecial ");
 		if(!custt.isEmpty()) 
 		{
 			for(int i=0;i<custt.size();i++) 
@@ -179,7 +179,7 @@ return 1;
 				for(int j=0;j<custt.get(i).getProductsForCusomer().size();j++)
 			{
 					// System.out.println("\t");
-			 System.out.println( "\t" +"\t" +custt.get(i).getProductsForCusomer().get(j).getCode()+ "\t" +"\t"+
+			 System.out.println( "\t" +"\t" +"\t" +custt.get(i).getProductsForCusomer().get(j).getCode()+ "\t" +"\t"+
 					custt.get(i).getProductsForCusomer().get(j).getName_p()+ "\t" +"\t"+custt.get(i).getProductsForCusomer().get(j).getMaterial()+"\t"+ "\t" +custt.get(i).getProductsForCusomer().get(j).getCategory()+
 					"\t"+"\t"+custt.get(i).getProductsForCusomer().get(j).getLength()+
 					"\t"+"\t"+custt.get(i).getProductsForCusomer().get(j).getWidth()+
