@@ -1,5 +1,6 @@
 package carpetcleaning;
 
+
 import java.util.ArrayList;
 
 public class worker extends person{
@@ -13,6 +14,15 @@ public class worker extends person{
 		// TODO Auto-generated constructor stub
 		this.id=work1.getId_person();
 		
+	}
+	public worker(person pers4, String string, String string2, String string3, String string4)
+	{
+		this.setName(pers4.getName());
+		this.setId(string);
+		this.setPhone(string2);
+		this.setSalary(string3);
+		this.setAddress(string4);
+	
 	}
 	
 	public String getId() {
@@ -49,7 +59,7 @@ public class worker extends person{
 	}
 	public static String updateStatusCustomer(String code,String id,String newStatus,ArrayList<customer>customers) {
 		customer cust=new customer();
-		int CustomerIndex=customer.getIndex1(id,customers);
+		int CustomerIndex=customer.getIndex_1(id,customers);
 	    cust=customers.get(CustomerIndex);
 	    int productIndex=cust.getIndexforProduct(code,customers);
 	    customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);
@@ -177,3 +187,4 @@ public class worker extends person{
 
 	
 }
+

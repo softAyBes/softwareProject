@@ -65,7 +65,7 @@ public class product {
 	public  void setLength(String product_length) {
 		// TODO Auto-generated method stub 
 		int L=Integer.parseInt(product_length);
-		L=Length;
+		L=this.Length;
 	}
 
 
