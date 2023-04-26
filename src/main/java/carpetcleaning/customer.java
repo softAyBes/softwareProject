@@ -244,7 +244,7 @@ public class customer extends person{
 		int w=CCust.productsForCusomer.get(i).getWidth();
 		int l=CCust.productsForCusomer.get(i).getLength();
 		
-		l=3;
+		
 
         
 	    return l*w*25;
