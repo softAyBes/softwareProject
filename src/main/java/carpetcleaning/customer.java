@@ -191,9 +191,6 @@ public class customer extends person{
 			}
 		}
 		
-		
-		
-
 		return index;
 		}
 	
