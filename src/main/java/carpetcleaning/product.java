@@ -16,6 +16,7 @@ public class product {
 	private String responsibleWorkerId;
 	private String custId;
 	
+	
 	public String getCustId() {
 		return custId;
 	}
@@ -25,6 +26,7 @@ public class product {
 	public product(String name_p,String Code) {
 		this.name_p=name_p;
 		this.Code=Code;
+		this.status="waiting";
 		
 	}
 	public String getResponsibleWorkerId() {
@@ -63,7 +65,7 @@ public class product {
 	public  void setLength(String product_length) {
 		// TODO Auto-generated method stub 
 		int L=Integer.parseInt(product_length);
-		L=Length;
+		L=this.Length;
 	}
 
 

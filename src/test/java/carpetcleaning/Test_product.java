@@ -82,7 +82,7 @@ public void the_product_has_a_code_name_picture_isspecial_status_category_length
 		Pro.setMaterial(product_material);
 		//Customer=new customer();
 		
-		int index =customer.getIndex1("3",customers);
+		int index =customer.getIndex_1("3",customers);
 		Customer=customers.get(index);
 		Customer.addProduct(Pro,Test_product.workers);
 	}
@@ -99,7 +99,7 @@ public void the_product_has_a_code_name_picture_isspecial_status_category_length
 @When("product with code {string} already exist")
 public void product_with_code_already_exist(String Code) 
 {
-	int index =customer.getIndex1("3",customers);
+	int index =customer.getIndex_1("3",customers);
 	Customer=customers.get(index);
 	customer.check_is_exist_1(Code,Customer);
 }
@@ -120,7 +120,7 @@ public void product_code_is_not_exist(String Code)
 @Then("delete product {string} faild")
 public void delete_product_faild(String Code) 
 {
-	int index =customer.getIndex1("3",customers);
+	int index =customer.getIndex_1("3",customers);
 	Customer=customers.get(index);
     assertFalse(customer.check_is_exist_1(Code,Customer));
 }
@@ -128,7 +128,7 @@ public void delete_product_faild(String Code)
 @When("customer id {string} want to delete product code {string}")
 public void customer_id_want_to_delete_product_code(String id, String CODE) 
 {
-	int index =customer.getIndex1("3",customers);
+	int index =customer.getIndex_1("3",customers);
 	Customer=customers.get(index);
 	 if(customer.check_is_exist_1(CODE,Customer))
 	 {
@@ -151,7 +151,7 @@ public void delete_product_successfully(String CODE)
 public void customer_want_to_update_product_with_new_picture(String Code, String picture) 
 {
 
-	int index =customer.getIndex1("3",customers);
+	int index =customer.getIndex_1("3",customers);
 	Customer=customers.get(index);
 	customer.updatepicture(Code,picture,Customer);
 	
