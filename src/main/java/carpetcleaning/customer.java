@@ -266,18 +266,11 @@ public class customer extends person{
 	public static int discount(int total_price,int dis,customer CCust)
 	{
 			
-		//int indexxx=customer.getIndex(code,CCust.getProductsForCusomer());
-		//int p=customer.get_price(code, CCust);
-		//if(p<550)
-		//{
-		//	return p;
-		//}
-		//else	
-		//{
+		
 		int disc=(total_price*dis)/100;
 		int Discounted_price=total_price-disc;
 		return Discounted_price;
-		//}
+		
 	}
 }
 

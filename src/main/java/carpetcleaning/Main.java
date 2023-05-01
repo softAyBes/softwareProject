@@ -18,12 +18,12 @@ public class Main {
 		//(String id,String name,String pass,String phone,String address)
 
 ////customer1
-person pers1=new person("aya","123456","3","customer");
+person pers1=new person("aya","123","3","customer");
 customer c2=new customer(pers1,"3", "059967", "Arsad");
 c2.setEmail("ayabaara4@gmail.com");
 
 ///// customer2
-person pers11=new person("beesan","123456","8","customer");
+person pers11=new person("beesan","123","8","customer");
 customer c22=new customer(pers11,"8", "58585", "Rafidya");
 c22.setEmail("ayabaara4@gmail.com");
 
@@ -32,10 +32,10 @@ person adm1=new person("admin1","admin123","5","admin");
 Admin admin1=new Admin(adm1);
 
 ///worker1
-person work1=new person("worker1","work123456","6","worker");
+person work1=new person("worker1","work123","6","worker");
 worker worker1=new worker(work1,"6","05987","2000","nablus");
 ///worker2
-person work2=new person("worker2","work123456","7","worker");
+person work2=new person("worker2","work123","7","worker");
 
 worker worker2=new worker(work2,"7","05987","3500","hebron");
 
