@@ -51,7 +51,7 @@ public class customer extends person{
 
 	public static void delete_product(String Code,customer Customer)
 	{
-		int index=Customer.getIndex_for_product(Code,Customer.productsForCusomer);
+		int index=Customer.getIndexForProduct(Code,Customer.productsForCusomer);
 		Customer.productsForCusomer.remove(index);
 	}
 	public void setProductsForCusomer(ArrayList<product> productsForCusomer) {
@@ -83,7 +83,7 @@ public class customer extends person{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public static int getIndex_1(String id,ArrayList<customer>customers) {
+	public static int getIndexx(String id,ArrayList<customer>customers) {
 		int index=-1;
 
 		for(int i=0;i<customers.size();i++) {
@@ -94,9 +94,9 @@ public class customer extends person{
 		
 		return index; 
 	}
-	public static boolean isExist_1(String id2,ArrayList<customer>customers) 
+	public static boolean isExistCustomer(String id2,ArrayList<customer>customers) 
 	{
-		if(getIndex_1(id2,customers) == -1) {
+		if(getIndexx(id2,customers) == -1) {
 			
 			return false;
 		}
@@ -107,7 +107,7 @@ public class customer extends person{
 	
 	/////This part for product check
 	
-	public  int getIndex_for_product(String Code,ArrayList<product> productsForCusomer) {
+	public  int getIndexForProduct(String Code,ArrayList<product> productsForCusomer) {
 		int index=-1;
 
 		for(int i=0;i<productsForCusomer.size();i++)
@@ -122,8 +122,8 @@ public class customer extends person{
 		
 		return index; 
 	}
-	public static boolean check_is_exist_1(String code, customer Customer) {
-		if(Customer.getIndex_for_product(code,Customer.productsForCusomer)==-1)
+	public static boolean checkIsExist1(String code, customer Customer) {
+		if(Customer.getIndexForProduct(code,Customer.productsForCusomer)==-1)
 		{
 			
 			return false;
@@ -134,10 +134,10 @@ public class customer extends person{
 		return true;
 	}
 	
-	public static void delete_product(String Code,customer Customer,ArrayList<worker>workers)
+	public static void deleteProduct(String Code,customer Customer,ArrayList<worker>workers)
 	{
-		int index=Customer.getIndex_for_product(Code,Customer.productsForCusomer);
-		int pid=Customer.getIndex_for_product(Code, Customer.getProductsForCusomer());
+		int index=Customer.getIndexForProduct(Code,Customer.productsForCusomer);
+		int pid=Customer.getIndexForProduct(Code, Customer.getProductsForCusomer());
 		product pro =Customer.getProductsForCusomer().get (pid);
 		
 		int WID=worker.getIndexOfWorker(pro.getResponsibleWorkerId(),workers);
@@ -160,18 +160,18 @@ public class customer extends person{
 	
 	public static void deleteCustomer(String id2,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=getIndex_1(id2,customers);
+		int index=getIndexx(id2,customers);
 		customers.remove(index);
 	}
 	public static void updatePhone(String id2, String newPhone,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=customer.getIndex_1(id2,customers);
+		int index=customer.getIndexx(id2,customers);
 		customers.get(index).setPhone(newPhone);
 		
 	}
 	public static void updateAdress(String id2, String newAdress,ArrayList<customer>customers) {
 		// TODO Auto-generated method stub
-		int index=customer.getIndex_1(id2,customers);
+		int index=customer.getIndexx(id2,customers);
 		customers.get(index).setAddress(newAdress);
 		
 	}
@@ -199,17 +199,17 @@ public class customer extends person{
 	
 	public static void updatepicture(String code, String N_picture, customer Customer) {
 		
-		int i=Customer.getIndex_for_product(code,Customer.getProductsForCusomer());
+		int i=Customer.getIndexForProduct(code,Customer.getProductsForCusomer());
 		Customer.productsForCusomer.get(i).setPicture(N_picture);
 	}
 	
 	
 	public static void update_width(String code, String width, customer CCust) {
-		int i=CCust.getIndex_for_product(code,CCust.getProductsForCusomer());
+		int i=CCust.getIndexForProduct(code,CCust.getProductsForCusomer());
 		 CCust.productsForCusomer.get(i).setwidth(width);
 	}
 	public static void update_Length(String code, String length, customer CCust) {
-		int i=CCust.getIndex_for_product(code,CCust.getProductsForCusomer());
+		int i=CCust.getIndexForProduct(code,CCust.getProductsForCusomer());
 		 CCust.productsForCusomer.get(i).setLength(length);
 	}
 	
@@ -237,10 +237,10 @@ public class customer extends person{
 	
 	
 	///for price
-	public static int get_price(String code,customer CCust) 
+	public static int getPrice(String code,customer CCust) 
 	{
 	   
-		int i=CCust.getIndex_for_product(code,CCust.getProductsForCusomer());
+		int i=CCust.getIndexForProduct(code,CCust.getProductsForCusomer());
 		int w=CCust.productsForCusomer.get(i).getWidth();
 		int l=CCust.productsForCusomer.get(i).getLength();
 		
@@ -259,7 +259,7 @@ public class customer extends person{
 		int total=0;
 		for(int i=0;i<CCust.productsForCusomer.size();i++)
 		{
-		 total+=get_price(CCust.productsForCusomer.get(i).getCode(),CCust);
+		 total+=getPrice(CCust.productsForCusomer.get(i).getCode(),CCust);
 		}
 		return total;
 	}

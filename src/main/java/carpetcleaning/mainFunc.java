@@ -83,7 +83,7 @@ public class mainFunc {
 							in=input.nextLine();
 							System.out.println(" Enter Information : ID");
 							in=input.nextLine();
-							if(customer.isExist_1(in, Main.customers)) {
+							if(customer.isExistCustomer(in, Main.customers)) {
 									System.out.println("this Id already exist");
 									System.out.println(emptyLine);
 								}
@@ -117,7 +117,7 @@ public class mainFunc {
 							System.out.println(" What ID you want to delete");
 							in=input.nextLine();
 							in=input.nextLine();
-							if(!customer.isExist_1(in, Main.customers)) {
+							if(!customer.isExistCustomer(in, Main.customers)) {
 									System.out.println("No customer with this id");
 									System.out.println();
 									System.out.println(emptyLine);
@@ -244,7 +244,7 @@ if(x==1) {
 				
 				for(int i=0;i<size;i++) {
 					product proo=w.getProductsForWorker().get(i);
-					customer cust=Main.customers.get(customer.getIndex_1(proo.getCustId(), Main.customers));
+					customer cust=Main.customers.get(customer.getIndexx(proo.getCustId(), Main.customers));
 					System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getId()+"	::		"+cust.getName()+"	::	"+cust.getPhone()+"		");
 					System.out.println();
 
@@ -262,18 +262,18 @@ if(x==1) {
 			in=input.nextLine();
 			in=input.nextLine();
 			
-			if(!customer.isExist_1(in, Main.customers)) {
+			if(!customer.isExistCustomer(in, Main.customers)) {
 					System.out.println("No customer with this id");
 					System.out.println(emptyLine);
 				}
 			else {
-				cust=Main.customers.get(customer.getIndex_1(in, Main.customers));
+				cust=Main.customers.get(customer.getIndexx(in, Main.customers));
 				
 				System.out.println("What product id you want to change");
 				in=input.nextLine();
 				proId=in;
 				
-				if(!customer.check_is_exist_1(in, cust)) {
+				if(!customer.checkIsExist1(in, cust)) {
 					System.out.println("No product with this id");
 					System.out.println(emptyLine);
 				}
@@ -318,7 +318,7 @@ if(x==1) {
 			if(stat.equalsIgnoreCase("customer"))
 			{
 				customer cust=new customer();
-			    cust=Main.customers.get(customer.getIndex_1(user.getId_person(),Main.customers));
+			    cust=Main.customers.get(customer.getIndexx(user.getId_person(),Main.customers));
 				while(logged==1)
 				{
 					x=0;
@@ -338,14 +338,14 @@ if(x==1) {
 							System.out.println(" Enter Code to your product"); 
 							in=input.nextLine();
 							in=input.nextLine();
-							if(customer.check_is_exist_1(in,cust)) 
+							if(customer.checkIsExist1(in,cust)) 
 							 {
 								System.out.println("this Code already exist");
 								System.out.println(emptyLine);
 								
 							 }
 							
-							else if(!customer.check_is_exist_1(in,cust))
+							else if(!customer.checkIsExist1(in,cust))
 					        	{
 							   //cust.setId(in);
 								pro.setStatus("Waiting");
@@ -407,14 +407,14 @@ if(x==1) {
 							System.out.println(" What Code you want to delete");
 							in=input.nextLine();
 							in=input.nextLine();
-							if(!customer.check_is_exist_1(in,cust)) 
+							if(!customer.checkIsExist1(in,cust)) 
 							{
 							System.out.println("No product with this Code");
 						 	System.out.println(emptyLine);
 						    }
 				  	     else
 				        	{
-						    customer.delete_product(in,cust,Main.workers);
+						    customer.deleteProduct(in,cust,Main.workers);
 						    System.out.println("Deleted successfully");
 				        	}
 					}
@@ -436,7 +436,7 @@ if(x==1) {
 								 code=input.nextLine();
 								code=input.nextLine();
 							
-								if(!customer.check_is_exist_1(code,cust)) 
+								if(!customer.checkIsExist1(code,cust)) 
 								{
 									
 								System.out.println("No product with this Code");
@@ -457,7 +457,7 @@ if(x==1) {
 			  	    	code=input.nextLine();
 						code=input.nextLine();
 						
-							if(!customer.check_is_exist_1(code,cust)) 
+							if(!customer.checkIsExist1(code,cust)) 
 							{
 								
 							System.out.println("No product with this Code");
@@ -481,7 +481,7 @@ if(x==1) {
 		  	    	code=input.nextLine();
 					code=input.nextLine();
 					
-						if(!customer.check_is_exist_1(code,cust)) 
+						if(!customer.checkIsExist1(code,cust)) 
 						{
 							
 						System.out.println("No product with this Code");

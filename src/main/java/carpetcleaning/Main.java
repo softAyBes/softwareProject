@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Main {
 	
-	public static ArrayList<customer> customers= new ArrayList<customer>();
-	public static ArrayList<person> persons= new ArrayList<person>();
-	public static ArrayList<worker> workers= new ArrayList<worker>();
+	public static final ArrayList<customer> customers= new ArrayList<customer>();
+	public static final ArrayList<person> persons= new ArrayList<person>();
+	public static final ArrayList<worker> workers= new ArrayList<worker>();
 	public static person uesr;
 	public static int autoId=4;
 	
@@ -46,7 +46,7 @@ persons.add(work1);
 persons.add(work2);
 
 String id="3";
-if(!customer.isExist_1(id,customers)) {
+if(!customer.isExistCustomer(id,customers)) {
 
 workers.add(worker2);
 workers.add(worker1);
@@ -222,7 +222,7 @@ return 1;
 				 System.out.print("Product code :    " + customers.get(i).getProductsForCusomer().get(j).getCode());
 				 System.out.print("\n");
 				 String k=customers2.get(i).getProductsForCusomer().get(j).getCode();
-				 int price=customer.get_price(k,customers2.get(i));
+				 int price=customer.getPrice(k,customers2.get(i));
 				 System.out.println("Price of product :" + price);
 				 System.out.print("\n");
 				 totel_price=totel_price+price;

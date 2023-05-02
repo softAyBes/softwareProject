@@ -59,7 +59,7 @@ public class worker extends person{
 	}
 	public static String updateStatusCustomer(String code,String id,String newStatus,ArrayList<customer>customers) {
 		customer cust=new customer();
-		int CustomerIndex=customer.getIndex_1(id,customers);
+		int CustomerIndex=customer.getIndexx(id,customers);
 	    cust=customers.get(CustomerIndex);
 	    int productIndex=cust.getIndexforProduct(code,customers);
 	    customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);

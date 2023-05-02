@@ -38,11 +38,11 @@ public class Test_discount {
 					c4.getProductsForCusomer().add(pro3);  
 				
 					
-					if(!customer.isExist_1(c2.getId(),customers)) 
+					if(!customer.isExistCustomer(c2.getId(),customers)) 
 					{
 					customers.add(c2);
 					}
-					else if(!customer.isExist_1(c4.getId(),customers))
+					else if(!customer.isExistCustomer(c4.getId(),customers))
 					{
 						customers.add(c4);
 					}
@@ -52,23 +52,23 @@ public class Test_discount {
 	@Given("that customer with id {string} is exist")
 	public void that_customer_with_id_is_exist(String id) 
 	{
-		int i=customer.getIndex_1(id,customers);
+		int i=customer.getIndexx(id,customers);
 		Customer=customers.get(i);
-		customer.isExist_1(id,customers);
+		customer.isExistCustomer(id,customers);
 	}
 
 
 @When("the price with code {string} greater than or equal {string}")
 public void the_price_with_code_greater_than_or_equal(String code, String price) {
   
-	   int price_product=customer.get_price(code,Customer);
+	   int price_product=customer.getPrice(code,Customer);
       customer.check_price(price_product);   
 	}
 @Then("product with code {string} get a discount of {int}")
 public void product_with_code_get_a_discount_of(String code, int dis) 
 {
 	
-	  int price_=customer.get_price(code, Customer);
+	  int price_=customer.getPrice(code, Customer);
 	  int T=customer.get_total_price(Customer);
 	  int price_after_dis=customer.discount(T,dis,Customer);
 	 //double i=customer.getIndex(id,customers);

@@ -51,11 +51,11 @@ public class Test_reports
 			///worker w1 =new worker(pers4,"1","05933","2000","Add");
 			//workers.add(w1);
 			
-			if(!customer.isExist_1(c2.getId(),customers)) 
+			if(!customer.isExistCustomer(c2.getId(),customers)) 
 			{
 			    customers.add(c2);
 			}
-			else if(!customer.isExist_1(c4.getId(),customers))
+			else if(!customer.isExistCustomer(c4.getId(),customers))
 			{
 				customers.add(c4);
 			}
