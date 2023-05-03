@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Main {
 	
-	public static final List<customer> customers = new ArrayList<customer>();
-	public static final List<person> persons = new ArrayList<person>();
-	public static final List<worker> workers = new ArrayList<worker>();
-	public static  person uesr;
-	public static int autoId=4;
+	protected static final List<customer> customers = new ArrayList<>();
+	protected static final List<person> persons = new ArrayList<>();
+	protected static final List<worker> workers = new ArrayList<>();
+	protected static  person uesr;
+	protected static int autoId=4;
 	
 	
 
