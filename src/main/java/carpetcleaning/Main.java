@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Main {
 	
-	public static ArrayList<customer> customers= new ArrayList<customer>();
-	public static ArrayList<person> persons= new ArrayList<person>();
-	public static ArrayList<worker> workers= new ArrayList<worker>();
-	public static person uesr;
+	public static final ArrayList<customer> customers= new ArrayList<customer>();
+	public static  final ArrayList<person> persons= new ArrayList<person>();
+	public static final ArrayList<worker> workers= new ArrayList<worker>();
+	public static  person uesr;
 	public static int autoId=4;
 	
 	
