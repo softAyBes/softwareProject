@@ -42,11 +42,11 @@ public class Test_invoice
 		c4.getProductsForCusomer().add(pro3);  
 	
 		
-		if(!customer.isExist_1(c2.getId(),customers)) 
+		if(!customer.isExistCustomer(c2.getId(),customers)) 
 		{
 		    customers.add(c2);
 		}
-		else if(!customer.isExist_1(c4.getId(),customers))
+		else if(!customer.isExistCustomer(c4.getId(),customers))
 		{
 			customers.add(c4);
 		}

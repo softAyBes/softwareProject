@@ -82,7 +82,7 @@ public void the_product_has_a_code_name_picture_isspecial_status_category_length
 		Pro.setMaterial(product_material);
 		//Customer=new customer();
 		
-		int index =customer.getIndex_1("3",customers);
+		int index =customer.getIndexx("3",customers);
 		Customer=customers.get(index);
 		Customer.addProduct(Pro,Test_product.workers);
 	}
@@ -92,47 +92,47 @@ public void the_product_has_a_code_name_picture_isspecial_status_category_length
 	/*predict=false;
 		act=Pro.check_is_exist(code);
         assertEquals(predict,act);*/
-		assertTrue(customer.check_is_exist_1(code,Customer));
+		assertTrue(customer.checkIsExist1(code,Customer));
 	}
 	
 
 @When("product with code {string} already exist")
 public void product_with_code_already_exist(String Code) 
 {
-	int index =customer.getIndex_1("3",customers);
+	int index =customer.getIndexx("3",customers);
 	Customer=customers.get(index);
-	customer.check_is_exist_1(Code,Customer);
+	customer.checkIsExist1(Code,Customer);
 }
 
 @Then("record product with code {string} is faild")
 public void record_product_with_code_is_faild(String code) {
 	
-	assertTrue(customer.check_is_exist_1(code,Customer));
+	assertTrue(customer.checkIsExist1(code,Customer));
 }
 
 @When("product code {string} is not exist")
 public void product_code_is_not_exist(String Code)
 {
-	customer.check_is_exist_1(Code,Customer);
+	customer.checkIsExist1(Code,Customer);
 	
 }
 
 @Then("delete product {string} faild")
 public void delete_product_faild(String Code) 
 {
-	int index =customer.getIndex_1("3",customers);
+	int index =customer.getIndexx("3",customers);
 	Customer=customers.get(index);
-    assertFalse(customer.check_is_exist_1(Code,Customer));
+    assertFalse(customer.checkIsExist1(Code,Customer));
 }
 
 @When("customer id {string} want to delete product code {string}")
 public void customer_id_want_to_delete_product_code(String id, String CODE) 
 {
-	int index =customer.getIndex_1("3",customers);
+	int index =customer.getIndexx("3",customers);
 	Customer=customers.get(index);
-	 if(customer.check_is_exist_1(CODE,Customer))
+	 if(customer.checkIsExist1(CODE,Customer))
 	 {
-		 customer.delete_product(CODE,Customer,workers);
+		 customer.deleteProduct(CODE,Customer,workers);
 	 }
 }
 
@@ -140,7 +140,7 @@ public void customer_id_want_to_delete_product_code(String id, String CODE)
 @Then("delete product {string} successfully")
 public void delete_product_successfully(String CODE) 
 {
-	 boolean A = customer.check_is_exist_1(CODE,Customer);
+	 boolean A = customer.checkIsExist1(CODE,Customer);
 	 boolean E=false;
 	  assertEquals(A,E);
 	//assertTrue(customer.delete_product(CODE,Customer));
@@ -151,7 +151,7 @@ public void delete_product_successfully(String CODE)
 public void customer_want_to_update_product_with_new_picture(String Code, String picture) 
 {
 
-	int index =customer.getIndex_1("3",customers);
+	int index =customer.getIndexx("3",customers);
 	Customer=customers.get(index);
 	customer.updatepicture(Code,picture,Customer);
 	
@@ -160,7 +160,7 @@ public void customer_want_to_update_product_with_new_picture(String Code, String
 @Then("product picture code {string} Update successfully")
 public void product_picture_code_update_successfully(String Code) 
 {
-	 boolean A = customer.check_is_exist_1(Code,Customer);
+	 boolean A = customer.checkIsExist1(Code,Customer);
 	 boolean E=true;
 	  assertEquals(A,E);   
 }

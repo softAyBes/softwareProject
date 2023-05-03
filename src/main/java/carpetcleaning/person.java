@@ -8,7 +8,7 @@ public class person {
 	private String password;
 	private String id_person;
 	private String type;
-	private int logged;  //1 log in  0 log out
+	private int logged;  
 	
 
 	

@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Main {
 	
-	public static final List<customer> customers= new ArrayList<customer>();
-	public static  final List<person> persons= new ArrayList<person>();
-	public static final List<worker> workers= new ArrayList<worker>();
-	public static  person uesr;
-	public static int autoId=4;
+	protected static final List<customer> customers = new ArrayList<>();
+	protected static final List<person> persons = new ArrayList<>();
+	protected static final List<worker> workers = new ArrayList<>();
+	protected static  person uesr;
+	protected static int autoId=4;
 	
 	
 
@@ -19,12 +19,12 @@ public class Main {
 		//(String id,String name,String pass,String phone,String address)
 
 ////customer1
-person pers1=new person("aya","123456","3","customer");
+person pers1=new person("aya","123","3","customer");
 customer c2=new customer(pers1,"3", "059967", "Arsad");
 c2.setEmail("ayabaara4@gmail.com");
 
 ///// customer2
-person pers11=new person("beesan","123456","8","customer");
+person pers11=new person("beesan","123","8","customer");
 customer c22=new customer(pers11,"8", "58585", "Rafidya");
 c22.setEmail("ayabaara4@gmail.com");
 
@@ -33,10 +33,10 @@ person adm1=new person("admin1","admin123","5","admin");
 Admin admin1=new Admin(adm1);
 
 ///worker1
-person work1=new person("worker1","work123456","6","worker");
+person work1=new person("worker1","work123","6","worker");
 worker worker1=new worker(work1,"6","05987","2000","nablus");
 ///worker2
-person work2=new person("worker2","work123456","7","worker");
+person work2=new person("worker2","work123","7","worker");
 
 worker worker2=new worker(work2,"7","05987","3500","hebron");
 
@@ -47,7 +47,7 @@ persons.add(work1);
 persons.add(work2);
 
 String id="3";
-if(!customer.isExist_1(id,customers)) {
+if(!customer.isExistCustomer(id,customers)) {
 
 workers.add(worker2);
 workers.add(worker1);
@@ -223,7 +223,7 @@ return 1;
 				 System.out.print("Product code :    " + customers.get(i).getProductsForCusomer().get(j).getCode());
 				 System.out.print("\n");
 				 String k=customers2.get(i).getProductsForCusomer().get(j).getCode();
-				 int price=customer.get_price(k,customers2.get(i));
+				 int price=customer.getPrice(k,customers2.get(i));
 				 System.out.println("Price of product :" + price);
 				 System.out.print("\n");
 				 totel_price=totel_price+price;
