@@ -1,6 +1,7 @@
 package carpetcleaning;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class person {
 	private String name;
@@ -66,7 +67,7 @@ public class person {
 	}
 	
 	
-	public static int getIndex(String name,ArrayList<person>persons) {
+	public static int getIndex(String name,List<person> persons) {
 		int index=-1;
 
 		for(int i=0;i<persons.size();i++) {
@@ -91,10 +92,10 @@ public class person {
 		return true;
 	}
 	
-	public static String getIdFromName(String name,ArrayList<person>arr) {
-		for(int i=0;i<arr.size();i++) {
-			if(arr.get(i).getName().equals(name)) {
-				return arr.get(i).getId_person();
+	public static String getIdFromName(String name,List<person> persons) {
+		for(int i=0;i<persons.size();i++) {
+			if(persons.get(i).getName().equals(name)) {
+				return persons.get(i).getId_person();
 			}
 		}
 		return "-1";

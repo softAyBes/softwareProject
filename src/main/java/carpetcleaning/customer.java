@@ -1,6 +1,7 @@
 package carpetcleaning;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class customer extends person{
 	private String id;
@@ -83,7 +84,7 @@ public class customer extends person{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public static int getIndexx(String id,ArrayList<customer>customers) {
+	public static int getIndexx(String id,List<customer> customers) {
 		int index=-1;
 
 		for(int i=0;i<customers.size();i++) {
@@ -94,7 +95,7 @@ public class customer extends person{
 		
 		return index; 
 	}
-	public static boolean isExistCustomer(String id2,ArrayList<customer>customers) 
+	public static boolean isExistCustomer(String id2,List<customer> customers) 
 	{
 		if(getIndexx(id2,customers) == -1) {
 			
@@ -134,7 +135,7 @@ public class customer extends person{
 		return true;
 	}
 	
-	public static void deleteProduct(String Code,customer Customer,ArrayList<worker>workers)
+	public static void deleteProduct(String Code,customer Customer,List<worker> workers)
 	{
 		int index=Customer.getIndexForProduct(Code,Customer.productsForCusomer);
 		int pid=Customer.getIndexForProduct(Code, Customer.getProductsForCusomer());
@@ -151,14 +152,14 @@ public class customer extends person{
 
 /////This part for product check
 	
-	public static void createCustomer(customer cust,ArrayList<customer>customers) {
+	public static void createCustomer(customer cust,List<customer> customers) {
 		// TODO Auto-generated method stub
 		customers.add(cust);	
 	}
 	
 
 	
-	public static void deleteCustomer(String id2,ArrayList<customer>customers) {
+	public static void deleteCustomer(String id2,List<customer> customers) {
 		// TODO Auto-generated method stub
 		int index=getIndexx(id2,customers);
 		customers.remove(index);
@@ -175,14 +176,14 @@ public class customer extends person{
 		customers.get(index).setAddress(newAdress);
 		
 	}
-	public void addProduct(product pro,ArrayList<worker> workers) {
+	public void addProduct(product pro,List<worker> workers) {
 		pro.setCustId(this.id);
 		this.productsForCusomer.add(pro);
 		
 		worker.distributeOrder(pro, workers);
 	}
 	
-	public int getIndexforProduct (String code,ArrayList<customer>customers) {
+	public int getIndexforProduct (String code,List<customer> customers) {
 			int index=-1;
 		
 		for(int i=0;i<this.productsForCusomer.size();i++) {

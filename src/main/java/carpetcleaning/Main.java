@@ -1,12 +1,13 @@
 package carpetcleaning;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 	
-	public static final ArrayList<customer> customers= new ArrayList<customer>();
-	public static final ArrayList<person> persons= new ArrayList<person>();
-	public static final ArrayList<worker> workers= new ArrayList<worker>();
+	public static final List<customer> customers= new ArrayList<customer>();
+	public static final List<person> persons= new ArrayList<person>();
+	public static final List<worker> workers= new ArrayList<worker>();
 	public static person uesr;
 	public static int autoId=4;
 	
@@ -108,46 +109,46 @@ return 1;
 			System.out.println(customers.get(i).getId());
 		}
 	}
-	public static int itemsNum(ArrayList<customer> cust) {
+	public static int itemsNum(List<customer> customers2) {
 		int num=0;
-		for(int i=0;i<cust.size();i++) {
-			num+=cust.get(i).getProductsForCusomer().size();
+		for(int i=0;i<customers2.size();i++) {
+			num+=customers2.get(i).getProductsForCusomer().size();
 		}
 		return num;
 	}
 	
 	
 	
-	public static int totalWaitingNum(ArrayList<customer> cust) {
+	public static int totalWaitingNum(List<customer> customers2) {
 		int num=0;
-		for(int i=0;i<cust.size();i++) {
-			num+=	customer.WaitingProduct(cust.get(i));
+		for(int i=0;i<customers2.size();i++) {
+			num+=	customer.WaitingProduct(customers2.get(i));
 		
 		}
 		return num;
 	}
 	
-	public static int totalIntreatment(ArrayList<customer> cust) {
+	public static int totalIntreatment(List<customer> customers2) {
 		int num=0;
-		for(int i=0;i<cust.size();i++) {
-			num+=	customer.inTreatmentProduct(cust.get(i));
+		for(int i=0;i<customers2.size();i++) {
+			num+=	customer.inTreatmentProduct(customers2.get(i));
 		
 		}
 		return num;
 	}
 	
-	public static int totalDebts(ArrayList<customer> cust) {
+	public static int totalDebts(List<customer> customers2) {
 		int num=0;
-		for(int i=0;i<cust.size();i++) {
-			num+=	cust.get(i).getDebt();
+		for(int i=0;i<customers2.size();i++) {
+			num+=	customers2.get(i).getDebt();
 		
 		}
 		return num;
 	}
-	public static int totalMoney(ArrayList<customer> cust) {
+	public static int totalMoney(List<customer> customers2) {
 		int num=0;
-		for(int i=0;i<cust.size();i++) {
-			num+=	cust.get(i).getMoney();
+		for(int i=0;i<customers2.size();i++) {
+			num+=	customers2.get(i).getMoney();
 		
 		}
 		return num;
@@ -156,30 +157,30 @@ return 1;
 	
 
 
-	public static void Show_all_customers_details(ArrayList<customer> custt) 
+	public static void Show_all_customers_details(List<customer> customers2) 
 	{
 		System.out.println("-------------Report about customers details-----------------");	
 		System.out.println();
 		System.out.println("ID \tName \tAddress \t \tpro_code \tpro_Name \tpro_Material \tpro_Category  \tpro_Length \tpro_Width \tIsspecial ");
-		if(!custt.isEmpty()) 
+		if(!customers2.isEmpty()) 
 		{
-			for(int i=0;i<custt.size();i++) 
+			for(int i=0;i<customers2.size();i++) 
 			{
-				System.out.print(custt.get(i).getId()+ "\t" +custt.get(i).getName()+ "\t" +custt.get(i).getAddress()
+				System.out.print(customers2.get(i).getId()+ "\t" +customers2.get(i).getName()+ "\t" +customers2.get(i).getAddress()
 );
-				if(custt.get(i).getProductsForCusomer().size()==0)
+				if(customers2.get(i).getProductsForCusomer().size()==0)
 				{
 					System.out.println();
 					System.out.println("\t");
 				}
-				for(int j=0;j<custt.get(i).getProductsForCusomer().size();j++)
+				for(int j=0;j<customers2.get(i).getProductsForCusomer().size();j++)
 			{
 					// System.out.println("\t");
-			 System.out.println( "\t" +"\t" +"\t" +custt.get(i).getProductsForCusomer().get(j).getCode()+ "\t" +"\t"+
-					custt.get(i).getProductsForCusomer().get(j).getName_p()+ "\t" +"\t"+custt.get(i).getProductsForCusomer().get(j).getMaterial()+"\t"+ "\t" +custt.get(i).getProductsForCusomer().get(j).getCategory()+
-					"\t"+"\t"+custt.get(i).getProductsForCusomer().get(j).getLength()+
-					"\t"+"\t"+custt.get(i).getProductsForCusomer().get(j).getWidth()+
-					"\t"+"\t"+custt.get(i).getProductsForCusomer().get(j).getIsspecial());
+			 System.out.println( "\t" +"\t" +"\t" +customers2.get(i).getProductsForCusomer().get(j).getCode()+ "\t" +"\t"+
+					customers2.get(i).getProductsForCusomer().get(j).getName_p()+ "\t" +"\t"+customers2.get(i).getProductsForCusomer().get(j).getMaterial()+"\t"+ "\t" +customers2.get(i).getProductsForCusomer().get(j).getCategory()+
+					"\t"+"\t"+customers2.get(i).getProductsForCusomer().get(j).getLength()+
+					"\t"+"\t"+customers2.get(i).getProductsForCusomer().get(j).getWidth()+
+					"\t"+"\t"+customers2.get(i).getProductsForCusomer().get(j).getIsspecial());
 				
 		      }
 	    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");	
@@ -188,7 +189,7 @@ return 1;
 	}
 
 	
-	public static void generate_invoice(String Id,int paying,ArrayList<customer> customers2) 
+	public static void generate_invoice(String Id,int paying,List<customer> customers2) 
 	
 	{ 
 		int totel_price=0;
@@ -265,17 +266,17 @@ return 1;
 		}
 	
 	}
-	public static void Show_all_worker_details(ArrayList <worker> W) 
+	public static void Show_all_worker_details(List<worker> workers2) 
 	{
 	
 		System.out.println("-------------Report about worker details-----------------");	
 		System.out.println();
 		System.out.println("ID \t \tName \t \tAddress   \tSalary  \tPhone  ");
-		if(!W.isEmpty()) 
+		if(!workers2.isEmpty()) 
 		{
-			for(int i=0;i<W.size();i++)
+			for(int i=0;i<workers2.size();i++)
 			{
-				System.out.print(W.get(i).getId()+"\t"+"\t"+W.get(i).getName()+"\t"+"\t"+W.get(i).getAddress()+"\t"+"\t"+W.get(i).getSalary()+"\t"+"\t"+W.get(i).getPhone())	;
+				System.out.print(workers2.get(i).getId()+"\t"+"\t"+workers2.get(i).getName()+"\t"+"\t"+workers2.get(i).getAddress()+"\t"+"\t"+workers2.get(i).getSalary()+"\t"+"\t"+workers2.get(i).getPhone())	;
 				System.out.println();
 			}
 		   }
