@@ -69,7 +69,7 @@ public void product_with_code_get_a_discount_of(String code, int dis)
 {
 	
 	  int price_=customer.getPrice(code, Customer);
-	  int T=customer.get_total_price(Customer);
+	  int T=customer.getTotalPrice(Customer);
 	  int price_after_dis=customer.discount(T,dis,Customer);
 	 //double i=customer.getIndex(id,customers);
 	 System.out.print(price_after_dis);

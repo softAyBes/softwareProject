@@ -47,9 +47,9 @@ public class Test_product {
 		c2.getProductsForCusomer().add(pro1);  
 		c2.getProductsForCusomer().add(pro2);
 		
-		worker.AddProductToWorker(pro1, w1, workers);
-		worker.AddProductToWorker(pro11, w1, workers);
-		worker.AddProductToWorker(pro2, w2, workers);
+		worker.addProductToWorker(pro1, w1, workers);
+		worker.addProductToWorker(pro11, w1, workers);
+		worker.addProductToWorker(pro2, w2, workers);
 		c2.getProductsForCusomer().add(pro2);
 		customers.add(c2);
 		}

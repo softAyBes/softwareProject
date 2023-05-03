@@ -65,7 +65,7 @@ public class Test_invoice
 public void generate_invoice_to_customer_with_id_and_paid_successfully(String id, Integer paid) {
    
     Main.setCutomers();
-    Main.generate_invoice(id,paid,customers);
+    Main.generateInvoice(id,paid,customers);
 }
 
 	

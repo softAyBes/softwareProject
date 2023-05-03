@@ -255,7 +255,7 @@ public class customer extends person{
 	public static boolean check_price(int p) {
 		return p>=550;
 	}
-	public static int get_total_price(customer CCust)
+	public static int getTotalPrice(customer CCust)
 	{
 		int total=0;
 		for(int i=0;i<CCust.productsForCusomer.size();i++)
@@ -265,13 +265,10 @@ public class customer extends person{
 		return total;
 	}
 	public static int discount(int total_price,int dis,customer CCust)
-	{
-			
-		
+	{	
 		int disc=(total_price*dis)/100;
 		int Discounted_price=total_price-disc;
-		return Discounted_price;
-		
+		return Discounted_price;	
 	}
 }
 

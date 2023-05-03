@@ -179,7 +179,7 @@ public class mainFunc {
 							x=input.nextInt();
 							if (x==1) 
 							{
-								Main.Show_all_worker_details(Main.workers);
+								Main.showAllWorkerDetails(Main.workers);
 								System.out.println(emptyLine);
 								System.out.println(emptyLine);
 							}
@@ -199,7 +199,7 @@ public class mainFunc {
 							z=input.next();
 							System.out.println("         Enter the amount you paid");
 							x=input.nextInt();
-						    Main.generate_invoice(z,x,Main.customers);
+						    Main.generateInvoice(z,x,Main.customers);
 							System.out.println(emptyLine);
 							System.out.println(emptyLine);
 						

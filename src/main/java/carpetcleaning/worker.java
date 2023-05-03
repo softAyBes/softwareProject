@@ -120,31 +120,13 @@ public class worker extends person{
 	}
 	
 	
-	public static boolean IsProductExist(String id,worker w,ArrayList<worker> workers) {
+	
+	public static boolean isProductExist(String id,worker w,ArrayList<worker> workers) {
 		int i=getIndexOfProduct( id, w,workers);
 		if(i==-1) return false;
 		return true;
 	}
 	
-	
-	/*
-	 * public static int getIndex_for_product(String Code,ArrayList<product>
-	 * productsForCusomer) { int index=-1;
-	 * 
-	 * for(int i=0;i<productsForCusomer.size();i++) {
-	 * 
-	 * if(productsForCusomer.get(i).getCode().equalsIgnoreCase(Code)) {
-	 * 
-	 * return i; } }
-	 * 
-	 * return index; } public static boolean check_is_exist_1(String code, worker w)
-	 * { if(getIndex_for_product(code,w.productsForWorker)==-1) {
-	 * 
-	 * return false; }
-	 * 
-	 * return true; }
-	 * 
-	 */
 	
 	public static void distributeOrder(product pro,List<worker> workers) {
 		worker w=getWorkerForOrder(workers);
@@ -154,7 +136,7 @@ public class worker extends person{
 
 	}
 	
-	public static void AddProductToWorker(product pro,worker w1,ArrayList<worker> workers) {
+	public static void addProductToWorker(product pro,worker w1,ArrayList<worker> workers) {
 		
 		int index=worker.getIndexOfWorker(w1.getId(), workers);
 		workers.get(index).productsForWorker.add(pro);
@@ -173,18 +155,7 @@ public class worker extends person{
 		
 	}
 
-	public static boolean IsProductExist1(String string, worker w1, ArrayList<worker> workers) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-
-
-
-	
-	
-	
-	
 
 	
 }
