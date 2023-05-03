@@ -44,9 +44,9 @@ public class distrWorkerTest {
 		c2.getProductsForCusomer().add(pro1);  
 		c2.getProductsForCusomer().add(pro2);
 		
-		worker.AddProductToWorker(pro1, w1, workers);
-		worker.AddProductToWorker(pro11, w1, workers);
-		worker.AddProductToWorker(pro2, w2, workers);
+		worker.addProductToWorker(pro1, w1, workers);
+		worker.addProductToWorker(pro11, w1, workers);
+		worker.addProductToWorker(pro2, w2, workers);
 		c2.getProductsForCusomer().add(pro2);
 		customers.add(c2);
 		}
@@ -92,7 +92,7 @@ public class distrWorkerTest {
 		int windex=worker.getIndexOfWorker("7", workers);
 		//System.out.println(windex+"jjjj");
 		worker w=workers.get(windex);
-	    boolean isexist=worker.IsProductExist1("20", w, workers);
+	    boolean isexist=worker.isProductExist("20", w, workers);
 	    assertEquals(isexist,false);
 	}
 

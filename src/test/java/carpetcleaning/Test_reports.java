@@ -106,7 +106,7 @@ public void the_report_generated_failed()
 public void admin_generated_all_worker_details_report_successfully() 
 {
 	 exp="true";
-	Main.Show_all_worker_details(workers);
+	Main.showAllWorkerDetails(workers);
 	assertFalse(exp==act);
 }
 

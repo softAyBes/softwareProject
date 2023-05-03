@@ -189,7 +189,7 @@ return 1;
 	}
 
 	
-	public static void generate_invoice(String Id,int paying,List<customer> customers2) 
+	public static void generateInvoice(String Id,int paying,List<customer> customers2) 
 	
 	{ 
 		int totel_price=0;
@@ -246,7 +246,7 @@ return 1;
 			
 			System.out.print("Totel Price :" + totel_price);
 			System.out.print("\n");
-			 money=customer.get_total_price(customers2.get(index));
+			 money=customer.getTotalPrice(customers2.get(index));
 				int money_after_dis=customer.discount(money,15,customers2.get(index));
 				System.out.print("Totel Price after discount :" +  money_after_dis);
 				
@@ -266,7 +266,7 @@ return 1;
 		}
 	
 	}
-	public static void Show_all_worker_details(List<worker> workers2) 
+	public static void showAllWorkerDetails(List<worker> workers2) 
 	{
 	
 		System.out.println("-------------Report about worker details-----------------");	
