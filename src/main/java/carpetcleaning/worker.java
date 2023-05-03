@@ -2,6 +2,7 @@ package carpetcleaning;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class worker extends person{
 	private String phone;
@@ -57,7 +58,7 @@ public class worker extends person{
 	public void setProductsForWorker(ArrayList<product> productsForWorker) {
 		this.productsForWorker = productsForWorker;
 	}
-	public static String updateStatusCustomer(String code,String id,String newStatus,ArrayList<customer>customers) {
+	public static String updateStatusCustomer(String code,String id,String newStatus,List<customer> customers) {
 		customer cust=new customer();
 		int CustomerIndex=customer.getIndex_1(id,customers);
 	    cust=customers.get(CustomerIndex);
@@ -82,7 +83,7 @@ public class worker extends person{
 		
 	
 
-	public static worker getWorkerForOrder(ArrayList<worker> workers) {
+	public static worker getWorkerForOrder(List<worker> workers) {
 		worker min=workers.get(0);
 		int count=min.getNumInTreatment();
 		for(int i=0;i<workers.size();i++) {
@@ -93,7 +94,7 @@ public class worker extends person{
 
 		return min;
 	}
-	public static int getIndexOfWorker(String id,ArrayList<worker> workers) {
+	public static int getIndexOfWorker(String id,List<worker> workers) {
 		int index=-1;
 		for(int i=0;i<workers.size();i++) {
 			if(workers.get(i).id.equalsIgnoreCase(id)){ 	
@@ -105,7 +106,7 @@ public class worker extends person{
 	}
 	
 	
-	public static int getIndexOfProduct(String id,worker w,ArrayList<worker> workers) {
+	public static int getIndexOfProduct(String id,worker w,List<worker> workers) {
 		int index=-1;
 		int wIndex=worker.getIndexOfWorker(w.getId(), workers);
 		worker ww=workers.get(wIndex);
@@ -145,7 +146,7 @@ public class worker extends person{
 	 * 
 	 */
 	
-	public static void distributeOrder(product pro,ArrayList<worker> workers) {
+	public static void distributeOrder(product pro,List<worker> workers) {
 		worker w=getWorkerForOrder(workers);
 		pro.setResponsibleWorkerId(w.getId());
 		int index=worker.getIndexOfWorker(w.getId(), workers);		
@@ -160,7 +161,7 @@ public class worker extends person{
 
 	}
 	
-	public static void deleteProductToWorker(product pro,String wID1,ArrayList<worker> workers) {
+	public static void deleteProductToWorker(product pro,String wID1,List<worker> workers) {
 		int wIndex=worker.getIndexOfWorker(wID1,workers);
 		
 		worker w=workers.get(wIndex);
