@@ -4,7 +4,7 @@ import javax.mail.internet.*;
 
 import java.util.Properties;
 
-public class sendEmailllll {
+public class SendEmaill {
 	
 	public void email(String to, String msg) {
 		
@@ -21,6 +21,7 @@ public class sendEmailllll {
 
         Session session = Session.getInstance(props,
           new javax.mail.Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
             }

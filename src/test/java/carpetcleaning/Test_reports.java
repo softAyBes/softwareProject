@@ -4,6 +4,7 @@ package carpetcleaning;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ public void admin_generated_all_customers_details_report_successfully()
 {
     exp="true";
     //Main.Show_all_customers_details(customers);
-	assertFalse(exp==act);
+    assertNotSame(exp,act);
 	
 }
 
@@ -107,7 +108,7 @@ public void admin_generated_all_worker_details_report_successfully()
 {
 	 exp="true";
 	Main.showAllWorkerDetails(workers);
-	assertFalse(exp==act);
+	assertNotSame(exp,act);
 }
 
 
