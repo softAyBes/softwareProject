@@ -10,7 +10,7 @@ public class Main {
 	protected static final List<worker> workers = new ArrayList<>();
 	protected static person uesr;
 	protected static int autoId = 4;
-	private final static String carpet = "carpet";
+	private final static String CARPETWORD = "carpet";
 
 	public static int setCutomers() {
 
@@ -61,7 +61,7 @@ public class Main {
 			c2.addProduct(pro1, workers);
 
 			product pro2 = new product("Salon carpet", "110");
-			pro2.setCategory(carpet);
+			pro2.setCategory(CARPETWORD);
 			pro2.setLength("6");
 			pro2.setwidth("4");
 			pro2.setMaterial("wool");
@@ -76,8 +76,8 @@ public class Main {
 			pro3.setIsspecial("NO");
 			c2.addProduct(pro3, workers);
 
-			product pro4 = new product(carpet, "150");
-			pro4.setCategory(carpet);
+			product pro4 = new product(CARPETWORD, "150");
+			pro4.setCategory(CARPETWORD);
 			pro4.setLength("6");
 			pro4.setwidth("5");
 			pro4.setMaterial("fleece");
@@ -85,7 +85,7 @@ public class Main {
 			c22.addProduct(pro4, workers);
 
 			product pro5 = new product("Salon carpet", "170");
-			pro5.setCategory(carpet);
+			pro5.setCategory(CARPETWORD);
 			pro5.setLength("3");
 			pro5.setwidth("2");
 			pro5.setMaterial("leather");
