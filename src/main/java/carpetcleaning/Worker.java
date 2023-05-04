@@ -4,19 +4,19 @@ package carpetcleaning;
 import java.util.ArrayList;
 import java.util.List;
 
-public class worker extends person{
+public class Worker extends Person{
 	private String phone;
 	private String address;
 	private String salary;
 	String id;
 	
-	private  ArrayList<product> productsForWorker=new ArrayList<product>();
-	public worker(person work1) {
+	private  ArrayList<Product> productsForWorker=new ArrayList<Product>();
+	public Worker(Person work1) {
 		// TODO Auto-generated constructor stub
 		this.id=work1.getId_person();
 		
 	}
-	public worker(person pers4, String string, String string2, String string3, String string4)
+	public Worker(Person pers4, String string, String string2, String string3, String string4)
 	{
 		this.setName(pers4.getName());
 		this.setId(string);
@@ -52,15 +52,15 @@ public class worker extends person{
 	public void setSalary(String salary) {
 		this.salary = salary;
 	}
-	public ArrayList<product> getProductsForWorker() {
+	public ArrayList<Product> getProductsForWorker() {
 		return productsForWorker;
 	}
-	public void setProductsForWorker(ArrayList<product> productsForWorker) {
+	public void setProductsForWorker(ArrayList<Product> productsForWorker) {
 		this.productsForWorker = productsForWorker;
 	}
-	public static String updateStatusCustomer(String code,String id,String newStatus,List<customer> customers) {
-		customer cust=new customer();
-		int CustomerIndex=customer.getIndexx(id,customers);
+	public static String updateStatusCustomer(String code,String id,String newStatus,List<Customer> customers) {
+		Customer cust=new Customer();
+		int CustomerIndex=Customer.getIndexx(id,customers);
 	    cust=customers.get(CustomerIndex);
 	    int productIndex=cust.getIndexforProduct(code,customers);
 	    customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);
@@ -83,8 +83,8 @@ public class worker extends person{
 		
 	
 
-	public static worker getWorkerForOrder(List<worker> workers) {
-		worker min=workers.get(0);
+	public static Worker getWorkerForOrder(List<Worker> workers) {
+		Worker min=workers.get(0);
 		int count=min.getNumInTreatment();
 		for(int i=0;i<workers.size();i++) {
 				if(workers.get(i).getNumInTreatment()<count) {
@@ -94,7 +94,7 @@ public class worker extends person{
 
 		return min;
 	}
-	public static int getIndexOfWorker(String id,List<worker> workers) {
+	public static int getIndexOfWorker(String id,List<Worker> workers) {
 		int index=-1;
 		for(int i=0;i<workers.size();i++) {
 			if(workers.get(i).id.equalsIgnoreCase(id)){ 	
@@ -106,10 +106,10 @@ public class worker extends person{
 	}
 	
 	
-	public static int getIndexOfProduct(String id,worker w,List<worker> workers) {
+	public static int getIndexOfProduct(String id,Worker w,List<Worker> workers) {
 		int index=-1;
-		int wIndex=worker.getIndexOfWorker(w.getId(), workers);
-		worker ww=workers.get(wIndex);
+		int wIndex=Worker.getIndexOfWorker(w.getId(), workers);
+		Worker ww=workers.get(wIndex);
 		for(int i=0;i<ww.getProductsForWorker().size();i++) {
 			if(ww.getProductsForWorker().get(i).getCode().equalsIgnoreCase(id)){ 	
 				return i;
@@ -121,34 +121,34 @@ public class worker extends person{
 	
 	
 	
-	public static boolean isProductExist(String id,worker w,ArrayList<worker> workers) {
+	public static boolean isProductExist(String id,Worker w,ArrayList<Worker> workers) {
 		int i=getIndexOfProduct( id, w,workers);
 		if(i==-1) return false;
 		return true;
 	}
 	
 	
-	public static void distributeOrder(product pro,List<worker> workers) {
-		worker w=getWorkerForOrder(workers);
+	public static void distributeOrder(Product pro,List<Worker> workers) {
+		Worker w=getWorkerForOrder(workers);
 		pro.setResponsibleWorkerId(w.getId());
-		int index=worker.getIndexOfWorker(w.getId(), workers);		
+		int index=Worker.getIndexOfWorker(w.getId(), workers);		
 		workers.get(index).productsForWorker.add(pro);
 
 	}
 	
-	public static void addProductToWorker(product pro,worker w1,ArrayList<worker> workers) {
+	public static void addProductToWorker(Product pro,Worker w1,ArrayList<Worker> workers) {
 		
-		int index=worker.getIndexOfWorker(w1.getId(), workers);
+		int index=Worker.getIndexOfWorker(w1.getId(), workers);
 		workers.get(index).productsForWorker.add(pro);
 
 	}
 	
-	public static void deleteProductToWorker(product pro,String wID1,List<worker> workers) {
-		int wIndex=worker.getIndexOfWorker(wID1,workers);
+	public static void deleteProductToWorker(Product pro,String wID1,List<Worker> workers) {
+		int wIndex=Worker.getIndexOfWorker(wID1,workers);
 		
-		worker w=workers.get(wIndex);
+		Worker w=workers.get(wIndex);
 		
-		int pIndex=worker.getIndexOfProduct(pro.getCode(),w,workers);
+		int pIndex=Worker.getIndexOfProduct(pro.getCode(),w,workers);
 		
 		workers.get(wIndex).productsForWorker.remove(pIndex);
 		

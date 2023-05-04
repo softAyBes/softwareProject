@@ -6,7 +6,7 @@ import java.util.Scanner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class mainFunc {
-	static person user=new person();
+	static Person user=new Person();
 	Main main=new Main();
 	
 	  static sendEmailllll email=new sendEmailllll();
@@ -48,8 +48,8 @@ public class mainFunc {
 			}
 			else {
 				logged=1;
-				user=Main.persons.get(person.getIndex(name, Main.persons));
-				user.setId_person(person.getIdFromName(name, Main.persons));
+				user=Main.persons.get(Person.getIndex(name, Main.persons));
+				user.setId_person(Person.getIdFromName(name, Main.persons));
 				System.out.println("|_______________________________________________________________________________________________________________________________"
 						+ "|");
 				System.out.println("|                                                Welcome Back "+ user.getName()+"                               | ");
@@ -79,11 +79,11 @@ public class mainFunc {
 						if(x==1) 
 						{
 							// add new customer
-							customer cust =new customer();
+							Customer cust =new Customer();
 							in=input.nextLine();
 							System.out.println(" Enter Information : ID");
 							in=input.nextLine();
-							if(customer.isExistCustomer(in, Main.customers)) {
+							if(Customer.isExistCustomer(in, Main.customers)) {
 									System.out.println("this Id already exist");
 									System.out.println(emptyLine);
 								}
@@ -107,7 +107,7 @@ public class mainFunc {
 								System.out.println("Email");
 								in=input.nextLine();
 								cust.setEmail(in);
-								customer.createCustomer(cust, Main.customers);
+								Customer.createCustomer(cust, Main.customers);
 								System.out.println(" Added successfully");
 							
 							}
@@ -117,13 +117,13 @@ public class mainFunc {
 							System.out.println(" What ID you want to delete");
 							in=input.nextLine();
 							in=input.nextLine();
-							if(!customer.isExistCustomer(in, Main.customers)) {
+							if(!Customer.isExistCustomer(in, Main.customers)) {
 									System.out.println("No customer with this id");
 									System.out.println();
 									System.out.println(emptyLine);
 								}
 							else {
-								customer.deleteCustomer(in, Main.customers);
+								Customer.deleteCustomer(in, Main.customers);
 								System.out.println(" Deleted successfully");
 
 							}
@@ -225,7 +225,7 @@ public class mainFunc {
 else if(stat.equalsIgnoreCase("worker")) {
 	while(logged==1) {
 		
-		worker w=Main.workers.get(worker.getIndexOfWorker(user.getId_person(), Main.workers));
+		Worker w=Main.workers.get(Worker.getIndexOfWorker(user.getId_person(), Main.workers));
 		
 		System.out.println("To see your products enter 1");
 		System.out.println("IS there any change in product status? Enter 2");
@@ -243,8 +243,8 @@ if(x==1) {
 				System.out.println(" Code		::	 	Category	::		status		::	Customer ID	::	Customer Name	::		cusomerPhone	");
 				
 				for(int i=0;i<size;i++) {
-					product proo=w.getProductsForWorker().get(i);
-					customer cust=Main.customers.get(customer.getIndexx(proo.getCustId(), Main.customers));
+					Product proo=w.getProductsForWorker().get(i);
+					Customer cust=Main.customers.get(Customer.getIndexx(proo.getCustId(), Main.customers));
 					System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getId()+"	::		"+cust.getName()+"	::	"+cust.getPhone()+"		");
 					System.out.println();
 
@@ -256,31 +256,31 @@ if(x==1) {
 		
 		else if(x==2) {
 			String proId;
-			customer cust=new customer();
+			Customer cust=new Customer();
 			
 			System.out.println("If yes please enter customer id");
 			in=input.nextLine();
 			in=input.nextLine();
 			
-			if(!customer.isExistCustomer(in, Main.customers)) {
+			if(!Customer.isExistCustomer(in, Main.customers)) {
 					System.out.println("No customer with this id");
 					System.out.println(emptyLine);
 				}
 			else {
-				cust=Main.customers.get(customer.getIndexx(in, Main.customers));
+				cust=Main.customers.get(Customer.getIndexx(in, Main.customers));
 				
 				System.out.println("What product id you want to change");
 				in=input.nextLine();
 				proId=in;
 				
-				if(!customer.checkIsExist1(in, cust)) {
+				if(!Customer.checkIsExist1(in, cust)) {
 					System.out.println("No product with this id");
 					System.out.println(emptyLine);
 				}
 				else {
 					System.out.println("what is the new status of the product ? waiting ... in treatment ... ready");
 					in=input.nextLine();					
-					worker.updateStatusCustomer(proId, cust.getId(), in, Main.customers);
+					Worker.updateStatusCustomer(proId, cust.getId(), in, Main.customers);
 					System.out.println("Updated successfully");
 					
 					if(in.equalsIgnoreCase("ready")) {
@@ -317,8 +317,8 @@ if(x==1) {
 			
 			if(stat.equalsIgnoreCase("customer"))
 			{
-				customer cust=new customer();
-			    cust=Main.customers.get(customer.getIndexx(user.getId_person(),Main.customers));
+				Customer cust=new Customer();
+			    cust=Main.customers.get(Customer.getIndexx(user.getId_person(),Main.customers));
 				while(logged==1)
 				{
 					x=0;
@@ -333,19 +333,19 @@ if(x==1) {
 					if(x==1)
 					{
 					   
-						product pro=new product();
+						Product pro=new Product();
 					
 							System.out.println(" Enter Code to your product"); 
 							in=input.nextLine();
 							in=input.nextLine();
-							if(customer.checkIsExist1(in,cust)) 
+							if(Customer.checkIsExist1(in,cust)) 
 							 {
 								System.out.println("this Code already exist");
 								System.out.println(emptyLine);
 								
 							 }
 							
-							else if(!customer.checkIsExist1(in,cust))
+							else if(!Customer.checkIsExist1(in,cust))
 					        	{
 							   //cust.setId(in);
 								pro.setStatus("Waiting");
@@ -407,14 +407,14 @@ if(x==1) {
 							System.out.println(" What Code you want to delete");
 							in=input.nextLine();
 							in=input.nextLine();
-							if(!customer.checkIsExist1(in,cust)) 
+							if(!Customer.checkIsExist1(in,cust)) 
 							{
 							System.out.println("No product with this Code");
 						 	System.out.println(emptyLine);
 						    }
 				  	     else
 				        	{
-						    customer.deleteProduct(in,cust,Main.workers);
+						    Customer.deleteProduct(in,cust,Main.workers);
 						    System.out.println("Deleted successfully");
 				        	}
 					}
@@ -436,7 +436,7 @@ if(x==1) {
 								 code=input.nextLine();
 								code=input.nextLine();
 							
-								if(!customer.checkIsExist1(code,cust)) 
+								if(!Customer.checkIsExist1(code,cust)) 
 								{
 									
 								System.out.println("No product with this Code");
@@ -446,7 +446,7 @@ if(x==1) {
 								{
 									System.out.println(" new Length: ");
 					  	       		in=input.nextLine();
-					  	         customer.update_Length(code,in,cust);	
+					  	         Customer.update_Length(code,in,cust);	
 								 System.out.println(" Update Length successfully");
 								}
 					     }
@@ -457,7 +457,7 @@ if(x==1) {
 			  	    	code=input.nextLine();
 						code=input.nextLine();
 						
-							if(!customer.checkIsExist1(code,cust)) 
+							if(!Customer.checkIsExist1(code,cust)) 
 							{
 								
 							System.out.println("No product with this Code");
@@ -468,7 +468,7 @@ if(x==1) {
 			  	    	 
 								System.out.println(" new width: ");
 				  	        	in=input.nextLine();
-				  	       		customer.update_width(code,in,cust);	
+				  	       		Customer.update_width(code,in,cust);	
 				  	       		System.out.println(" Update Width successfully");
 			  	    	
 							}
@@ -481,7 +481,7 @@ if(x==1) {
 		  	    	code=input.nextLine();
 					code=input.nextLine();
 					
-						if(!customer.checkIsExist1(code,cust)) 
+						if(!Customer.checkIsExist1(code,cust)) 
 						{
 							
 						System.out.println("No product with this Code");
@@ -491,7 +491,7 @@ if(x==1) {
 						{
 							 System.out.println(" new picture: ");
 					  	      	in=input.nextLine();
-					  	        customer.updatepicture(code, in, cust);	
+					  	        Customer.updatepicture(code, in, cust);	
 					  	       	 System.out.println(" Update Picture successfully");
 					  	       	}
 		  	    	
