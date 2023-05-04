@@ -71,9 +71,9 @@ public class Test_product {
 public void the_product_has_a_code_name_picture_isspecial_status_category_length_width_material(String product_Code, String product_name, String product_picture, String isspecial, String status, String category, String product_length, String product_width, String product_material) {
 	    
 	    Pro.setCategory(category);
-		Pro.setName_p(product_name);
+		Pro.setNamePro(product_name);
 		Pro.setCode(product_Code);
-		Pro.setName_p(product_name);
+		Pro.setNamePro(product_name);
 		Pro.setPicture(product_picture);
 		Pro.setIsspecial(isspecial);
 		Pro.setStatus(status);

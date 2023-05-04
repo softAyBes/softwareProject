@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class mainFunc {
 	static Person user=new Person();
+	final static String NOPRODUC="No product with this id";
 	Main main=new Main();
 	
 	  static SendEmaill email=new SendEmaill();
@@ -257,6 +258,7 @@ if(x==1) {
 		else if(x==2) {
 			String proId;
 			Customer cust=new Customer();
+			final String NOPRODUC="No product with this id";
 			
 			System.out.println("If yes please enter customer id");
 			in=input.nextLine();
@@ -274,7 +276,7 @@ if(x==1) {
 				proId=in;
 				
 				if(!Customer.checkIsExist1(in, cust)) {
-					System.out.println("No product with this id");
+					System.out.println(NOPRODUC);
 					System.out.println(emptyLine);
 				}
 				else {
@@ -352,7 +354,7 @@ if(x==1) {
 								pro.setCode(in);
 								System.out.println("Name");
 								in=input.nextLine();
-								pro.setName_p(in);
+								pro.setNamePro(in);
 								
 								
 								
@@ -439,7 +441,7 @@ if(x==1) {
 								if(!Customer.checkIsExist1(code,cust)) 
 								{
 									
-								System.out.println("No product with this Code");
+								System.out.println(NOPRODUC);
 							 	System.out.println(emptyLine);
 								}
 								else
@@ -460,7 +462,7 @@ if(x==1) {
 							if(!Customer.checkIsExist1(code,cust)) 
 							{
 								
-							System.out.println("No product with this Code");
+							System.out.println(NOPRODUC);
 						 	System.out.println(emptyLine);
 							}
 							else
@@ -484,7 +486,7 @@ if(x==1) {
 						if(!Customer.checkIsExist1(code,cust)) 
 						{
 							
-						System.out.println("No product with this Code");
+						System.out.println(NOPRODUC);
 					 	System.out.println(emptyLine);
 						}
 						else
