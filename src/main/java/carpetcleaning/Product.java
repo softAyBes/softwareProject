@@ -54,37 +54,32 @@ public class Product {
 		material = productMaterial;
 	}
 
-	public void setName_p(String productName) {
+	public void setNamePro(String productName) {
 		namePro = productName;
 	}
 
 	public void setLength(String productLength) {
-		int L = Integer.parseInt(productLength);
-		this.length = L;
+		this.length = Integer.parseInt(productLength);
 
 	}
 
 	public void setPicture(String productPicture) {
-		// TODO Auto-generated method stub
 		picture = productPicture;
 	}
 
 	public void setCode(String productCode) {
-		// TODO Auto-generated method stub
 		code = productCode;
 	}
 
 	public void setIsspecial(String isSpecial2) {
-		// TODO Auto-generated method stub
 
 		isSpecial = isSpecial2;
 
 	}
 
 	public void setwidth(String productWidth) {
-		// TODO Auto-generated method stub
-		int W = Integer.parseInt(productWidth);
-		width = W;
+		
+		width = Integer.parseInt(productWidth);
 	}
 
 	public Integer getWidth() {

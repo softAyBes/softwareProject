@@ -16,7 +16,7 @@ public class workerTest {
 		Person pers1=new Person("Ayabaara","123456","3");
 		Customer c2=new Customer(pers1,"3", "059967", "Arsad");
 		Product pro1=new Product();
-		pro1.setName_p("nn");
+		pro1.setNamePro("nn");
 		pro1.setStatus("waiting");
 		pro1.setCode("100");
 		c2.getProductsForCusomer().add(pro1);

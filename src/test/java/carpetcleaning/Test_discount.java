@@ -20,7 +20,7 @@ public class Test_discount {
 		Person pers1 = new Person("Ayabaara", "123456", "3");
 		Customer c2 = new Customer(pers1, "3", "059967", "Arsad");
 		Product pro1 = new Product();
-		pro1.setName_p("nn");
+		pro1.setNamePro("nn");
 		pro1.setStatus("waiting");
 		pro1.setCode("12");
 		pro1.setLength("6");
@@ -30,7 +30,7 @@ public class Test_discount {
 		Person pers3 = new Person("noor", "123456789", "9");
 		Customer c4 = new Customer(pers3, "9", "059767", "main-street");
 		Product pro3 = new Product();
-		pro3.setName_p("s");
+		pro3.setNamePro("s");
 		pro3.setStatus("waiting");
 		pro3.setCode("25");
 		pro3.setLength("2");
