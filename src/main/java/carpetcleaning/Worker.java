@@ -70,7 +70,7 @@ public class Worker extends Person {
 		Customer cust = new Customer();
 		int CustomerIndex = Customer.getIndexx(id, customers);
 		cust = customers.get(CustomerIndex);
-		int productIndex = cust.getIndexforProduct(code, customers);
+		int productIndex = cust.getIndexProduct(code);
 		customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);
 		return customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).getStatus();
 	}
