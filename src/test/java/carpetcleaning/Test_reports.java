@@ -21,15 +21,15 @@ public class Test_reports
 	String act;
 	String exp;
 	Admin admin=new Admin();
-	person user;
-	public static ArrayList<customer> customers= new ArrayList<customer>();
-	public static ArrayList<worker> workers= new ArrayList<worker>();
+	Person user;
+	public static ArrayList<Customer> customers= new ArrayList<Customer>();
+	public static ArrayList<Worker> workers= new ArrayList<Worker>();
 		
 		@Before public void createOutputFile() 
 		{
-			person pers1=new person("Aya","123456","3");
-			customer c2=new customer(pers1,"3", "059967", "Arsad");
-			product pro1=new product();
+			Person pers1=new Person("Aya","123456","3");
+			Customer c2=new Customer(pers1,"3", "059967", "Arsad");
+			Product pro1=new Product();
 			pro1.setName_p("nn");
 			pro1.setStatus("waiting");
 			pro1.setCode("12");
@@ -37,9 +37,9 @@ public class Test_reports
 			pro1.setwidth("7");
 			c2.getProductsForCusomer().add(pro1);  
 			
-			person pers3=new person("noor","123456789","9");
-			customer c4=new customer(pers3,"9", "059767", "main-street");
-			product pro3=new product();
+			Person pers3=new Person("noor","123456789","9");
+			Customer c4=new Customer(pers3,"9", "059767", "main-street");
+			Product pro3=new Product();
 			pro3.setName_p("s");
 			pro3.setStatus("waiting");
 			pro3.setCode("25");
@@ -47,15 +47,15 @@ public class Test_reports
 			pro3.setwidth("3");
 			c4.getProductsForCusomer().add(pro3);  
 		
-			person pers4=new person("Sandra","8989","1");
+			Person pers4=new Person("Sandra","8989","1");
 			///worker w1 =new worker(pers4,"1","05933","2000","Add");
 			//workers.add(w1);
 			
-			if(!customer.isExistCustomer(c2.getId(),customers)) 
+			if(!Customer.isExistCustomer(c2.getId(),customers)) 
 			{
 			    customers.add(c2);
 			}
-			else if(!customer.isExistCustomer(c4.getId(),customers))
+			else if(!Customer.isExistCustomer(c4.getId(),customers))
 			{
 				customers.add(c4);
 			}

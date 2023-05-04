@@ -1,12 +1,12 @@
 package carpetcleaning;
 
-public class Admin extends person {
+public class Admin extends Person {
 	private String id;
 	private static final String TYPEADMIN = "Admin";
 
 	private boolean status;
 
-	public Admin(person pers) {
+	public Admin(Person pers) {
 		this.setName(pers.getName());
 		this.setPassword(pers.getPassword());
 		this.setType(TYPEADMIN);

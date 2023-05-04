@@ -3,7 +3,7 @@ package carpetcleaning;
 import java.util.ArrayList;
 import java.util.List;
 
-public class customer extends person {
+public class Customer extends Person {
 	private String id;
 	private String phone;
 	private String address;
@@ -35,14 +35,14 @@ public class customer extends person {
 		this.debt = debt;
 	}
 
-	private ArrayList<product> productsForCusomer = new ArrayList<product>();
+	private List<Product> productsForCusomer = new ArrayList<>();
 
-	public customer() {
+	public Customer() {
 		super();
 		this.setType("customer");
 	}
 
-	public customer(person pers, String id, String phone, String address) {
+	public Customer(Person pers, String id, String phone, String address) {
 		super();
 		this.id = id;
 		this.setName(pers.getName());
@@ -52,20 +52,20 @@ public class customer extends person {
 		this.setType("customer");
 	}
 
-	public ArrayList<product> getProductsForCusomer() {
+	public List<Product> getProductsForCusomer() {
 		return productsForCusomer;
 	}
 
-	public static void delete_product(String Code, customer Customer) {
-		int index = Customer.getIndexForProduct(Code, Customer.productsForCusomer);
-		Customer.productsForCusomer.remove(index);
+	public static void deleteProduct(String code, Customer customer) {
+		int index = customer.getIndexForProduct(code, customer.productsForCusomer);
+		customer.productsForCusomer.remove(index);
 	}
 
-	public void setProductsForCusomer(ArrayList<product> productsForCusomer) {
+	public void setProductsForCusomer(ArrayList<Product> productsForCusomer) {
 		this.productsForCusomer = productsForCusomer;
 	}
 
-	public void addProduct(product pro) {
+	public void addProduct(Product pro) {
 		this.productsForCusomer.add(pro);
 	}
 
@@ -93,7 +93,7 @@ public class customer extends person {
 		this.address = address;
 	}
 
-	public static int getIndexx(String id, List<customer> customers) {
+	public static int getIndexx(String id, List<Customer> customers) {
 		int index = -1;
 
 		for (int i = 0; i < customers.size(); i++) {
@@ -105,7 +105,7 @@ public class customer extends person {
 		return index;
 	}
 
-	public static boolean isExistCustomer(String id2, List<customer> customers) {
+	public static boolean isExistCustomer(String id2, List<Customer> customers) {
 		if (getIndexx(id2, customers) == -1) {
 
 			return false;
@@ -116,12 +116,12 @@ public class customer extends person {
 
 	///// This part for product check
 
-	public int getIndexForProduct(String Code, ArrayList<product> productsForCusomer) {
+	public int getIndexForProduct(String Code, List<Product> productsForCusomer2) {
 		int index = -1;
 
-		for (int i = 0; i < productsForCusomer.size(); i++) {
+		for (int i = 0; i < productsForCusomer2.size(); i++) {
 
-			if (productsForCusomer.get(i).getCode().equalsIgnoreCase(Code)) {
+			if (productsForCusomer2.get(i).getCode().equalsIgnoreCase(Code)) {
 
 				return i;
 			}
@@ -130,7 +130,7 @@ public class customer extends person {
 		return index;
 	}
 
-	public static boolean checkIsExist1(String code, customer Customer) {
+	public static boolean checkIsExist1(String code, Customer Customer) {
 		if (Customer.getIndexForProduct(code, Customer.productsForCusomer) == -1) {
 
 			return false;
@@ -139,54 +139,54 @@ public class customer extends person {
 		return true;
 	}
 
-	public static void deleteProduct(String Code, customer Customer, List<worker> workers) {
+	public static void deleteProduct(String Code, Customer Customer, List<Worker> workers) {
 		int index = Customer.getIndexForProduct(Code, Customer.productsForCusomer);
 		int pid = Customer.getIndexForProduct(Code, Customer.getProductsForCusomer());
-		product pro = Customer.getProductsForCusomer().get(pid);
+		Product pro = Customer.getProductsForCusomer().get(pid);
 
-		int WID = worker.getIndexOfWorker(pro.getResponsibleWorkerId(), workers);
+		int WID = Worker.getIndexOfWorker(pro.getResponsibleWorkerId(), workers);
 		System.out.println(WID);
-		worker w = workers.get(WID);
-		worker.deleteProductToWorker(pro, w.getId(), workers);
+		Worker w = workers.get(WID);
+		Worker.deleteProductToWorker(pro, w.getId(), workers);
 		Customer.productsForCusomer.remove(index);
 
 	}
 
 /////This part for product check
 
-	public static void createCustomer(customer cust, List<customer> customers) {
+	public static void createCustomer(Customer cust, List<Customer> customers) {
 		// TODO Auto-generated method stub
 		customers.add(cust);
 	}
 
-	public static void deleteCustomer(String id2, List<customer> customers) {
+	public static void deleteCustomer(String id2, List<Customer> customers) {
 		// TODO Auto-generated method stub
 		int index = getIndexx(id2, customers);
 		customers.remove(index);
 	}
 
-	public static void updatePhone(String id2, String newPhone, ArrayList<customer> customers) {
+	public static void updatePhone(String id2, String newPhone, ArrayList<Customer> customers) {
 		// TODO Auto-generated method stub
-		int index = customer.getIndexx(id2, customers);
+		int index = Customer.getIndexx(id2, customers);
 		customers.get(index).setPhone(newPhone);
 
 	}
 
-	public static void updateAdress(String id2, String newAdress, ArrayList<customer> customers) {
+	public static void updateAdress(String id2, String newAdress, ArrayList<Customer> customers) {
 		// TODO Auto-generated method stub
-		int index = customer.getIndexx(id2, customers);
+		int index = Customer.getIndexx(id2, customers);
 		customers.get(index).setAddress(newAdress);
 
 	}
 
-	public void addProduct(product pro, List<worker> workers) {
+	public void addProduct(Product pro, List<Worker> workers) {
 		pro.setCustId(this.id);
 		this.productsForCusomer.add(pro);
 
-		worker.distributeOrder(pro, workers);
+		Worker.distributeOrder(pro, workers);
 	}
 
-	public int getIndexforProduct(String code, List<customer> customers) {
+	public int getIndexforProduct(String code, List<Customer> customers) {
 		int index = -1;
 
 		for (int i = 0; i < this.productsForCusomer.size(); i++) {
@@ -200,23 +200,23 @@ public class customer extends person {
 		return index;
 	}
 
-	public static void updatepicture(String code, String N_picture, customer Customer) {
+	public static void updatepicture(String code, String N_picture, Customer Customer) {
 
 		int i = Customer.getIndexForProduct(code, Customer.getProductsForCusomer());
 		Customer.productsForCusomer.get(i).setPicture(N_picture);
 	}
 
-	public static void update_width(String code, String width, customer CCust) {
+	public static void update_width(String code, String width, Customer CCust) {
 		int i = CCust.getIndexForProduct(code, CCust.getProductsForCusomer());
 		CCust.productsForCusomer.get(i).setwidth(width);
 	}
 
-	public static void update_Length(String code, String length, customer CCust) {
+	public static void update_Length(String code, String length, Customer CCust) {
 		int i = CCust.getIndexForProduct(code, CCust.getProductsForCusomer());
 		CCust.productsForCusomer.get(i).setLength(length);
 	}
 
-	public static int WaitingProduct(customer cust) {
+	public static int WaitingProduct(Customer cust) {
 		int num = 0;
 		for (int i = 0; i < cust.getProductsForCusomer().size(); i++) {
 			if (cust.getProductsForCusomer().get(i).getStatus().equalsIgnoreCase("waiting")) {
@@ -226,7 +226,7 @@ public class customer extends person {
 		return num;
 	}
 
-	public static int inTreatmentProduct(customer cust) {
+	public static int inTreatmentProduct(Customer cust) {
 		int num = 0;
 		for (int i = 0; i < cust.getProductsForCusomer().size(); i++) {
 			if (cust.getProductsForCusomer().get(i).getStatus().equalsIgnoreCase("in treatment")) {
@@ -237,7 +237,7 @@ public class customer extends person {
 	}
 
 	/// for price
-	public static int getPrice(String code, customer CCust) {
+	public static int getPrice(String code, Customer CCust) {
 
 		int i = CCust.getIndexForProduct(code, CCust.getProductsForCusomer());
 		int w = CCust.productsForCusomer.get(i).getWidth();
@@ -251,7 +251,7 @@ public class customer extends person {
 		return p >= 550;
 	}
 
-	public static int getTotalPrice(customer CCust) {
+	public static int getTotalPrice(Customer CCust) {
 		int total = 0;
 		for (int i = 0; i < CCust.productsForCusomer.size(); i++) {
 			total += getPrice(CCust.productsForCusomer.get(i).getCode(), CCust);
@@ -259,7 +259,7 @@ public class customer extends person {
 		return total;
 	}
 
-	public static int discount(int total_price, int dis, customer CCust) {
+	public static int discount(int total_price, int dis, Customer CCust) {
 		int disc = (total_price * dis) / 100;
 		int Discounted_price = total_price - disc;
 		return Discounted_price;

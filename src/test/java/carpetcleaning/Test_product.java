@@ -15,41 +15,41 @@ public class Test_product {
 
 	public boolean act;
     public boolean predict;
-	product Pro=new product();
-	customer Customer;
-	public static ArrayList<customer> customers= new ArrayList<customer>();
-	public static ArrayList<worker> workers= new ArrayList<worker>();
+	Product Pro=new Product();
+	Customer Customer;
+	public static ArrayList<Customer> customers= new ArrayList<Customer>();
+	public static ArrayList<Worker> workers= new ArrayList<Worker>();
 
 	@Before public void createOutputFile() {
-		person pers1=new person("w1","123","7");
-		worker w1=new worker(pers1);
+		Person pers1=new Person("w1","123","7");
+		Worker w1=new Worker(pers1);
 		
-		person pers2=new person("w2","123","8");
-		worker w2=new worker(pers2);
+		Person pers2=new Person("w2","123","8");
+		Worker w2=new Worker(pers2);
 		
-		person pers3=new person("w3","123","9");
-		worker w3=new worker(pers3);
+		Person pers3=new Person("w3","123","9");
+		Worker w3=new Worker(pers3);
 		
 		
-		if(worker.getIndexOfWorker("9", workers)==-1) {
+		if(Worker.getIndexOfWorker("9", workers)==-1) {
 		workers.add(w3);
 		workers.add(w2);
 		workers.add(w1);
-		person pers11=new person("Ayabaara","123456","3");
-		customer c2=new customer(pers11,"3", "059967", "Arsad");
-		product pro1=new product("nn","20");
+		Person pers11=new Person("Ayabaara","123456","3");
+		Customer c2=new Customer(pers11,"3", "059967", "Arsad");
+		Product pro1=new Product("nn","20");
 		pro1.setResponsibleWorkerId(w1.id);
-		product pro11=new product("nn","70");
+		Product pro11=new Product("nn","70");
 		pro1.setStatus("in treatment");
 		pro11.setStatus("in treatment");
-		product pro2=new product("nn","12");
+		Product pro2=new Product("nn","12");
 		pro2.setStatus("in treatment");
 		c2.getProductsForCusomer().add(pro1);  
 		c2.getProductsForCusomer().add(pro2);
 		
-		worker.addProductToWorker(pro1, w1, workers);
-		worker.addProductToWorker(pro11, w1, workers);
-		worker.addProductToWorker(pro2, w2, workers);
+		Worker.addProductToWorker(pro1, w1, workers);
+		Worker.addProductToWorker(pro11, w1, workers);
+		Worker.addProductToWorker(pro2, w2, workers);
 		c2.getProductsForCusomer().add(pro2);
 		customers.add(c2);
 		}
@@ -60,7 +60,7 @@ public class Test_product {
 	@Given("that the user type is {string}")
 	public void that_the_user_type_is(String Type)
 	{
-		 Customer=new customer();
+		 Customer=new Customer();
 	  if(Type.equals(Customer.getType())) 
 		assertTrue(true);
 	  
@@ -82,7 +82,7 @@ public void the_product_has_a_code_name_picture_isspecial_status_category_length
 		Pro.setMaterial(product_material);
 		//Customer=new customer();
 		
-		int index =customer.getIndexx("3",customers);
+		int index =Customer.getIndexx("3",customers);
 		Customer=customers.get(index);
 		Customer.addProduct(Pro,Test_product.workers);
 	}
@@ -92,47 +92,47 @@ public void the_product_has_a_code_name_picture_isspecial_status_category_length
 	/*predict=false;
 		act=Pro.check_is_exist(code);
         assertEquals(predict,act);*/
-		assertTrue(customer.checkIsExist1(code,Customer));
+		assertTrue(Customer.checkIsExist1(code,Customer));
 	}
 	
 
 @When("product with code {string} already exist")
 public void product_with_code_already_exist(String Code) 
 {
-	int index =customer.getIndexx("3",customers);
+	int index =Customer.getIndexx("3",customers);
 	Customer=customers.get(index);
-	customer.checkIsExist1(Code,Customer);
+	Customer.checkIsExist1(Code,Customer);
 }
 
 @Then("record product with code {string} is faild")
 public void record_product_with_code_is_faild(String code) {
 	
-	assertTrue(customer.checkIsExist1(code,Customer));
+	assertTrue(Customer.checkIsExist1(code,Customer));
 }
 
 @When("product code {string} is not exist")
 public void product_code_is_not_exist(String Code)
 {
-	customer.checkIsExist1(Code,Customer);
+	Customer.checkIsExist1(Code,Customer);
 	
 }
 
 @Then("delete product {string} faild")
 public void delete_product_faild(String Code) 
 {
-	int index =customer.getIndexx("3",customers);
+	int index =Customer.getIndexx("3",customers);
 	Customer=customers.get(index);
-    assertFalse(customer.checkIsExist1(Code,Customer));
+    assertFalse(Customer.checkIsExist1(Code,Customer));
 }
 
 @When("customer id {string} want to delete product code {string}")
 public void customer_id_want_to_delete_product_code(String id, String CODE) 
 {
-	int index =customer.getIndexx("3",customers);
+	int index =Customer.getIndexx("3",customers);
 	Customer=customers.get(index);
-	 if(customer.checkIsExist1(CODE,Customer))
+	 if(Customer.checkIsExist1(CODE,Customer))
 	 {
-		 customer.deleteProduct(CODE,Customer,workers);
+		 Customer.deleteProduct(CODE,Customer,workers);
 	 }
 }
 
@@ -140,7 +140,7 @@ public void customer_id_want_to_delete_product_code(String id, String CODE)
 @Then("delete product {string} successfully")
 public void delete_product_successfully(String CODE) 
 {
-	 boolean A = customer.checkIsExist1(CODE,Customer);
+	 boolean A = Customer.checkIsExist1(CODE,Customer);
 	 boolean E=false;
 	  assertEquals(A,E);
 	//assertTrue(customer.delete_product(CODE,Customer));
@@ -151,16 +151,16 @@ public void delete_product_successfully(String CODE)
 public void customer_want_to_update_product_with_new_picture(String Code, String picture) 
 {
 
-	int index =customer.getIndexx("3",customers);
+	int index =Customer.getIndexx("3",customers);
 	Customer=customers.get(index);
-	customer.updatepicture(Code,picture,Customer);
+	Customer.updatepicture(Code,picture,Customer);
 	
 }
 
 @Then("product picture code {string} Update successfully")
 public void product_picture_code_update_successfully(String Code) 
 {
-	 boolean A = customer.checkIsExist1(Code,Customer);
+	 boolean A = Customer.checkIsExist1(Code,Customer);
 	 boolean E=true;
 	  assertEquals(A,E);   
 }

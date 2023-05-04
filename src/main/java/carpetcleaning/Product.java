@@ -2,7 +2,7 @@
 package carpetcleaning;
 
 
-public class product {
+public class Product {
 	
 	private String name_p;
 	private String Code;
@@ -23,7 +23,7 @@ public class product {
 	public void setCustId(String custId) {
 		this.custId = custId;
 	}
-	public product(String name_p,String Code) {
+	public Product(String name_p,String Code) {
 		this.name_p=name_p;
 		this.Code=Code;
 		this.status="waiting";
@@ -35,7 +35,7 @@ public class product {
 	public void setResponsibleWorkerId(String responsibleWorkerId) {
 		this.responsibleWorkerId = responsibleWorkerId;
 	}
-	public product() {
+	public Product() {
 		status="waiting";
 	}
 	public void setCategory(String category2) {

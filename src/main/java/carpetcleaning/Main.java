@@ -5,38 +5,38 @@ import java.util.List;
 
 public class Main {
 
-	protected static final List<customer> customers = new ArrayList<>();
-	protected static final List<person> persons = new ArrayList<>();
-	protected static final List<worker> workers = new ArrayList<>();
-	protected static person uesr;
+	protected static final List<Customer> customers = new ArrayList<>();
+	protected static final List<Person> persons = new ArrayList<>();
+	protected static final List<Worker> workers = new ArrayList<>();
+	protected static Person uesr;
 	protected static int autoId = 4;
-	private final static String CARPETWORD = "carpet";
+	private static final String CARPETWORD = "carpet";
 
 	public static int setCutomers() {
 
-		uesr = new person();
+		uesr = new Person();
 
 ////customer1
-		person pers1 = new person("aya", "123", "3", "customer");
-		customer c2 = new customer(pers1, "3", "059967", "Arsad");
+		Person pers1 = new Person("aya", "123", "3", "customer");
+		Customer c2 = new Customer(pers1, "3", "059967", "Arsad");
 		c2.setEmail("ayabaara4@gmail.com");
 
 ///// customer2
-		person pers11 = new person("beesan", "123", "8", "customer");
-		customer c22 = new customer(pers11, "8", "58585", "Rafidya");
+		Person pers11 = new Person("beesan", "123", "8", "customer");
+		Customer c22 = new Customer(pers11, "8", "58585", "Rafidya");
 		c22.setEmail("ayabaara4@gmail.com");
 
 // admin
-		person adm1 = new person("admin1", "admin123", "5", "admin");
+		Person adm1 = new Person("admin1", "admin123", "5", "admin");
 //Admin admin1=new Admin(adm1);
 
 ///worker1
-		person work1 = new person("worker1", "work123", "6", "worker");
-		worker worker1 = new worker(work1, "6", "05987", "2000", "nablus");
+		Person work1 = new Person("worker1", "work123", "6", "worker");
+		Worker worker1 = new Worker(work1, "6", "05987", "2000", "nablus");
 ///worker2
-		person work2 = new person("worker2", "work123", "7", "worker");
+		Person work2 = new Person("worker2", "work123", "7", "worker");
 
-		worker worker2 = new worker(work2, "7", "05987", "3500", "hebron");
+		Worker worker2 = new Worker(work2, "7", "05987", "3500", "hebron");
 
 		persons.add(pers1);
 		persons.add(adm1);
@@ -44,13 +44,13 @@ public class Main {
 		persons.add(work2);
 
 		String id = "3";
-		if (!customer.isExistCustomer(id, customers)) {
+		if (!Customer.isExistCustomer(id, customers)) {
 
 			workers.add(worker2);
 			workers.add(worker1);
 
 /// 3 products for cust1
-			product pro1 = new product("carpet12", "100");
+			Product pro1 = new Product("carpet12", "100");
 			pro1.setCategory("Carpets");
 			pro1.setLength("5");
 			pro1.setwidth("5");
@@ -60,7 +60,7 @@ public class Main {
 
 			c2.addProduct(pro1, workers);
 
-			product pro2 = new product("Salon carpet", "110");
+			Product pro2 = new Product("Salon carpet", "110");
 			pro2.setCategory(CARPETWORD);
 			pro2.setLength("6");
 			pro2.setwidth("4");
@@ -68,7 +68,7 @@ public class Main {
 			pro2.setIsspecial("NO");
 			c2.addProduct(pro2, workers);
 
-			product pro3 = new product("cover", "120");
+			Product pro3 = new Product("cover", "120");
 			pro3.setCategory("Bed Cover");
 			pro3.setLength("3");
 			pro3.setwidth("4");
@@ -76,7 +76,7 @@ public class Main {
 			pro3.setIsspecial("NO");
 			c2.addProduct(pro3, workers);
 
-			product pro4 = new product(CARPETWORD, "150");
+			Product pro4 = new Product(CARPETWORD, "150");
 			pro4.setCategory(CARPETWORD);
 			pro4.setLength("6");
 			pro4.setwidth("5");
@@ -84,7 +84,7 @@ public class Main {
 			pro4.setIsspecial("yes");
 			c22.addProduct(pro4, workers);
 
-			product pro5 = new product("Salon carpet", "170");
+			Product pro5 = new Product("Salon carpet", "170");
 			pro5.setCategory(CARPETWORD);
 			pro5.setLength("3");
 			pro5.setwidth("2");
@@ -93,8 +93,8 @@ public class Main {
 
 			c22.addProduct(pro5, workers);
 
-			customer.createCustomer(c2, customers);
-			customer.createCustomer(c22, customers);
+			Customer.createCustomer(c2, customers);
+			Customer.createCustomer(c22, customers);
 
 		}
 		return 1;
@@ -106,7 +106,7 @@ public class Main {
 		}
 	}
 
-	public static int itemsNum(List<customer> customers2) {
+	public static int itemsNum(List<Customer> customers2) {
 		int num = 0;
 		for (int i = 0; i < customers2.size(); i++) {
 			num += customers2.get(i).getProductsForCusomer().size();
@@ -114,25 +114,25 @@ public class Main {
 		return num;
 	}
 
-	public static int totalWaitingNum(List<customer> customers2) {
+	public static int totalWaitingNum(List<Customer> customers2) {
 		int num = 0;
 		for (int i = 0; i < customers2.size(); i++) {
-			num += customer.WaitingProduct(customers2.get(i));
+			num += Customer.WaitingProduct(customers2.get(i));
 
 		}
 		return num;
 	}
 
-	public static int totalIntreatment(List<customer> customers2) {
+	public static int totalIntreatment(List<Customer> customers2) {
 		int num = 0;
 		for (int i = 0; i < customers2.size(); i++) {
-			num += customer.inTreatmentProduct(customers2.get(i));
+			num += Customer.inTreatmentProduct(customers2.get(i));
 
 		}
 		return num;
 	}
 
-	public static int totalDebts(List<customer> customers2) {
+	public static int totalDebts(List<Customer> customers2) {
 		int num = 0;
 		for (int i = 0; i < customers2.size(); i++) {
 			num += customers2.get(i).getDebt();
@@ -141,7 +141,7 @@ public class Main {
 		return num;
 	}
 
-	public static int totalMoney(List<customer> customers2) {
+	public static int totalMoney(List<Customer> customers2) {
 		int num = 0;
 		for (int i = 0; i < customers2.size(); i++) {
 			num += customers2.get(i).getMoney();
@@ -150,7 +150,7 @@ public class Main {
 		return num;
 	}
 
-	public static void showAllCustomersDetails(List<customer> customers2) {
+	public static void showAllCustomersDetails(List<Customer> customers2) {
 		System.out.println("-------------Report about customers details-----------------");
 		System.out.println();
 		System.out.println(
@@ -180,7 +180,7 @@ public class Main {
 		}
 	}
 
-	public static void generateInvoice(String Id, int paying, List<customer> customers2)
+	public static void generateInvoice(String Id, int paying, List<Customer> customers2)
 
 	{
 		int totelPrice = 0;
@@ -211,7 +211,7 @@ public class Main {
 								"Product code :    " + customers.get(i).getProductsForCusomer().get(j).getCode());
 						System.out.print("\n");
 						String k = customers2.get(i).getProductsForCusomer().get(j).getCode();
-						int price = customer.getPrice(k, customers2.get(i));
+						int price = Customer.getPrice(k, customers2.get(i));
 						System.out.println("Price of product :" + price);
 						System.out.print("\n");
 						totelPrice = totelPrice + price;
@@ -229,8 +229,8 @@ public class Main {
 
 						System.out.print("Totel Price :" + totelPrice);
 						System.out.print("\n");
-						money = customer.getTotalPrice(customers2.get(index));
-						int moneyAfterDis = customer.discount(money, 15, customers2.get(index));
+						money = Customer.getTotalPrice(customers2.get(index));
+						int moneyAfterDis = Customer.discount(money, 15, customers2.get(index));
 						System.out.print("Totel Price after discount :" + moneyAfterDis);
 
 						System.out.print("\n");
@@ -249,7 +249,7 @@ public class Main {
 
 	}
 
-	public static void showAllWorkerDetails(List<worker> workers2) {
+	public static void showAllWorkerDetails(List<Worker> workers2) {
 
 		System.out.println("-------------Report about worker details-----------------");
 		System.out.println();

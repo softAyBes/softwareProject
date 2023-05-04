@@ -3,7 +3,7 @@ package carpetcleaning;
 import java.util.ArrayList;
 import java.util.List;
 
-public class person {
+public class Person {
 	private String name;
 	private String password;
 	private String id_person;
@@ -13,19 +13,19 @@ public class person {
 
 	
 	
-	public person(String name,String pass,String id) {
+	public Person(String name,String pass,String id) {
 		this.name=name;
 		this.password=pass;	
 		this.id_person=id;
 	}
 
-	public person() {
+	public Person() {
 		this.logged=0;
 	}
 	
 	
 	
-	public person(String name2, String pass, String id, String type2) {
+	public Person(String name2, String pass, String id, String type2) {
 		
 		this.name=name2;
 		this.password=pass;	
@@ -67,7 +67,7 @@ public class person {
 	}
 	
 	
-	public static int getIndex(String name,List<person> persons) {
+	public static int getIndex(String name,List<Person> persons) {
 		int index=-1;
 
 		for(int i=0;i<persons.size();i++) {
@@ -81,7 +81,7 @@ public class person {
 		
 		return index; 
 	}
-	public static boolean isExist(String id2,ArrayList<person>persons) {
+	public static boolean isExist(String id2,ArrayList<Person>persons) {
 		// TODO Auto-generated method stub
 		// create common class contains all arrays list (customer, product ......)
 		if(getIndex(id2,persons)==-1) {
@@ -92,7 +92,7 @@ public class person {
 		return true;
 	}
 	
-	public static String getIdFromName(String name,List<person> persons) {
+	public static String getIdFromName(String name,List<Person> persons) {
 		for(int i=0;i<persons.size();i++) {
 			if(persons.get(i).getName().equals(name)) {
 				return persons.get(i).getId_person();
