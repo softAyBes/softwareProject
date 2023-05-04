@@ -2,6 +2,7 @@ package carpetcleaning;
 
 public class Admin extends person {
 	private String id;
+	private final static String admin="Admin";
 
 	private boolean status;
 
@@ -12,7 +13,7 @@ public class Admin extends person {
 	}
 
 	public Admin() {
-		this.setType("admin");
+		this.setType(admin);
 	}
 
 	public String getId() {
@@ -35,8 +36,8 @@ public class Admin extends person {
 
 		for (int i = 0; i < Main.persons.size(); i++) {
 			if (Main.persons.get(i).getName().equals(user) && Main.persons.get(i).getPassword().equals(pass)) {
-				if (Main.persons.get(i).getType().equalsIgnoreCase("admin")) {
-					return "admin";
+				if (Main.persons.get(i).getType().equalsIgnoreCase(admin)) {
+					return admin;
 				}
 				if (Main.persons.get(i).getType().equalsIgnoreCase("customer")) {
 					return "customer";
