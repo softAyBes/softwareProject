@@ -9,7 +9,7 @@ public class mainFunc {
 	static Person user=new Person();
 	Main main=new Main();
 	
-	  static sendEmailllll email=new sendEmailllll();
+	  static SendEmaill email=new SendEmaill();
 	 
 	
  

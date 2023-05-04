@@ -12,7 +12,6 @@ public class Worker extends Person {
 	private List<Product> productsForWorker = new ArrayList<>();
 
 	public Worker(Person work1) {
-		// TODO Auto-generated constructor stub
 		this.id = work1.getId_person();
 
 	}
@@ -62,17 +61,17 @@ public class Worker extends Person {
 		return productsForWorker;
 	}
 
-	public void setProductsForWorker(ArrayList<Product> productsForWorker) {
+	public void setProductsForWorker(List<Product> productsForWorker) {
 		this.productsForWorker = productsForWorker;
 	}
 
 	public static String updateStatusCustomer(String code, String id, String newStatus, List<Customer> customers) {
-		Customer cust = new Customer();
-		int CustomerIndex = Customer.getIndexx(id, customers);
-		cust = customers.get(CustomerIndex);
+		Customer cust;
+		int customerIndex = Customer.getIndexx(id, customers);
+		cust = customers.get(customerIndex);
 		int productIndex = cust.getIndexProduct(code);
-		customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);
-		return customers.get(CustomerIndex).getProductsForCusomer().get(productIndex).getStatus();
+		customers.get(customerIndex).getProductsForCusomer().get(productIndex).setStatus(newStatus);
+		return customers.get(customerIndex).getProductsForCusomer().get(productIndex).getStatus();
 	}
 
 	////// to distribute products over workers
@@ -125,11 +124,9 @@ public class Worker extends Person {
 		return index;
 	}
 
-	public static boolean isProductExist(String id, Worker w, ArrayList<Worker> workers) {
-		int i = getIndexOfProduct(id, w, workers);
-		if (i == -1)
-			return false;
-		return true;
+	public static boolean isProductExist(String id, Worker w, List<Worker> workers) {
+		
+		return getIndexOfProduct(id, w, workers)!=-1;
 	}
 
 	public static void distributeOrder(Product pro, List<Worker> workers) {
@@ -140,7 +137,7 @@ public class Worker extends Person {
 
 	}
 
-	public static void addProductToWorker(Product pro, Worker w1, ArrayList<Worker> workers) {
+	public static void addProductToWorker(Product pro, Worker w1, List<Worker> workers) {
 
 		int index = Worker.getIndexOfWorker(w1.getId(), workers);
 		workers.get(index).productsForWorker.add(pro);

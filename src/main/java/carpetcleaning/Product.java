@@ -3,15 +3,15 @@ package carpetcleaning;
 
 public class Product {
 
-	private String name_p;
-	private String Code;
+	private String namePro;
+	private String code;
 	private String picture;
 	private String material;
-	private int Length;
+	private int length;
 	private int width;
 	private String status;
 	private String category;
-	private String isspecial;
+	private String isSpecial;
 	private String responsibleWorkerId;
 	private String custId;
 
@@ -23,9 +23,9 @@ public class Product {
 		this.custId = custId;
 	}
 
-	public Product(String name_p, String Code) {
-		this.name_p = name_p;
-		this.Code = Code;
+	public Product(String namePro, String code) {
+		this.namePro = namePro;
+		this.code = code;
 		this.status = "waiting";
 
 	}
@@ -43,52 +43,47 @@ public class Product {
 	}
 
 	public void setCategory(String category2) {
-		// TODO Auto-generated method stub
 		category = category2;
 	}
 
 	public void setStatus(String status2) {
-		// TODO Auto-generated method stub
 		status = status2;
 	}
 
-	public void setMaterial(String product_material) {
-		// TODO Auto-generated method stub
-		material = product_material;
+	public void setMaterial(String productMaterial) {
+		material = productMaterial;
 	}
 
-	public void setName_p(String product_name) {
-		// TODO Auto-generated method stub
-		name_p = product_name;
+	public void setName_p(String productName) {
+		namePro = productName;
 	}
 
-	public void setLength(String product_length) {
-		// TODO Auto-generated method stub
-		int L = Integer.parseInt(product_length);
-		this.Length = L;
+	public void setLength(String productLength) {
+		int L = Integer.parseInt(productLength);
+		this.length = L;
 
 	}
 
-	public void setPicture(String product_picture) {
+	public void setPicture(String productPicture) {
 		// TODO Auto-generated method stub
-		picture = product_picture;
+		picture = productPicture;
 	}
 
-	public void setCode(String product_Code) {
+	public void setCode(String productCode) {
 		// TODO Auto-generated method stub
-		Code = product_Code;
+		code = productCode;
 	}
 
-	public void setIsspecial(String isspecial2) {
+	public void setIsspecial(String isSpecial2) {
 		// TODO Auto-generated method stub
 
-		isspecial = isspecial2;
+		isSpecial = isSpecial2;
 
 	}
 
-	public void setwidth(String product_width) {
+	public void setwidth(String productWidth) {
 		// TODO Auto-generated method stub
-		int W = Integer.parseInt(product_width);
+		int W = Integer.parseInt(productWidth);
 		width = W;
 	}
 
@@ -96,8 +91,8 @@ public class Product {
 		return width;
 	}
 
-	public String getName_p() {
-		return name_p;
+	public String getNamePro() {
+		return namePro;
 	}
 
 	public String getPicture() {
@@ -109,7 +104,7 @@ public class Product {
 	}
 
 	public String getCode() {
-		return Code;
+		return code;
 	}
 
 	public String getMaterial() {
@@ -117,7 +112,7 @@ public class Product {
 	}
 
 	public Integer getLength() {
-		return Length;
+		return length;
 	}
 
 	public String getCategory() {
@@ -125,6 +120,6 @@ public class Product {
 	}
 
 	public String getIsspecial() {
-		return isspecial;
+		return isSpecial;
 	}
 }

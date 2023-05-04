@@ -166,7 +166,7 @@ public class Main {
 				for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
 					System.out.println("\t" + "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getCode()
-							+ "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getName_p() + "\t" + "\t"
+							+ "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getNamePro() + "\t" + "\t"
 							+ customers2.get(i).getProductsForCusomer().get(j).getMaterial() + "\t" + "\t"
 							+ customers2.get(i).getProductsForCusomer().get(j).getCategory() + "\t" + "\t"
 							+ customers2.get(i).getProductsForCusomer().get(j).getLength() + "\t" + "\t"
@@ -205,7 +205,7 @@ public class Main {
 
 						System.out.print("\n");
 						System.out.print(
-								"Product Name :    " + customers.get(i).getProductsForCusomer().get(j).getName_p());
+								"Product Name :    " + customers.get(i).getProductsForCusomer().get(j).getNamePro());
 						System.out.print("\n");
 						System.out.print(
 								"Product code :    " + customers.get(i).getProductsForCusomer().get(j).getCode());
