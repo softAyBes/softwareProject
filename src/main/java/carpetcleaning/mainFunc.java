@@ -446,7 +446,7 @@ if(x==1) {
 								{
 									System.out.println(" new Length: ");
 					  	       		in=input.nextLine();
-					  	         Customer.update_Length(code,in,cust);	
+					  	         Customer.updateLength(code,in,cust);	
 								 System.out.println(" Update Length successfully");
 								}
 					     }
