@@ -137,7 +137,6 @@ public class Customer extends Person {
 		Product pro = customer.getProductsForCusomer().get(pid);
 
 		int wID = Worker.getIndexOfWorker(pro.getResponsibleWorkerId(), workers);
-		System.out.println(wID);
 		Worker w = workers.get(wID);
 		Worker.deleteProductToWorker(pro, w.getId(), workers);
 		customer.productsForCusomer.remove(index);
@@ -199,7 +198,7 @@ public class Customer extends Person {
 		cCust.productsForCusomer.get(i).setwidth(width);
 	}
 
-	public static void update_Length(String code, String length, Customer cCust) {
+	public static void updateLength(String code, String length, Customer cCust) {
 		int i = cCust.getIndexForProduct(code, cCust.getProductsForCusomer());
 		cCust.productsForCusomer.get(i).setLength(length);
 	}
