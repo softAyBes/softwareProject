@@ -117,7 +117,7 @@ public class Main {
 	public static int totalWaitingNum(List<Customer> customers2) {
 		int num = 0;
 		for (int i = 0; i < customers2.size(); i++) {
-			num += Customer.WaitingProduct(customers2.get(i));
+			num += Customer.waitingProduct(customers2.get(i));
 
 		}
 		return num;
@@ -230,7 +230,7 @@ public class Main {
 						System.out.print("Totel Price :" + totelPrice);
 						System.out.print("\n");
 						money = Customer.getTotalPrice(customers2.get(index));
-						int moneyAfterDis = Customer.discount(money, 15, customers2.get(index));
+						int moneyAfterDis = Customer.discount(money, 15);
 						System.out.print("Totel Price after discount :" + moneyAfterDis);
 
 						System.out.print("\n");

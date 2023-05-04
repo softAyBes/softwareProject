@@ -153,7 +153,7 @@ public void customer_want_to_update_product_with_new_picture(String Code, String
 
 	int index =Customer.getIndexx("3",customers);
 	Customer=customers.get(index);
-	Customer.updatepicture(Code,picture,Customer);
+	Customer.updatePicture(Code,picture,Customer);
 	
 }
 

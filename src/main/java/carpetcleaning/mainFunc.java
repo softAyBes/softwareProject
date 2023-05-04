@@ -468,7 +468,7 @@ if(x==1) {
 			  	    	 
 								System.out.println(" new width: ");
 				  	        	in=input.nextLine();
-				  	       		Customer.update_width(code,in,cust);	
+				  	       		Customer.updateWidth(code,in,cust);	
 				  	       		System.out.println(" Update Width successfully");
 			  	    	
 							}
@@ -491,7 +491,7 @@ if(x==1) {
 						{
 							 System.out.println(" new picture: ");
 					  	      	in=input.nextLine();
-					  	        Customer.updatepicture(code, in, cust);	
+					  	        Customer.updatePicture(code, in, cust);	
 					  	       	 System.out.println(" Update Picture successfully");
 					  	       	}
 		  	    	

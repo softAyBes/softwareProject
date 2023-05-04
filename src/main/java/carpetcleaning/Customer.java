@@ -106,14 +106,8 @@ public class Customer extends Person {
 	}
 
 	public static boolean isExistCustomer(String id2, List<Customer> customers) {
-/*		if (getIndexx(id2, customers) == -1) {
 
-			return false;
-		}
-
-		return true;
-	}*/
-	return (getIndexx(id2, customers) != -1);
+		return (getIndexx(id2, customers) != -1);
 	}
 
 	///// This part for product check
@@ -133,12 +127,8 @@ public class Customer extends Person {
 	}
 
 	public static boolean checkIsExist1(String code, Customer customer) {
-		if (customer.getIndexForProduct(code, customer.productsForCusomer) == -1) {
-
-			return false;
-		}
-
-		return true;
+	
+		return (customer.getIndexForProduct(code, customer.productsForCusomer) != -1);
 	}
 
 	public static void deleteProduct(String code, Customer customer, List<Worker> workers) {
@@ -165,13 +155,13 @@ public class Customer extends Person {
 		customers.remove(index);
 	}
 
-	public static void updatePhone(String id2, String newPhone, ArrayList<Customer> customers) {
+	public static void updatePhone(String id2, String newPhone, List<Customer> customers) {
 		int index = Customer.getIndexx(id2, customers);
 		customers.get(index).setPhone(newPhone);
 
 	}
 
-	public static void updateAdress(String id2, String newAdress, ArrayList<Customer> customers) {
+	public static void updateAdress(String id2, String newAdress, List<Customer> customers) {
 		int index = Customer.getIndexx(id2, customers);
 		customers.get(index).setAddress(newAdress);
 
@@ -184,7 +174,7 @@ public class Customer extends Person {
 		Worker.distributeOrder(pro, workers);
 	}
 
-	public int getIndexforProduct(String code, List<Customer> customers) {
+	public int getIndexProduct(String code) {
 		int index = -1;
 
 		for (int i = 0; i < this.productsForCusomer.size(); i++) {
@@ -198,13 +188,13 @@ public class Customer extends Person {
 		return index;
 	}
 
-	public static void updatepicture(String code, String nPicture, Customer customer) {
+	public static void updatePicture(String code, String nPicture, Customer customer) {
 
 		int i = customer.getIndexForProduct(code, customer.getProductsForCusomer());
 		customer.productsForCusomer.get(i).setPicture(nPicture);
 	}
 
-	public static void update_width(String code, String width, Customer cCust) {
+	public static void updateWidth(String code, String width, Customer cCust) {
 		int i = cCust.getIndexForProduct(code, cCust.getProductsForCusomer());
 		cCust.productsForCusomer.get(i).setwidth(width);
 	}
@@ -214,7 +204,7 @@ public class Customer extends Person {
 		cCust.productsForCusomer.get(i).setLength(length);
 	}
 
-	public static int WaitingProduct(Customer cust) {
+	public static int waitingProduct(Customer cust) {
 		int num = 0;
 		for (int i = 0; i < cust.getProductsForCusomer().size(); i++) {
 			if (cust.getProductsForCusomer().get(i).getStatus().equalsIgnoreCase("waiting")) {
@@ -245,7 +235,7 @@ public class Customer extends Person {
 
 	}
 
-	public static boolean check_price(int p) {
+	public static boolean checkPrice(int p) {
 		return p >= 550;
 	}
 
@@ -257,9 +247,9 @@ public class Customer extends Person {
 		return total;
 	}
 
-	public static int discount(int totalPrice, int dis, Customer cust) {
+	public static int discount(int totalPrice, int dis) {
 		int disc = (totalPrice * dis) / 100;
-		int Discounted_price = totalPrice - disc;
-		return Discounted_price;
+		return (totalPrice - disc);
+		
 	}
 }

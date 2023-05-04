@@ -55,7 +55,7 @@ public class Test_discount {
 	public void the_price_with_code_greater_than_or_equal(String code, String price) {
 
 		int price_product = Customer.getPrice(code, Customer);
-		Customer.check_price(price_product);
+		Customer.checkPrice(price_product);
 	}
 
 	@Then("product with code {string} get a discount of {int}")
@@ -63,7 +63,7 @@ public class Test_discount {
 
 		int price_ = Customer.getPrice(code, Customer);
 		int T = Customer.getTotalPrice(Customer);
-		int price_after_dis = Customer.discount(T, dis, Customer);
+		int price_after_dis = Customer.discount(T, dis);
 		System.out.print(price_after_dis);
 		System.out.print(price_);
 
