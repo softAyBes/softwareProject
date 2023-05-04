@@ -185,7 +185,7 @@ public class mainFunc {
 							}
 							else if(x==2) 
 							{
-								Main.Show_all_customers_details(Main.customers);
+								Main.showAllCustomersDetails(Main.customers);
 								System.out.println(emptyLine);
 								System.out.println(emptyLine);
 
