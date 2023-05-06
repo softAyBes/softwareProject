@@ -108,7 +108,7 @@ public class customerTest {
 	    // Write code here that turns the phrase above into concrete actions
 		cust=new Customer();
 		cust.setLogged(1);
-		Customer.updatePhone(id, newAddress,customers);
+		Customer.updateAdress(id, newAddress,customers);
 	}
 
 	@Then("customer address id {string} updated successfully")

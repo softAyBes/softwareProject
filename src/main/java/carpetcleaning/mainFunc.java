@@ -40,7 +40,7 @@ public class mainFunc {
 			logger.log(Level.INFO,
 					"|						        Enter you user password						        |");
 			password = input.nextLine();
-			stat = Admin.login(name, password);
+			stat = Admin.login(name, password,Main.persons);
 			if (stat.equals("false")) {
 				logged = 0;
 				logger.log(Level.INFO, "|						        Login faild						        |");

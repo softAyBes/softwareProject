@@ -42,3 +42,28 @@ Feature:  login feature
     When username is "jamal" which type is worker
     And password is false "wrong"
     Then  log in faild
+
+    
+    Scenario: adminType
+    Given that admin is logged
+	Then  type is admin
+	
+	
+	Scenario: workerType
+    Given that worker is logged
+	Then  type is worker
+	
+	Scenario: customer Type
+    Given that customer is logged
+	Then  type is customer
+	
+	Scenario: get id from name
+    Given that name is "admin"
+	Then  id is 11
+	
+	Scenario: get id from name not exist
+    Given that name is "habibi"
+	Then  id is not valid
+	
+	
+	

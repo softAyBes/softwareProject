@@ -24,6 +24,7 @@ public class sendEmailTest {
 
 	@Then("email send")
 	public void email_send() {
+		
 		actual=email.email("ayabaara4@gmail.com", "your product is ready");
 		assertEquals(expected,actual);
 
