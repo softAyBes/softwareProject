@@ -2,6 +2,7 @@ package carpetcleaning;
 
 
 import java.util.Scanner;
+
 import java.util.logging.Level; import java.util.logging.Logger;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
@@ -23,7 +24,6 @@ public class mainFunc {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in); 
 		String name,password;
-		String emptyLine="|						                      						                |";
 		int logged=0;
 		String stat;
 		Logger logger = Logger.getLogger(mainFunc.class.getSimpleName()); 
@@ -36,8 +36,7 @@ public class mainFunc {
 			while(logged==0) {
 				logger.log(Level.INFO,"");
 				logger.log(Level.INFO,"|						        Enter you username						        |");
-				logger.log(Level.INFO,"|_______________________________________________________________________________________________________________________________"
-					+ "|");
+				logger.log(Level.INFO,"|_______________________________________________________________________________________________________________________________|");
 			name=input.nextLine();
 			logger.log(Level.INFO,"|						        Enter you user password						        |");
 			password=input.nextLine();
@@ -51,16 +50,15 @@ public class mainFunc {
 				logged=1;
 				user=Main.persons.get(Person.getIndex(name, Main.persons));
 				user.setId_person(Person.getIdFromName(name, Main.persons));
-				logger.log(Level.INFO,"|_______________________________________________________________________________________________________________________________"
-						, "|");
-				logger.log(Level.INFO,"|                                                Welcome Back ", user.getName());
+				logger.log(Level.INFO,"|______________________________________________________________________________________________________________________________|");
+				logger.logp(Level.INFO,"|                                                Welcome Back ", user.getName(),"                                              |");
 				logger.log(Level.INFO,"\n");
 				logger.log(Level.INFO,"\n");
 				logger.log(Level.INFO,"\n");
 			}
 			
 			
-			//// Admin 
+			
 			if(stat.equalsIgnoreCase("admin")) {
 				while(logged==1) 
 				{
@@ -79,7 +77,7 @@ public class mainFunc {
 						x=input.nextInt();
 						if(x==1) 
 						{
-							// add new customer
+							
 							Customer cust =new Customer();
 							in=input.nextLine();
 							logger.log(Level.INFO," Enter Information : ID");
@@ -139,33 +137,33 @@ public class mainFunc {
 
 							x=input.nextInt();
 							if (x==1) {
-								logger.log(Level.INFO,"Total number of products  "+Main.itemsNum(Main.customers));
+								logger.log(Level.INFO,"Total number of products  ",Main.itemsNum(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
 								
 							}
 							else if(x==2) {
-								logger.log(Level.INFO,"Total number of waiting products is  "+Main.totalWaitingNum(Main.customers));
+								logger.log(Level.INFO,"Total number of waiting products is  ",Main.totalWaitingNum(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
 							}
 							
 							else if(x==3) {
-								logger.log(Level.INFO,"Total number of waiting products is "+Main.totalIntreatment(Main.customers));
+								logger.log(Level.INFO,"Total number of waiting products is ",Main.totalIntreatment(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
 							}
 							else if(x==4) {
-								logger.log(Level.INFO,"Total number of Money "+Main.totalMoney(Main.customers));
+								logger.log(Level.INFO,"Total number of Money ",Main.totalMoney(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
 							}
 							else if(x==5) {
-								logger.log(Level.INFO,"Total number of debts "+Main.totalDebts(Main.customers));
+								logger.log(Level.INFO,"Total number of debts ",Main.totalDebts(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
@@ -207,8 +205,9 @@ public class mainFunc {
 						}	
 							
 						
-						else if(x==0) {
-							/// log out
+						else if(x==0) 
+						{
+						
 							logged=0;
 							
 						}
@@ -512,9 +511,9 @@ if(x==1)
 						logger.log(Level.INFO,"\n");
 					}
 					
-			}//end while
+			}
 					
-				}//end if
+				}
 			
 			
 			
