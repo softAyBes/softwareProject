@@ -6,14 +6,14 @@ import java.util.List;
 public class Person {
 	private String name;
 	private String password;
-	private String id_person;
+	private String idPerson;
 	private String type;
 	private int logged;
 
 	public Person(String name, String pass, String id) {
 		this.name = name;
 		this.password = pass;
-		this.id_person = id;
+		this.idPerson = id;
 	}
 
 	public Person() {
@@ -24,17 +24,16 @@ public class Person {
 
 		this.name = name2;
 		this.password = pass;
-		this.id_person = id;
+		this.idPerson = id;
 		this.type = type2;
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getId_person() {
-		return id_person;
+		return idPerson;
 	}
 
-	public void setId_person(String id_person) {
-		this.id_person = id_person;
+	public void setId_person(String idPerson) {
+		this.idPerson = idPerson;
 	}
 
 	public String getName() {
@@ -84,14 +83,7 @@ public class Person {
 	}
 
 	public static boolean isExist(String id2, ArrayList<Person> persons) {
-		// TODO Auto-generated method stub
-		// create common class contains all arrays list (customer, product ......)
-		if (getIndex(id2, persons) == -1) {
-
-			return false;
-		}
-
-		return true;
+		return (getIndex(id2, persons) != -1);
 	}
 
 	public static String getIdFromName(String name, List<Person> persons) {
