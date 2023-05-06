@@ -10,7 +10,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class distrWorkerTest {
+public class distrWorkerTest  {
 	
 	public static ArrayList<Worker> workers= new ArrayList<Worker>();
 	public static ArrayList<Customer> customers= new ArrayList<Customer>();
