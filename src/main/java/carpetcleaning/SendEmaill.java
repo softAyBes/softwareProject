@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class SendEmaill {
 	
-	public void email(String to, String msg) {
+	public int email(String to, String msg) {
 		
 		
 		
@@ -38,7 +38,7 @@ public class SendEmaill {
 
             Transport.send(message);
 
-            System.out.println("Notification Email Sent!");
+            return 1;
 
         	} 
         catch (MessagingException e) {

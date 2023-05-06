@@ -289,7 +289,7 @@ if(x==1) {
 						System.out.println("Send email to notify customer that the product is ready ? Y/N");
 						in=input.nextLine();
 						if(in.equalsIgnoreCase("y")) {
-							email.email(cust.getEmail(),"your product is ready for more information visit us \n by: " +w.getName());
+							int y=email.email(cust.getEmail(),"your product is ready for more information visit us \n by: " +w.getName());
 						}
 						
 						System.out.println(emptyLine);
