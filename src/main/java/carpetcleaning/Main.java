@@ -19,23 +19,23 @@ public class Main {
 
 		uesr = new Person();
 
-////customer1
+
 		Person pers1 = new Person("aya", "123", "3", "customer");
 		Customer c2 = new Customer(pers1, "3", "059967", "Arsad");
 		c2.setEmail("ayabaara4@gmail.com");
 
-///// customer2
+
 		Person pers11 = new Person("beesan", "123", "8", "customer");
 		Customer c22 = new Customer(pers11, "8", "58585", "Rafidya");
 		c22.setEmail("ayabaara4@gmail.com");
 
-// admin
+
 		Person adm1 = new Person("admin1", "admin123", "5", "admin");
 
-///worker1
+
 		Person work1 = new Person("worker1", "work123", "6", "worker");
 		Worker worker1 = new Worker(work1, "6", "05987", "2000", "nablus");
-///worker2
+
 		Person work2 = new Person("worker2", "work123", "7", "worker");
 
 		Worker worker2 = new Worker(work2, "7", "05987", "3500", "hebron");
@@ -51,7 +51,7 @@ public class Main {
 			workers.add(worker2);
 			workers.add(worker1);
 
-/// 3 products for cust1
+
 			Product pro1 = new Product("carpet12", "100");
 			pro1.setCategory("Carpets");
 			pro1.setLength("5");
@@ -149,31 +149,25 @@ public class Main {
 
 	public static void showAllCustomersDetails(List<Customer> customers2) {
 		logger.log(Level.INFO, "-------------Report about customers details-----------------");
-		System.out.println();
+		logger.log(Level.INFO,"");
 
 		logger.log(Level.INFO,
 				"ID \tName \tAddress \t \tpro_code \tpro_Name \tpro_Material \tpro_Category  \tpro_Length \tpro_Width \tIsspecial ");
 
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
-				System.out.print(customers2.get(i).getId() + "\t" + customers2.get(i).getName() + "\t"
-						+ customers2.get(i).getAddress());
+				logger.log(Level.INFO, customers2.get(i).getId());
 				if (customers2.get(i).getProductsForCusomer().isEmpty()) {
-					System.out.println();
-					System.out.println("\t");
+					logger.log(Level.INFO,"");
+					logger.log(Level.INFO,"\t");
+					
 				}
 				for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
-					System.out.println("\t" + "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getCode()
-							+ "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getNamePro() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getMaterial() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getCategory() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getLength() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getWidth() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getIsspecial());
+					logger.log(Level.INFO,"\t");
 
 				}
-				System.out.println(
+				logger.log(Level.INFO,
 						"------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			}
 		}
@@ -184,37 +178,37 @@ public class Main {
 	{
 		int totelPrice = 0;
 
-		System.out.println("---------------------------Invoice----------------------------------------");
-		System.out.println("------------------------Cleaning Services---------------------------------");
+		logger.log(Level.INFO,"---------------------------Invoice----------------------------------------");
+		logger.log(Level.INFO,"------------------------Cleaning Services---------------------------------");
 		int index = 0;
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
 				if (customers2.get(i).getId().equalsIgnoreCase(Id)) {
-					System.out.print("Customer ID :     " + customers.get(i).getId());
-					System.out.print("\n");
-					System.out.print("Customer Name :   " + customers.get(i).getName());
-					System.out.print("\n");
-					System.out.print("Customer Address :" + customers.get(i).getAddress());
-					System.out.print("\n");
-					System.out.print("Customer Phone :  " + customers.get(i).getPhone());
-					System.out.print("\n");
+					logger.log(Level.INFO,"Customer ID :     " + customers.get(i).getId());
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"Customer Name :   " + customers.get(i).getName());
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"Customer Address :" + customers.get(i).getAddress());
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"Customer Phone :  " + customers.get(i).getPhone());
+					logger.log(Level.INFO,"\n");
 					index = i;
 
 					for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
-						System.out.print("\n");
-						System.out.print(
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,
 								"Product Name :    " + customers.get(i).getProductsForCusomer().get(j).getNamePro());
-						System.out.print("\n");
-						System.out.print(
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,
 								"Product code :    " + customers.get(i).getProductsForCusomer().get(j).getCode());
-						System.out.print("\n");
+						logger.log(Level.INFO,"\n");
 						String k = customers2.get(i).getProductsForCusomer().get(j).getCode();
 						int price = Customer.getPrice(k, customers2.get(i));
-						System.out.println("Price of product :" + price);
-						System.out.print("\n");
+						logger.log(Level.INFO,"Price of product :" + price);
+						logger.log(Level.INFO,"\n");
 						totelPrice = totelPrice + price;
-						System.out.print("\n");
+						logger.log(Level.INFO,"\n");
 
 					}
 
@@ -223,19 +217,19 @@ public class Main {
 						int T = 0;
 						int money = 0;
 
-						System.out.print("Totel Cash :" + paying);
-						System.out.print("\n");
+						logger.log(Level.INFO,"Totel Cash :" + paying);
+						logger.log(Level.INFO,"\n");
 
-						System.out.print("Totel Price :" + totelPrice);
-						System.out.print("\n");
+						logger.log(Level.INFO,"Totel Price :" + totelPrice);
+						logger.log(Level.INFO,"\n");
 						money = Customer.getTotalPrice(customers2.get(index));
 						int moneyAfterDis = Customer.discount(money, 15);
-						System.out.print("Totel Price after discount :" + moneyAfterDis);
+						logger.log(Level.INFO,"Totel Price after discount :" + moneyAfterDis);
 
-						System.out.print("\n");
+						logger.log(Level.INFO,"\n");
 						T = moneyAfterDis - paying;
-						System.out.print("Total debts  :" + T);
-						System.out.print("\n");
+						logger.log(Level.INFO,("Total debts  :" + T));
+						logger.log(Level.INFO,"\n");
 
 						Main.customers.get(index).setDebt(T);
 						Main.customers.get(index).setMoney(paying);
@@ -250,15 +244,15 @@ public class Main {
 
 	public static void showAllWorkerDetails(List<Worker> workers2) {
 
-		System.out.println("-------------Report about worker details-----------------");
-		System.out.println();
-		System.out.println("ID \t \tName \t \tAddress   \tSalary  \tPhone  ");
+		logger.log(Level.INFO,"-------------Report about worker details-----------------");
+		logger.log(Level.INFO,"");
+		logger.log(Level.INFO,"ID \t \tName \t \tAddress   \tSalary  \tPhone  ");
 		if (!workers2.isEmpty()) {
 			for (int i = 0; i < workers2.size(); i++) {
-				System.out.print(workers2.get(i).getId() + "\t" + "\t" + workers2.get(i).getName() + "\t" + "\t"
+				logger.log(Level.INFO,workers2.get(i).getId() + "\t" + "\t" + workers2.get(i).getName() + "\t" + "\t"
 						+ workers2.get(i).getAddress() + "\t" + "\t" + workers2.get(i).getSalary() + "\t" + "\t"
 						+ workers2.get(i).getPhone());
-				System.out.println();
+				logger.log(Level.INFO,"");
 			}
 		}
 
