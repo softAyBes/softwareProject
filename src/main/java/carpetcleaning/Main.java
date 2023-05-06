@@ -165,13 +165,7 @@ public class Main {
 				}
 				for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
-					logger.log(Level.INFO,"\t" + "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getCode()
-							+ "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getNamePro() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getMaterial() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getCategory() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getLength() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getWidth() + "\t" + "\t"
-							+ customers2.get(i).getProductsForCusomer().get(j).getIsspecial());
+					logger.log(Level.INFO,"\t");
 
 				}
 				logger.log(Level.INFO,
