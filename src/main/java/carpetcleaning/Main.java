@@ -154,15 +154,14 @@ public class Main {
 
 	public static void showAllCustomersDetails(List<Customer> customers2) {
 		logger.log(Level.INFO, "-------------Report about customers details-----------------");
-		System.out.println();
+		logger.log(Level.INFO,"");
 
 		logger.log(Level.INFO,
 				"ID \tName \tAddress \t \tpro_code \tpro_Name \tpro_Material \tpro_Category  \tpro_Length \tpro_Width \tIsspecial ");
 
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
-				logger.log(Level.INFO, customers2.get(i).getId() + "\t" + customers2.get(i).getName() + "\t"
-						+ customers2.get(i).getAddress());
+				logger.log(Level.INFO, customers2.get(i).getId());
 				if (customers2.get(i).getProductsForCusomer().isEmpty()) {
 					logger.log(Level.INFO,"");
 					logger.log(Level.INFO,"\t");
