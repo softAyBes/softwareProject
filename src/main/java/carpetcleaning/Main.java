@@ -161,15 +161,16 @@ public class Main {
 
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
-				System.out.print(customers2.get(i).getId() + "\t" + customers2.get(i).getName() + "\t"
+				logger.log(Level.INFO, customers2.get(i).getId() + "\t" + customers2.get(i).getName() + "\t"
 						+ customers2.get(i).getAddress());
 				if (customers2.get(i).getProductsForCusomer().isEmpty()) {
-					System.out.println();
-					System.out.println("\t");
+					logger.log(Level.INFO,"");
+					logger.log(Level.INFO,"\t");
+					
 				}
 				for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
-					System.out.println("\t" + "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getCode()
+					logger.log(Level.INFO,"\t" + "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getCode()
 							+ "\t" + "\t" + customers2.get(i).getProductsForCusomer().get(j).getNamePro() + "\t" + "\t"
 							+ customers2.get(i).getProductsForCusomer().get(j).getMaterial() + "\t" + "\t"
 							+ customers2.get(i).getProductsForCusomer().get(j).getCategory() + "\t" + "\t"
@@ -178,7 +179,7 @@ public class Main {
 							+ customers2.get(i).getProductsForCusomer().get(j).getIsspecial());
 
 				}
-				System.out.println(
+				logger.log(Level.INFO,
 						"------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			}
 		}
@@ -189,37 +190,37 @@ public class Main {
 	{
 		int totelPrice = 0;
 
-		System.out.println("---------------------------Invoice----------------------------------------");
-		System.out.println("------------------------Cleaning Services---------------------------------");
+		logger.log(Level.INFO,"---------------------------Invoice----------------------------------------");
+		logger.log(Level.INFO,"------------------------Cleaning Services---------------------------------");
 		int index = 0;
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
 				if (customers2.get(i).getId().equalsIgnoreCase(Id)) {
-					System.out.print("Customer ID :     " + customers.get(i).getId());
-					System.out.print("\n");
-					System.out.print("Customer Name :   " + customers.get(i).getName());
-					System.out.print("\n");
-					System.out.print("Customer Address :" + customers.get(i).getAddress());
-					System.out.print("\n");
-					System.out.print("Customer Phone :  " + customers.get(i).getPhone());
-					System.out.print("\n");
+					logger.log(Level.INFO,"Customer ID :     " + customers.get(i).getId());
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"Customer Name :   " + customers.get(i).getName());
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"Customer Address :" + customers.get(i).getAddress());
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"Customer Phone :  " + customers.get(i).getPhone());
+					logger.log(Level.INFO,"\n");
 					index = i;
 
 					for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
-						System.out.print("\n");
-						System.out.print(
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,
 								"Product Name :    " + customers.get(i).getProductsForCusomer().get(j).getNamePro());
-						System.out.print("\n");
-						System.out.print(
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,
 								"Product code :    " + customers.get(i).getProductsForCusomer().get(j).getCode());
-						System.out.print("\n");
+						logger.log(Level.INFO,"\n");
 						String k = customers2.get(i).getProductsForCusomer().get(j).getCode();
 						int price = Customer.getPrice(k, customers2.get(i));
-						System.out.println("Price of product :" + price);
-						System.out.print("\n");
+						logger.log(Level.INFO,"Price of product :" + price);
+						logger.log(Level.INFO,"\n");
 						totelPrice = totelPrice + price;
-						System.out.print("\n");
+						logger.log(Level.INFO,"\n");
 
 					}
 
@@ -228,19 +229,19 @@ public class Main {
 						int T = 0;
 						int money = 0;
 
-						System.out.print("Totel Cash :" + paying);
-						System.out.print("\n");
+						logger.log(Level.INFO,"Totel Cash :" + paying);
+						logger.log(Level.INFO,"\n");
 
-						System.out.print("Totel Price :" + totelPrice);
-						System.out.print("\n");
+						logger.log(Level.INFO,"Totel Price :" + totelPrice);
+						logger.log(Level.INFO,"\n");
 						money = Customer.getTotalPrice(customers2.get(index));
 						int moneyAfterDis = Customer.discount(money, 15);
-						System.out.print("Totel Price after discount :" + moneyAfterDis);
+						logger.log(Level.INFO,"Totel Price after discount :" + moneyAfterDis);
 
-						System.out.print("\n");
+						logger.log(Level.INFO,"\n");
 						T = moneyAfterDis - paying;
-						System.out.print("Total debts  :" + T);
-						System.out.print("\n");
+						logger.log(Level.INFO,("Total debts  :" + T));
+						logger.log(Level.INFO,"\n");
 
 						Main.customers.get(index).setDebt(T);
 						Main.customers.get(index).setMoney(paying);
@@ -255,15 +256,15 @@ public class Main {
 
 	public static void showAllWorkerDetails(List<Worker> workers2) {
 
-		System.out.println("-------------Report about worker details-----------------");
-		System.out.println();
-		System.out.println("ID \t \tName \t \tAddress   \tSalary  \tPhone  ");
+		logger.log(Level.INFO,"-------------Report about worker details-----------------");
+		logger.log(Level.INFO,"");
+		logger.log(Level.INFO,"ID \t \tName \t \tAddress   \tSalary  \tPhone  ");
 		if (!workers2.isEmpty()) {
 			for (int i = 0; i < workers2.size(); i++) {
-				System.out.print(workers2.get(i).getId() + "\t" + "\t" + workers2.get(i).getName() + "\t" + "\t"
+				logger.log(Level.INFO,workers2.get(i).getId() + "\t" + "\t" + workers2.get(i).getName() + "\t" + "\t"
 						+ workers2.get(i).getAddress() + "\t" + "\t" + workers2.get(i).getSalary() + "\t" + "\t"
 						+ workers2.get(i).getPhone());
-				System.out.println();
+				logger.log(Level.INFO,"");
 			}
 		}
 
