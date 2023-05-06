@@ -27,7 +27,7 @@ public class mainFunc {
 		int logged=0;
 		String stat;
 		Logger logger = Logger.getLogger(mainFunc.class.getSimpleName()); 
-		logger.log(Level.INFO, "hiiiiiiiiiii");
+		logger.log(Level.INFO, "h");
 		System.out.println(emptyLine);
 			System.out.println(emptyLine);
 			System.out.println("|						Welcome to  carpet cleaning foundation						|");

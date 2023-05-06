@@ -2,6 +2,8 @@ package carpetcleaning;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -11,6 +13,7 @@ public class Main {
 	protected static Person uesr;
 	protected static int autoId = 4;
 	private static final String CARPETWORD = "carpet";
+	static Logger logger = Logger.getLogger(Main.class.getSimpleName());
 
 	public static int setCutomers() {
 
@@ -28,7 +31,6 @@ public class Main {
 
 // admin
 		Person adm1 = new Person("admin1", "admin123", "5", "admin");
-//Admin admin1=new Admin(adm1);
 
 ///worker1
 		Person work1 = new Person("worker1", "work123", "6", "worker");
@@ -102,7 +104,7 @@ public class Main {
 
 	public static void printArray() {
 		for (int i = 0; i < customers.size(); i++) {
-			System.out.println(customers.get(i).getId());
+			logger.log(Level.INFO, customers.get(i).getId());
 		}
 	}
 
@@ -151,10 +153,12 @@ public class Main {
 	}
 
 	public static void showAllCustomersDetails(List<Customer> customers2) {
-		System.out.println("-------------Report about customers details-----------------");
+		logger.log(Level.INFO, "-------------Report about customers details-----------------");
 		System.out.println();
-		System.out.println(
+
+		logger.log(Level.INFO,
 				"ID \tName \tAddress \t \tpro_code \tpro_Name \tpro_Material \tpro_Category  \tpro_Length \tpro_Width \tIsspecial ");
+
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
 				System.out.print(customers2.get(i).getId() + "\t" + customers2.get(i).getName() + "\t"
