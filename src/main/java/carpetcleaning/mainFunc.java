@@ -2,7 +2,7 @@ package carpetcleaning;
 
 
 import java.util.Scanner;
-
+import java.util.logging.Level; import java.util.logging.Logger;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class mainFunc {
@@ -16,7 +16,6 @@ public class mainFunc {
  
 	public static void main(String[] args) { 
 		
-		 // TODO Auto-generated catch block e.printStackTrace(); }
 		 
 		int x;
 		String in;
@@ -27,8 +26,9 @@ public class mainFunc {
 		String emptyLine="|						                      						                |";
 		int logged=0;
 		String stat;
-		// TODO Auto-generated method stub
-			System.out.println(emptyLine);
+		Logger logger = Logger.getLogger(mainFunc.class.getSimpleName()); 
+		logger.log(Level.INFO, "hiiiiiiiiiii");
+		System.out.println(emptyLine);
 			System.out.println(emptyLine);
 			System.out.println("|						Welcome to  carpet cleaning foundation						|");
 			System.out.println(emptyLine);
