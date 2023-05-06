@@ -19,23 +19,23 @@ public class Main {
 
 		uesr = new Person();
 
-////customer1
+
 		Person pers1 = new Person("aya", "123", "3", "customer");
 		Customer c2 = new Customer(pers1, "3", "059967", "Arsad");
 		c2.setEmail("ayabaara4@gmail.com");
 
-///// customer2
+
 		Person pers11 = new Person("beesan", "123", "8", "customer");
 		Customer c22 = new Customer(pers11, "8", "58585", "Rafidya");
 		c22.setEmail("ayabaara4@gmail.com");
 
-// admin
+
 		Person adm1 = new Person("admin1", "admin123", "5", "admin");
 
-///worker1
+
 		Person work1 = new Person("worker1", "work123", "6", "worker");
 		Worker worker1 = new Worker(work1, "6", "05987", "2000", "nablus");
-///worker2
+
 		Person work2 = new Person("worker2", "work123", "7", "worker");
 
 		Worker worker2 = new Worker(work2, "7", "05987", "3500", "hebron");
@@ -51,7 +51,7 @@ public class Main {
 			workers.add(worker2);
 			workers.add(worker1);
 
-/// 3 products for cust1
+
 			Product pro1 = new Product("carpet12", "100");
 			pro1.setCategory("Carpets");
 			pro1.setLength("5");
