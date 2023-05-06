@@ -28,11 +28,11 @@ public class Person {
 		this.type = type2;
 	}
 
-	public String getId_person() {
+	public String getIdPerson() {
 		return idPerson;
 	}
 
-	public void setId_person(String idPerson) {
+	public void setIdPerson(String idPerson) {
 		this.idPerson = idPerson;
 	}
 
@@ -82,14 +82,14 @@ public class Person {
 		return index;
 	}
 
-	public static boolean isExist(String id2, ArrayList<Person> persons) {
+	public static boolean isExist(String id2, List<Person> persons) {
 		return (getIndex(id2, persons) != -1);
 	}
 
 	public static String getIdFromName(String name, List<Person> persons) {
 		for (int i = 0; i < persons.size(); i++) {
 			if (persons.get(i).getName().equals(name)) {
-				return persons.get(i).getId_person();
+				return persons.get(i).getIdPerson();
 			}
 		}
 		return "-1";

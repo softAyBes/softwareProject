@@ -23,6 +23,11 @@ public class adminTest {
 		user = new Person();
 		Person adm1 = new Person("admin", "IamAdmin", "11");
 		adm1.setType("admin");
+		
+		Admin admin=new Admin(adm1);
+		admin.isStatus();
+		admin.setId("12");
+		admin.getId();
 
 		Person cus1 = new Person("aya", "aya123", "12");
 		cus1.setType("customer");
@@ -43,12 +48,16 @@ public class adminTest {
 	public void that_user_is_not_logged_in() {
 		// Write code here that turns the phrase above into concrete actions
 		user.setLogged(0);
+		user.getLogged();
+		
+		
 	}
 
 	@When("username is {string} which type is admin")
 	public void username_is_which_type_is_admin(String name) {
 		status = persons.get(Person.getIndex(name, persons)).getType();
 		user.setName(name);
+		user.setIdPerson("12");
 	}
 
 	@When("password is correct {string}")
@@ -76,7 +85,7 @@ public class adminTest {
 		// Write code here that turns the phrase above into concrete actions
 		expected = false;
 		user.setLogged(0);
-		assertEquals(actualType, "false");
+		assertEquals("false",actualType);
 	}
 
 	@When("username is {string} which type is customer")

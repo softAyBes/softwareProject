@@ -167,7 +167,7 @@ public class Main {
 		}
 	}
 
-	public static void generateInvoice(String Id, int paying, List<Customer> customers2)
+	public static void generateInvoice(String id, int paying, List<Customer> customers2)
 
 	{
 		int totelPrice = 0;
@@ -177,7 +177,7 @@ public class Main {
 		int index = 0;
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
-				if (customers2.get(i).getId().equalsIgnoreCase(Id)) {
+				if (customers2.get(i).getId().equalsIgnoreCase(id)) {
 					logger.log(Level.INFO, "Customer ID :     " + customers.get(i).getId());
 					logger.log(Level.INFO, "\n");
 					logger.log(Level.INFO, "Customer Name :   " + customers.get(i).getName());
@@ -208,7 +208,7 @@ public class Main {
 
 					if (totelPrice >= paying) {
 
-						int T = 0;
+						int t = 0;
 						int money = 0;
 
 						logger.log(Level.INFO, "Totel Cash :" + paying);
@@ -221,11 +221,11 @@ public class Main {
 						logger.log(Level.INFO, "Totel Price after discount :" + moneyAfterDis);
 
 						logger.log(Level.INFO, "\n");
-						T = moneyAfterDis - paying;
-						logger.log(Level.INFO, ("Total debts  :" + T));
+						t = moneyAfterDis - paying;
+						logger.log(Level.INFO, ("Total debts  :" + t));
 						logger.log(Level.INFO, "\n");
 
-						Main.customers.get(index).setDebt(T);
+						Main.customers.get(index).setDebt(t);
 						Main.customers.get(index).setMoney(paying);
 
 					}

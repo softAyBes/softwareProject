@@ -9,15 +9,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Test_product {
 
 	public boolean act;
 	public boolean predict;
-	Product Pro = new Product();
+	Product pro = new Product();
 	Customer Customer;
-	public static ArrayList<Customer> customers = new ArrayList<Customer>();
-	public static ArrayList<Worker> workers = new ArrayList<Worker>();
+	public static List<Customer> customers = new ArrayList<>();
+	public static List<Worker> workers = new ArrayList<>();
 
 	@Before
 	public void createOutputFile() {
@@ -68,21 +69,25 @@ public class Test_product {
 			String product_name, String product_picture, String isspecial, String status, String category,
 			String product_length, String product_width, String product_material) {
 
-		Pro.setCategory(category);
-		Pro.setNamePro(product_name);
-		Pro.setCode(product_Code);
-		Pro.setNamePro(product_name);
-		Pro.setPicture(product_picture);
-		Pro.setIsspecial(isspecial);
-		Pro.setStatus(status);
-		Pro.setLength(product_length);
-		Pro.setwidth(product_width);
-		Pro.setMaterial(product_material);
-		// Customer=new customer();
-
+		pro.setCategory(category);
+		pro.setNamePro(product_name);
+		pro.setCode(product_Code);
+		pro.setNamePro(product_name);
+		pro.setPicture(product_picture);
+		pro.setIsspecial(isspecial);
+		pro.setStatus(status);
+		pro.setLength(product_length);
+		pro.setwidth(product_width);
+		pro.setMaterial(product_material);
+		pro.getCategory();
+		pro.getCustId();
+		pro.getIsspecial();
+		pro.getMaterial();
+		pro.getPicture();
+		
 		int index = Customer.getIndexx("3", customers);
 		Customer = customers.get(index);
-		Customer.addProduct(Pro, Test_product.workers);
+		Customer.addProduct(pro, Test_product.workers);
 	}
 
 	@Then("customer record product with code {string} successfully")
@@ -123,6 +128,7 @@ public class Test_product {
 		Customer = customers.get(index);
 		if (Customer.checkIsExist1(CODE, Customer)) {
 			Customer.deleteProduct(CODE, Customer, workers);
+			
 		}
 	}
 

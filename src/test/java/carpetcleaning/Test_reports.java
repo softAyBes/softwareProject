@@ -8,6 +8,7 @@ import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -23,8 +24,8 @@ public class Test_reports
 	String exp;
 	Admin admin=new Admin();
 	Person user;
-	public static ArrayList<Customer> customers= new ArrayList<Customer>();
-	public static ArrayList<Worker> workers= new ArrayList<Worker>();
+	public static List<Customer> customers= new ArrayList<Customer>();
+	public static List<Worker> workers= new ArrayList<Worker>();
 		
 		@Before public void createOutputFile() 
 		{
@@ -49,8 +50,8 @@ public class Test_reports
 			c4.getProductsForCusomer().add(pro3);  
 		
 			Person pers4=new Person("Sandra","8989","1");
-			///worker w1 =new worker(pers4,"1","05933","2000","Add");
-			//workers.add(w1);
+			Worker w1 =new Worker(pers4,"1","05933","2000","Add");
+			workers.add(w1);
 			
 			if(!Customer.isExistCustomer(c2.getId(),customers)) 
 			{
@@ -79,7 +80,7 @@ public class Test_reports
 public void admin_generated_all_customers_details_report_successfully() 
 {
     exp="true";
-    //Main.Show_all_customers_details(customers);
+    Main.showAllCustomersDetails(customers);
     assertNotSame(exp,act);
 	
 }

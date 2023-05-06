@@ -3,6 +3,7 @@ package carpetcleaning;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -12,13 +13,15 @@ import io.cucumber.java.en.Then;
 
 public class distrWorkerTest{
 	
-	public static ArrayList<Worker> workers= new ArrayList<Worker>();
-	public static ArrayList<Customer> customers= new ArrayList<Customer>();
-
-	Worker wr;
+	public static List<Worker> workers= new ArrayList<>();
+	public static List<Customer> customers= new ArrayList<>();
+	public static List<Product> productsForWorker= new ArrayList<>();
+ 
+	Worker wr=new Worker(new Person("","",""));
 	String expected,actual;
 	
 	@Before public void createOutputFile() {
+		
 		Person pers1=new Person("w1","123","7");
 		Worker w1=new Worker(pers1);
 		
@@ -43,6 +46,9 @@ public class distrWorkerTest{
 		pro2.setStatus("in treatment");
 		c2.getProductsForCusomer().add(pro1);  
 		c2.getProductsForCusomer().add(pro2);
+		
+		productsForWorker.add(pro2);
+		productsForWorker.add(pro11);
 		
 		Worker.addProductToWorker(pro1, w1, workers);
 		Worker.addProductToWorker(pro11, w1, workers);
@@ -90,10 +96,11 @@ public class distrWorkerTest{
 	@Then("product deleted successfully")
 	public void product_deleted_successfully() {
 		int windex=Worker.getIndexOfWorker("7", workers);
-		//System.out.println(windex+"jjjj");
 		Worker w=workers.get(windex);
 	    boolean isexist=Worker.isProductExist("20", w, workers);
+	    wr.setProductsForWorker(productsForWorker);
 	    assertEquals(isexist,false);
+	    
 	}
 
 }

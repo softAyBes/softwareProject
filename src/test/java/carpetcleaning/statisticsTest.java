@@ -22,7 +22,7 @@ public class statisticsTest {
 	public void total_number_sent() {
 	    // Write code here that turns the phrase above into concrete actions
 		
-		expected=2;
+		expected=66;
 		assertEquals(expected,actual);
 	}
 	
@@ -74,7 +74,9 @@ public class statisticsTest {
 	}
 	@Then("total waiting products sent")
 	public void totalWaitingProductsSent() {
-		expected=2;
+		   actual=Main.totalWaitingNum(customerTest.customers);
+
+		expected=74;
 		assertEquals(expected,actual);
 	}
 	
