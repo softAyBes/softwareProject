@@ -27,36 +27,36 @@ public class mainFunc {
 		int logged=0;
 		String stat;
 		Logger logger = Logger.getLogger(mainFunc.class.getSimpleName()); 
-		logger.log(Level.INFO, "h");
-		System.out.println(emptyLine);
-			System.out.println(emptyLine);
-			System.out.println("|						Welcome to  carpet cleaning foundation						|");
-			System.out.println(emptyLine);
+		
+		logger.log(Level.INFO,"\n");
+			
+			logger.log(Level.INFO,"|						Welcome to  carpet cleaning foundation						|");
+			logger.log(Level.INFO,"\n");
 			
 			while(logged==0) {
-				System.out.println(emptyLine);
-			System.out.println("|						        Enter you username						        |");
-			System.out.println("|_______________________________________________________________________________________________________________________________"
+				logger.log(Level.INFO,"");
+				logger.log(Level.INFO,"|						        Enter you username						        |");
+				logger.log(Level.INFO,"|_______________________________________________________________________________________________________________________________"
 					+ "|");
 			name=input.nextLine();
-			System.out.println("|						        Enter you user password						        |");
+			logger.log(Level.INFO,"|						        Enter you user password						        |");
 			password=input.nextLine();
 			stat=Admin.login(name, password);
 			if(stat.equals("false")) {
 				logged=0;
-				System.out.println("|						        Login faild						        |");
+				logger.log(Level.INFO,"|						        Login faild						        |");
 
 			}
 			else {
 				logged=1;
 				user=Main.persons.get(Person.getIndex(name, Main.persons));
 				user.setId_person(Person.getIdFromName(name, Main.persons));
-				System.out.println("|_______________________________________________________________________________________________________________________________"
-						+ "|");
-				System.out.println("|                                                Welcome Back "+ user.getName()+"                               | ");
-				System.out.println(emptyLine);
-				System.out.println(emptyLine);
-				System.out.println(emptyLine);
+				logger.log(Level.INFO,"|_______________________________________________________________________________________________________________________________"
+						, "|");
+				logger.log(Level.INFO,"|                                                Welcome Back ", user.getName());
+				logger.log(Level.INFO,"\n");
+				logger.log(Level.INFO,"\n");
+				logger.log(Level.INFO,"\n");
 			}
 			
 			
@@ -65,130 +65,130 @@ public class mainFunc {
 				while(logged==1) 
 				{
 						x=0;
-						System.out.println("press 1. To add new customer ");
-						System.out.println(emptyLine);
-						System.out.println("      2. To Delete customer ");
-						System.out.println(emptyLine);
-						System.out.println("      3. To get statistic ");
-						System.out.println(emptyLine);
-						System.out.println("      4. To generate reports  ");
-						System.out.println(emptyLine);
-						System.out.println("      5. To generate invoice  ");
-						System.out.println(emptyLine);
-						System.out.println("      0. log out ");
+						logger.log(Level.INFO,"press 1. To add new customer ");
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,"      2. To Delete customer ");
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,"      3. To get statistic ");
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,"      4. To generate reports  ");
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,"      5. To generate invoice  ");
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,"      0. log out ");
 						x=input.nextInt();
 						if(x==1) 
 						{
 							// add new customer
 							Customer cust =new Customer();
 							in=input.nextLine();
-							System.out.println(" Enter Information : ID");
+							logger.log(Level.INFO," Enter Information : ID");
 							in=input.nextLine();
 							if(Customer.isExistCustomer(in, Main.customers)) {
-									System.out.println("this Id already exist");
-									System.out.println(emptyLine);
+								logger.log(Level.INFO,"this Id already exist");
+									logger.log(Level.INFO,"\n");
 								}
 							else 
 							{
 								cust.setId(in);
 								cust.setId_person(in);
-								System.out.println("Name");
+								logger.log(Level.INFO,"Name");
 								in=input.nextLine();
 								cust.setName(in);
 								
-								System.out.println("phone");
+								logger.log(Level.INFO,"phone");
 								in=input.nextLine();
 								cust.setPhone(in);
 								
-								System.out.println("Address");
+								logger.log(Level.INFO,"Address");
 								in=input.nextLine();
 								cust.setAddress(in);
 								
 								
-								System.out.println("Email");
+								logger.log(Level.INFO,"Email");
 								in=input.nextLine();
 								cust.setEmail(in);
 								Customer.createCustomer(cust, Main.customers);
-								System.out.println(" Added successfully");
+								logger.log(Level.INFO," Added successfully");
 							
 							}
 							 
 						}
 						else if(x==2) {
-							System.out.println(" What ID you want to delete");
+							logger.log(Level.INFO," What ID you want to delete");
 							in=input.nextLine();
 							in=input.nextLine();
 							if(!Customer.isExistCustomer(in, Main.customers)) {
-									System.out.println("No customer with this id");
-									System.out.println();
-									System.out.println(emptyLine);
+								logger.log(Level.INFO,"No customer with this id");
+								logger.log(Level.INFO,"\n");
+									logger.log(Level.INFO,"\n");
 								}
 							else {
 								Customer.deleteCustomer(in, Main.customers);
-								System.out.println(" Deleted successfully");
+								logger.log(Level.INFO," Deleted successfully");
 
 							}
 						}
 						
 						else if (x==3) {
-							System.out.println(" 		enter 1 to get total number of products");
-							System.out.println(" 		enter 2 to get total number of waiting products");
-							System.out.println(" 		enter 3 to get total number of in treatment products");
-							System.out.println(" 		enter 4 to get total number of Money");
-							System.out.println(" 		enter 5 to get total number of debts");
+							logger.log(Level.INFO," 		enter 1 to get total number of products");
+							logger.log(Level.INFO," 		enter 2 to get total number of waiting products");
+							logger.log(Level.INFO," 		enter 3 to get total number of in treatment products");
+							logger.log(Level.INFO," 		enter 4 to get total number of Money");
+							logger.log(Level.INFO," 		enter 5 to get total number of debts");
 
 							x=input.nextInt();
 							if (x==1) {
-								System.out.println("Total number of products  "+Main.itemsNum(Main.customers));
-								System.out.println(emptyLine);
-								System.out.println(emptyLine);
+								logger.log(Level.INFO,"Total number of products  "+Main.itemsNum(Main.customers));
+								logger.log(Level.INFO,"\n");
+								logger.log(Level.INFO,"\n");
 
 								
 							}
 							else if(x==2) {
-								System.out.println("Total number of waiting products is  "+Main.totalWaitingNum(Main.customers));
-								System.out.println(emptyLine);
-								System.out.println(emptyLine);
+								logger.log(Level.INFO,"Total number of waiting products is  "+Main.totalWaitingNum(Main.customers));
+								logger.log(Level.INFO,"\n");
+								logger.log(Level.INFO,"\n");
 
 							}
 							
 							else if(x==3) {
-								System.out.println("Total number of waiting products is "+Main.totalIntreatment(Main.customers));
-								System.out.println(emptyLine);
-								System.out.println(emptyLine);
+								logger.log(Level.INFO,"Total number of waiting products is "+Main.totalIntreatment(Main.customers));
+								logger.log(Level.INFO,"\n");
+								logger.log(Level.INFO,"\n");
 
 							}
 							else if(x==4) {
-								System.out.println("Total number of Money "+Main.totalMoney(Main.customers));
-								System.out.println(emptyLine);
-								System.out.println(emptyLine);
+								logger.log(Level.INFO,"Total number of Money "+Main.totalMoney(Main.customers));
+								logger.log(Level.INFO,"\n");
+								logger.log(Level.INFO,"\n");
 
 							}
 							else if(x==5) {
-								System.out.println("Total number of debts "+Main.totalDebts(Main.customers));
-								System.out.println(emptyLine);
-								System.out.println(emptyLine);
+								logger.log(Level.INFO,"Total number of debts "+Main.totalDebts(Main.customers));
+								logger.log(Level.INFO,"\n");
+								logger.log(Level.INFO,"\n");
 
 							}
 							
 						}
 						else if (x==4) 
 						{
-							System.out.println(" 		enter 1 to generet report about worker details.");
-							System.out.println(" 		enter 2 to generet report about customer details.");
+							logger.log(Level.INFO," 		enter 1 to generet report about worker details.");
+							logger.log(Level.INFO," 		enter 2 to generet report about customer details.");
 
 							x=input.nextInt();
 							if (x==1) 
 							{
 								Main.showAllWorkerDetails(Main.workers);
-								System.out.println(emptyLine);
-								System.out.println(emptyLine);
+								logger.log(Level.INFO,"\n");
+								logger.log(Level.INFO,"\n");
 							}
 							else if(x==2) 
 							{
 								Main.showAllCustomersDetails(Main.customers);
-								System.out.println(emptyLine);
-								System.out.println(emptyLine);
+								logger.log(Level.INFO,"\n");
+								logger.log(Level.INFO,"\n");
 
 							}
 							
@@ -196,13 +196,13 @@ public class mainFunc {
 						else if (x==5) 
 						{
 							String z;
-							System.out.println("         Enter id customer to generet invoice.");
+							logger.log(Level.INFO,"         Enter id customer to generet invoice.");
 							z=input.next();
-							System.out.println("         Enter the amount you paid");
+							logger.log(Level.INFO,"         Enter the amount you paid");
 							x=input.nextInt();
 						    Main.generateInvoice(z,x,Main.customers);
-							System.out.println(emptyLine);
-							System.out.println(emptyLine);
+						    logger.log(Level.INFO,"\n");
+						    logger.log(Level.INFO,"\n");
 						
 						}	
 							
@@ -213,8 +213,8 @@ public class mainFunc {
 							
 						}
 						else {
-							System.out.println("Enter valid number");
-							System.out.println();
+							logger.log(Level.INFO,"Enter valid number");
+							logger.log(Level.INFO,"\n");
 						}
 					
 					}
@@ -228,26 +228,26 @@ else if(stat.equalsIgnoreCase("worker")) {
 		
 		Worker w=Main.workers.get(Worker.getIndexOfWorker(user.getId_person(), Main.workers));
 		
-		System.out.println("To see your products enter 1");
-		System.out.println("IS there any change in product status? Enter 2");
-		System.out.println("Enter 0 to log out");
+		logger.log(Level.INFO,"To see your products enter 1");
+		logger.log(Level.INFO,"IS there any change in product status? Enter 2");
+		logger.log(Level.INFO,"Enter 0 to log out");
 		
 		x=input.nextInt();
-if(x==1) {
-			
+if(x==1)
+{			
 			int size=w.getProductsForWorker().size();
 			if(size==0) {
-				System.out.println("No products added yet");
-				System.out.println(emptyLine);
+				logger.log(Level.INFO,"No products added yet");
+				logger.log(Level.INFO,"\n");
 			}
 			else {
-				System.out.println(" Code		::	 	Category	::		status		::	Customer ID	::	Customer Name	::		cusomerPhone	");
+				logger.log(Level.INFO," Code		::	 	Category	::		status		::	Customer ID	::	Customer Name	::		cusomerPhone	");
 				
 				for(int i=0;i<size;i++) {
 					Product proo=w.getProductsForWorker().get(i);
 					Customer cust=Main.customers.get(Customer.getIndexx(proo.getCustId(), Main.customers));
-					System.out.println(" "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getId()+"	::		"+cust.getName()+"	::	"+cust.getPhone()+"		");
-					System.out.println();
+					logger.log(Level.INFO," "+proo.getCode()+"		::	 	"+proo.getCategory()+"		::		"+proo.getStatus()+"		::		"+cust.getId()+"	::		"+cust.getName()+"	::	"+cust.getPhone()+"		");
+					logger.log(Level.INFO,"\n");
 
 					
 				}
@@ -260,39 +260,41 @@ if(x==1) {
 			Customer cust=new Customer();
 			final String NOPRODUC="No product with this id";
 			
-			System.out.println("If yes please enter customer id");
+			logger.log(Level.INFO,"If yes please enter customer id");
 			in=input.nextLine();
 			in=input.nextLine();
 			
 			if(!Customer.isExistCustomer(in, Main.customers)) {
-					System.out.println("No customer with this id");
-					System.out.println(emptyLine);
+				logger.log(Level.INFO,"No customer with this id");
+					logger.log(Level.INFO,"\n");
 				}
-			else {
+			else 
+			{
 				cust=Main.customers.get(Customer.getIndexx(in, Main.customers));
 				
-				System.out.println("What product id you want to change");
+				logger.log(Level.INFO,"What product id you want to change");
 				in=input.nextLine();
 				proId=in;
 				
 				if(!Customer.checkIsExist1(in, cust)) {
-					System.out.println(NOPRODUC);
-					System.out.println(emptyLine);
+					logger.log(Level.INFO,NOPRODUC);
+					logger.log(Level.INFO,"\n");
 				}
-				else {
-					System.out.println("what is the new status of the product ? waiting ... in treatment ... ready");
+				else 
+				{
+					logger.log(Level.INFO,"what is the new status of the product ? waiting ... in treatment ... ready");
 					in=input.nextLine();					
 					Worker.updateStatusCustomer(proId, cust.getId(), in, Main.customers);
-					System.out.println("Updated successfully");
+					logger.log(Level.INFO,"Updated successfully");
 					
 					if(in.equalsIgnoreCase("ready")) {
-						System.out.println("Send email to notify customer that the product is ready ? Y/N");
+						logger.log(Level.INFO,"Send email to notify customer that the product is ready ? Y/N");
 						in=input.nextLine();
 						if(in.equalsIgnoreCase("y")) {
 							int y=email.email(cust.getEmail(),"your product is ready for more information visit us \n by: " +w.getName());
 						}
 						
-						System.out.println(emptyLine);
+						logger.log(Level.INFO,"\n");
 					}
 					
 						
@@ -307,8 +309,8 @@ if(x==1) {
 			logged=0;
 		}
 		else {
-			System.out.println("Enter valid number");
-			System.out.println();
+			logger.log(Level.INFO,"Enter valid number");
+			logger.log(Level.INFO,"\n");
 		}
 	}
 	
@@ -324,26 +326,26 @@ if(x==1) {
 				while(logged==1)
 				{
 					x=0;
-					System.out.println("press 1. to add new product ");
-					System.out.println(emptyLine);
-					System.out.println("      2. to Update product ");
-					System.out.println(emptyLine);
-					System.out.println("      3. to Delete product ");
-					System.out.println(emptyLine);
-					System.out.println("      0. log out ");
+					logger.log(Level.INFO,"press 1. to add new product ");
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"      2. to Update product ");
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"      3. to Delete product ");
+					logger.log(Level.INFO,"\n");
+					logger.log(Level.INFO,"      0. log out ");
 					x=input.nextInt();
 					if(x==1)
 					{
 					   
 						Product pro=new Product();
 					
-							System.out.println(" Enter Code to your product"); 
+						logger.log(Level.INFO," Enter Code to your product"); 
 							in=input.nextLine();
 							in=input.nextLine();
 							if(Customer.checkIsExist1(in,cust)) 
 							 {
-								System.out.println("this Code already exist");
-								System.out.println(emptyLine);
+								logger.log(Level.INFO,"this Code already exist");
+								logger.log(Level.INFO,"\n");
 								
 							 }
 							
@@ -352,31 +354,31 @@ if(x==1) {
 							   //cust.setId(in);
 								pro.setStatus("Waiting");
 								pro.setCode(in);
-								System.out.println("Name");
+								logger.log(Level.INFO,"Name");
 								in=input.nextLine();
 								pro.setNamePro(in);
 								
 								
 								
-								System.out.print("Category \n");
+								logger.log(Level.INFO,"Category \n");
 								in=input.nextLine();
 								pro.setCategory(in);
 							
 
-								System.out.print("picture \n");
+								logger.log(Level.INFO,"picture \n");
 								in=input.nextLine();
 								pro.setPicture(in);
 							
-								System.out.print("material \n");
+								logger.log(Level.INFO,"material \n");
 								in=input.nextLine();
 								pro.setMaterial(in);
 								
-								System.out.print("Length \n");
+								logger.log(Level.INFO,"Length \n");
 								in=input.nextLine();
 								pro.setLength(in);
 								
 
-								System.out.print("width \n");
+								logger.log(Level.INFO,"width \n");
 								in=input.nextLine();
 								pro.setwidth(in);
 								
@@ -384,19 +386,19 @@ if(x==1) {
 						
 								pro.setStatus("Waiting");
 								
-								System.out.print("isspecial \n");
+								logger.log(Level.INFO,"isspecial \n");
 								in=input.nextLine();
 								pro.setIsspecial(in);
 								
 								
 								cust.addProduct(pro,Main.workers);
-								System.out.println(emptyLine);
-								System.out.println(" Added successfully");
+								logger.log(Level.INFO,"\n");
+								logger.log(Level.INFO," Added successfully");
 						}
 						
 						else
 						{
-							System.out.print("try later");
+							logger.log(Level.INFO,"try later");
 						}
 						
 				}
@@ -406,18 +408,18 @@ if(x==1) {
 					else if(x==3)
 					{
 						
-							System.out.println(" What Code you want to delete");
+						logger.log(Level.INFO," What Code you want to delete");
 							in=input.nextLine();
 							in=input.nextLine();
 							if(!Customer.checkIsExist1(in,cust)) 
 							{
-							System.out.println("No product with this Code");
-						 	System.out.println(emptyLine);
+								logger.log(Level.INFO,"No product with this Code");
+							logger.log(Level.INFO,"\n");
 						    }
 				  	     else
 				        	{
 						    Customer.deleteProduct(in,cust,Main.workers);
-						    System.out.println("Deleted successfully");
+						    logger.log(Level.INFO,"Deleted successfully");
 				        	}
 					}
 					
@@ -425,53 +427,53 @@ if(x==1) {
 					{
 						
 						System.out.println("press 1. to Update Length of product");
-						System.out.println(emptyLine);
+						logger.log(Level.INFO,"\n");
 						System.out.println("      2. to Update Width of product ");
-						System.out.println(emptyLine);
-						System.out.println("      3. to Update picture of product ");
-						System.out.println(emptyLine);
+						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO,"      3. to Update picture of product ");
+						logger.log(Level.INFO,"\n");
 						String code;
                          x=input.nextInt();
 					     if(x==1)
 					     {
-					    	 System.out.println(" What Code of your product ");
+					    	 logger.log(Level.INFO," What Code of your product ");
 								 code=input.nextLine();
 								code=input.nextLine();
 							
 								if(!Customer.checkIsExist1(code,cust)) 
 								{
 									
-								System.out.println(NOPRODUC);
-							 	System.out.println(emptyLine);
+									logger.log(Level.INFO,NOPRODUC);
+									logger.log(Level.INFO,"\n");
 								}
 								else
 								{
-									System.out.println(" new Length: ");
+									logger.log(Level.INFO," new Length: ");
 					  	       		in=input.nextLine();
 					  	         Customer.updateLength(code,in,cust);	
-								 System.out.println(" Update Length successfully");
+					  	       logger.log(Level.INFO," Update Length successfully");
 								}
 					     }
 						
 			  	     else if(x==2)
 			        	{
-			  	    	 System.out.println(" What Code of your product ");
+			  	    	logger.log(Level.INFO,"What Code of your product ");
 			  	    	code=input.nextLine();
 						code=input.nextLine();
 						
 							if(!Customer.checkIsExist1(code,cust)) 
 							{
 								
-							System.out.println(NOPRODUC);
-						 	System.out.println(emptyLine);
+								logger.log(Level.INFO,NOPRODUC);
+								logger.log(Level.INFO,"\n");
 							}
 							else
 							{
 			  	    	 
-								System.out.println(" new width: ");
+								logger.log(Level.INFO," new width: ");
 				  	        	in=input.nextLine();
 				  	       		Customer.updateWidth(code,in,cust);	
-				  	       		System.out.println(" Update Width successfully");
+				  	       	logger.log(Level.INFO," Update Width successfully");
 			  	    	
 							}
 			  	    	 
@@ -479,22 +481,22 @@ if(x==1) {
 					     
 			  	   else if(x==3)
 		        	{
-		  	    	 System.out.println(" What Code of your product ");
+			  		 logger.log(Level.INFO," What Code of your product ");
 		  	    	code=input.nextLine();
 					code=input.nextLine();
 					
 						if(!Customer.checkIsExist1(code,cust)) 
 						{
 							
-						System.out.println(NOPRODUC);
-					 	System.out.println(emptyLine);
+							logger.log(Level.INFO,NOPRODUC);
+							logger.log(Level.INFO,"\n");
 						}
 						else
 						{
-							 System.out.println(" new picture: ");
+							logger.log(Level.INFO," new picture: ");
 					  	      	in=input.nextLine();
 					  	        Customer.updatePicture(code, in, cust);	
-					  	       	 System.out.println(" Update Picture successfully");
+					  	      logger.log(Level.INFO," Update Picture successfully");
 					  	       	}
 		  	    	
 						}
@@ -506,8 +508,8 @@ if(x==1) {
 						logged=0;
 					}
 					else {
-						System.out.println("Enter valid number");
-						System.out.println();
+						logger.log(Level.INFO,"Enter valid number");
+						logger.log(Level.INFO,"\n");
 					}
 					
 			}//end while
