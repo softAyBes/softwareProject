@@ -137,33 +137,33 @@ public class mainFunc {
 
 							x=input.nextInt();
 							if (x==1) {
-								logger.log(Level.INFO,"Total number of products  ",Main.itemsNum(Main.customers));
+								logger.log(java.util.logging.Level.SEVERE,"Total number of products  ",Main.itemsNum(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
 								
 							}
 							else if(x==2) {
-								logger.log(Level.INFO,"Total number of waiting products is  ",Main.totalWaitingNum(Main.customers));
+								logger.log(java.util.logging.Level.SEVERE,"Total number of waiting products is  ",Main.totalWaitingNum(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
 							}
 							
 							else if(x==3) {
-								logger.log(Level.INFO,"Total number of waiting products is ",Main.totalIntreatment(Main.customers));
+								logger.log(java.util.logging.Level.SEVERE,"Total number of waiting products is ",Main.totalIntreatment(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
 							}
 							else if(x==4) {
-								logger.log(Level.INFO,"Total number of Money ",Main.totalMoney(Main.customers));
+								logger.log(java.util.logging.Level.SEVERE,"Total number of Money ",Main.totalMoney(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
 							}
 							else if(x==5) {
-								logger.log(Level.INFO,"Total number of debts ",Main.totalDebts(Main.customers));
+								logger.log(java.util.logging.Level.SEVERE,"Total number of debts ",Main.totalDebts(Main.customers));
 								logger.log(Level.INFO,"\n");
 								logger.log(Level.INFO,"\n");
 
