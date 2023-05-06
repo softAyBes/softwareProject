@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class mainFunc {
+public class MainFunc {
 	static Person user = new Person();
 	final static String NOPRODUC = "No product with this id";
 	Main main = new Main();
@@ -15,7 +15,7 @@ public class mainFunc {
 	static SendEmaill email = new SendEmaill();
 
 	public static void main(String[] args) {
-
+		final String validNum="Enter valid number";
 		int x;
 		String in;
 		Main.setCutomers();
@@ -24,7 +24,7 @@ public class mainFunc {
 		String name, password;
 		int logged = 0;
 		String stat;
-		Logger logger = Logger.getLogger(mainFunc.class.getSimpleName());
+		Logger logger = Logger.getLogger(MainFunc.class.getSimpleName());
 
 		logger.log(Level.INFO, "\n");
 
@@ -48,7 +48,7 @@ public class mainFunc {
 			} else {
 				logged = 1;
 				user = Main.persons.get(Person.getIndex(name, Main.persons));
-				user.setId_person(Person.getIdFromName(name, Main.persons));
+				user.setIdPerson(Person.getIdFromName(name, Main.persons));
 				logger.log(Level.INFO,
 						"|______________________________________________________________________________________________________________________________|");
 				logger.logp(Level.INFO, "|                                                Welcome Back ",
@@ -84,7 +84,7 @@ public class mainFunc {
 							logger.log(Level.INFO, "\n");
 						} else {
 							cust.setId(in);
-							cust.setId_person(in);
+							cust.setIdPerson(in);
 							logger.log(Level.INFO, "Name");
 							in = input.nextLine();
 							cust.setName(in);
@@ -195,7 +195,7 @@ public class mainFunc {
 						logged = 0;
 
 					} else {
-						logger.log(Level.INFO, "Enter valid number");
+						logger.log(Level.INFO, validNum);
 						logger.log(Level.INFO, "\n");
 					}
 
@@ -204,7 +204,7 @@ public class mainFunc {
 			} else if (stat.equalsIgnoreCase("worker")) {
 				while (logged == 1) {
 
-					Worker w = Main.workers.get(Worker.getIndexOfWorker(user.getId_person(), Main.workers));
+					Worker w = Main.workers.get(Worker.getIndexOfWorker(user.getIdPerson(), Main.workers));
 
 					logger.log(Level.INFO, "To see your products enter 1");
 					logger.log(Level.INFO, "IS there any change in product status? Enter 2");
@@ -237,8 +237,7 @@ public class mainFunc {
 
 					else if (x == 2) {
 						String proId;
-						Customer cust = new Customer();
-						final String NOPRODUC = "No product with this id";
+						Customer cust;
 
 						logger.log(Level.INFO, "If yes please enter customer id");
 						in = input.nextLine();
@@ -269,7 +268,7 @@ public class mainFunc {
 											"Send email to notify customer that the product is ready ? Y/N");
 									in = input.nextLine();
 									if (in.equalsIgnoreCase("y")) {
-										int y = email.email(cust.getEmail(),
+										 email.email(cust.getEmail(),
 												"your product is ready for more information visit us \n by: "
 														+ w.getName());
 									}
@@ -285,7 +284,7 @@ public class mainFunc {
 					else if (x == 0) {
 						logged = 0;
 					} else {
-						logger.log(Level.INFO, "Enter valid number");
+						logger.log(Level.INFO, validNum);
 						logger.log(Level.INFO, "\n");
 					}
 				}
@@ -293,8 +292,8 @@ public class mainFunc {
 			}
 
 			if (stat.equalsIgnoreCase("customer")) {
-				Customer cust = new Customer();
-				cust = Main.customers.get(Customer.getIndexx(user.getId_person(), Main.customers));
+				Customer cust;
+				cust = Main.customers.get(Customer.getIndexx(user.getIdPerson(), Main.customers));
 				while (logged == 1) {
 					x = 0;
 					logger.log(Level.INFO, "press 1. to add new product ");
@@ -319,7 +318,6 @@ public class mainFunc {
 						}
 
 						else if (!Customer.checkIsExist1(in, cust)) {
-							// cust.setId(in);
 							pro.setStatus("Waiting");
 							pro.setCode(in);
 							logger.log(Level.INFO, "Name");
@@ -447,7 +445,7 @@ public class mainFunc {
 						// logOut
 						logged = 0;
 					} else {
-						logger.log(Level.INFO, "Enter valid number");
+						logger.log(Level.INFO, validNum);
 						logger.log(Level.INFO, "\n");
 					}
 
