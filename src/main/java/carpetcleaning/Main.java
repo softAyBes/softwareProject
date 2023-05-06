@@ -102,11 +102,6 @@ public class Main {
 		return 1;
 	}
 
-	public static void printArray() {
-		for (int i = 0; i < customers.size(); i++) {
-			logger.log(Level.INFO, customers.get(i).getId());
-		}
-	}
 
 	public static int itemsNum(List<Customer> customers2) {
 		int num = 0;
@@ -115,7 +110,7 @@ public class Main {
 		}
 		return num;
 	}
-
+ 
 	public static int totalWaitingNum(List<Customer> customers2) {
 		int num = 0;
 		for (int i = 0; i < customers2.size(); i++) {

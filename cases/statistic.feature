@@ -19,17 +19,27 @@
 @tag
 Feature: statistic
 
-  @tag1
+  
   Scenario: total number of items
     Given I want to check the total number of items
     Then total number sent
 
-  @tag1
+  
   Scenario: total number of Money
     Given I want to check the total number of Money
     Then total Money sent
     
-   @tag1
+   
   Scenario: total number of debts
     Given I want to check the total number of debts
     Then total debts sent
+    
+   
+  Scenario: total number of inTretment products
+    Given I want to check the total inTretment products
+    Then total inTretment products sent
+
+       
+  Scenario: total number of waiting products
+    Given I want to check the total waiting products
+    Then total waiting products sent
