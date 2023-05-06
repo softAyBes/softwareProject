@@ -52,6 +52,36 @@ public class statisticsTest {
 		assertEquals(expected,actual);
 	}
 	
+	
 
+	
+	@Given("I want to check the total inTretment products")
+	public void iWantToCheckTheTotalInTretmentProducts() {
+		   actual=Main.totalIntreatment(customerTest.customers);
+
+	}
+	@Then("total inTretment products sent")
+	public void totalInTretmentProductsSent() {
+		expected=0;
+		assertEquals(expected,actual);
+	}
+	
+	
+	@Given("I want to check the total waiting products")
+	public void iWantToCheckTheTotalWaitingProducts() {
+	    // Write code here that turns the phrase above into concrete actions
+		   actual=Main.totalWaitingNum(customerTest.customers);
+	}
+	@Then("total waiting products sent")
+	public void totalWaitingProductsSent() {
+		expected=2;
+		assertEquals(expected,actual);
+	}
+	
+	
+	
+
+	
+	
 
 }
