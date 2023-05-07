@@ -11,7 +11,9 @@ public class Admin extends Person {
 	public Admin(Person pers) {
 		this.setName(pers.getName());
 		this.setPassword(pers.getPassword());
+
 		this.setType(TYPEADMIN);
+
 	}
 
 	public Admin() {
@@ -38,10 +40,11 @@ public class Admin extends Person {
 
 		for (int i = 0; i < persons.size(); i++) {
 
-			if (persons.get(i).getName().equalsIgnoreCase(user) && persons.get(i).getPassword().equalsIgnoreCase(pass)) {
+			if (persons.get(i).getName().equalsIgnoreCase(user)
+					&& persons.get(i).getPassword().equalsIgnoreCase(pass)) {
 
 				if (persons.get(i).getType().equalsIgnoreCase(TYPEADMIN)) {
-					
+
 					return TYPEADMIN;
 				}
 				if (persons.get(i).getType().equalsIgnoreCase("customer")) {
