@@ -12,7 +12,7 @@ public class Worker extends Person {
 	private List<Product> productsForWorker = new ArrayList<>();
 
 	public Worker(Person work1) {
-		this.id = work1.getId_person();
+		this.id = work1.getIdPerson();
 
 	}
 

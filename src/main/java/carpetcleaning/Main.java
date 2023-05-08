@@ -14,24 +14,23 @@ public class Main {
 	protected static int autoId = 4;
 	private static final String CARPETWORD = "carpet";
 	static Logger logger = Logger.getLogger(Main.class.getSimpleName());
+	protected static String value1 = "\n";
+	protected static String value;
+	
 
 	public static int setCutomers() {
 
 		uesr = new Person();
 
-
 		Person pers1 = new Person("aya", "123", "3", "customer");
 		Customer c2 = new Customer(pers1, "3", "059967", "Arsad");
 		c2.setEmail("ayabaara4@gmail.com");
-
 
 		Person pers11 = new Person("beesan", "123", "8", "customer");
 		Customer c22 = new Customer(pers11, "8", "58585", "Rafidya");
 		c22.setEmail("ayabaara4@gmail.com");
 
-
 		Person adm1 = new Person("admin1", "admin123", "5", "admin");
-
 
 		Person work1 = new Person("worker1", "work123", "6", "worker");
 		Worker worker1 = new Worker(work1, "6", "05987", "2000", "nablus");
@@ -50,7 +49,6 @@ public class Main {
 
 			workers.add(worker2);
 			workers.add(worker1);
-
 
 			Product pro1 = new Product("carpet12", "100");
 			pro1.setCategory("Carpets");
@@ -102,12 +100,6 @@ public class Main {
 		return 1;
 	}
 
-	public static void printArray() {
-		for (int i = 0; i < customers.size(); i++) {
-			logger.log(Level.INFO, customers.get(i).getId());
-		}
-	}
-
 	public static int itemsNum(List<Customer> customers2) {
 		int num = 0;
 		for (int i = 0; i < customers2.size(); i++) {
@@ -154,7 +146,7 @@ public class Main {
 
 	public static void showAllCustomersDetails(List<Customer> customers2) {
 		logger.log(Level.INFO, "-------------Report about customers details-----------------");
-		logger.log(Level.INFO,"");
+		logger.log(Level.INFO, "");
 
 		logger.log(Level.INFO,
 				"ID \tName \tAddress \t \tpro_code \tpro_Name \tpro_Material \tpro_Category  \tpro_Length \tpro_Width \tIsspecial ");
@@ -163,13 +155,13 @@ public class Main {
 			for (int i = 0; i < customers2.size(); i++) {
 				logger.log(Level.INFO, customers2.get(i).getId());
 				if (customers2.get(i).getProductsForCusomer().isEmpty()) {
-					logger.log(Level.INFO,"");
-					logger.log(Level.INFO,"\t");
-					
+					logger.log(Level.INFO, "");
+					logger.log(Level.INFO, "\t");
+
 				}
 				for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
-					logger.log(Level.INFO,"\t");
+					logger.log(Level.INFO, "\t");
 
 				}
 				logger.log(Level.INFO,
@@ -178,65 +170,72 @@ public class Main {
 		}
 	}
 
-	public static void generateInvoice(String Id, int paying, List<Customer> customers2)
+	public static void generateInvoice(String id, int paying, List<Customer> customers2)
 
 	{
 		int totelPrice = 0;
 
-		logger.log(Level.INFO,"---------------------------Invoice----------------------------------------");
-		logger.log(Level.INFO,"------------------------Cleaning Services---------------------------------");
+		logger.log(Level.INFO, "---------------------------Invoice----------------------------------------");
+		logger.log(Level.INFO, "------------------------Cleaning Services---------------------------------");
 		int index = 0;
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
-				if (customers2.get(i).getId().equalsIgnoreCase(Id)) {
-					logger.log(Level.INFO,"Customer ID :     " + customers.get(i).getId());
-					logger.log(Level.INFO,"\n");
-					logger.log(Level.INFO,"Customer Name :   " + customers.get(i).getName());
-					logger.log(Level.INFO,"\n");
-					logger.log(Level.INFO,"Customer Address :" + customers.get(i).getAddress());
-					logger.log(Level.INFO,"\n");
-					logger.log(Level.INFO,"Customer Phone :  " + customers.get(i).getPhone());
-					logger.log(Level.INFO,"\n");
+				if (customers2.get(i).getId().equalsIgnoreCase(id)) {
+
+					value = customers.get(i).getId();
+					logger.log(Level.INFO, "Customer ID :	{}", value);
+					logger.log(Level.INFO, "\n");
+					logger.log(Level.INFO, "{}", value1);
+					value = customers.get(i).getName();
+					logger.log(Level.INFO, "Customer Name :  {} ", value);
+					logger.log(Level.INFO, "{}", value1);
+					value = customers.get(i).getAddress();
+					logger.log(Level.INFO, "Customer Address : {}", value);
+					logger.log(Level.INFO, "{}", value1);
+					value = customers.get(i).getPhone();
+					logger.log(Level.INFO, "Customer Phone :  {}", value);
+					logger.log(Level.INFO, "{}", value1);
 					index = i;
 
 					for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
-						logger.log(Level.INFO,"\n");
-						logger.log(Level.INFO,
-								"Product Name :    " + customers.get(i).getProductsForCusomer().get(j).getNamePro());
-						logger.log(Level.INFO,"\n");
-						logger.log(Level.INFO,
-								"Product code :    " + customers.get(i).getProductsForCusomer().get(j).getCode());
-						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO, "{}", value1);
+						value = customers.get(i).getProductsForCusomer().get(j).getNamePro();
+						logger.log(Level.INFO, "Product Name :    {}", value);
+						logger.log(Level.INFO, "{}", value1);
+						value = customers.get(i).getProductsForCusomer().get(j).getCode();
+						logger.log(Level.INFO, "Product code :   {} ", value);
+						logger.log(Level.INFO, "{}", value1);
 						String k = customers2.get(i).getProductsForCusomer().get(j).getCode();
 						int price = Customer.getPrice(k, customers2.get(i));
-						logger.log(Level.INFO,"Price of product :" + price);
-						logger.log(Level.INFO,"\n");
+						value = Integer.toString(price);
+						logger.log(Level.INFO, "Price of product : {}", value);
+						logger.log(Level.INFO, "{}", value1);
 						totelPrice = totelPrice + price;
-						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO, "{}", value1);
 
 					}
 
 					if (totelPrice >= paying) {
 
-						int T = 0;
+						int t = 0;
 						int money = 0;
 
-						logger.log(Level.INFO,"Totel Cash :" + paying);
-						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO, "Totel Cash :  {}" ,paying);
+						logger.log(Level.INFO, "\n");
 
-						logger.log(Level.INFO,"Totel Price :" + totelPrice);
-						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO, "Totel Price : {}"  ,totelPrice);
+						logger.log(Level.INFO, "\n");
 						money = Customer.getTotalPrice(customers2.get(index));
 						int moneyAfterDis = Customer.discount(money, 15);
-						logger.log(Level.INFO,"Totel Price after discount :" + moneyAfterDis);
+						logger.log(Level.INFO, "Totel Price after discount :  {}" ,moneyAfterDis);
 
-						logger.log(Level.INFO,"\n");
-						T = moneyAfterDis - paying;
-						logger.log(Level.INFO,("Total debts  :" + T));
-						logger.log(Level.INFO,"\n");
+						logger.log(Level.INFO, "\n");
+						t = moneyAfterDis - paying;
+						logger.log(Level.INFO, ("Total debts  : {}"+ t));
+						logger.log(Level.INFO, "\n");
 
-						Main.customers.get(index).setDebt(T);
+						Main.customers.get(index).setDebt(t);
 						Main.customers.get(index).setMoney(paying);
 
 					}
@@ -249,15 +248,21 @@ public class Main {
 
 	public static void showAllWorkerDetails(List<Worker> workers2) {
 
-		logger.log(Level.INFO,"-------------Report about worker details-----------------");
-		logger.log(Level.INFO,"");
-		logger.log(Level.INFO,"ID \t \tName \t \tAddress   \tSalary  \tPhone  ");
+		logger.log(Level.INFO, "-------------Report about worker details-----------------");
+		logger.log(Level.INFO, "");
+		logger.log(Level.INFO, "ID \t \tName \t \tAddress   \tSalary  \tPhone  ");
 		if (!workers2.isEmpty()) {
 			for (int i = 0; i < workers2.size(); i++) {
-				logger.log(Level.INFO,workers2.get(i).getId() + "\t" + "\t" + workers2.get(i).getName() + "\t" + "\t"
-						+ workers2.get(i).getAddress() + "\t" + "\t" + workers2.get(i).getSalary() + "\t" + "\t"
-						+ workers2.get(i).getPhone());
-				logger.log(Level.INFO,"");
+				value=workers2.get(i).getId() ;
+				value= workers2.get(i).getName();
+				value= workers2.get(i).getAddress();
+				value= workers2.get(i).getSalary() ;
+				value=workers2.get(i).getPhone();
+				logger.log(Level.INFO,
+						value+"\t" + "\t" + workers2.get(i).getName() + "\t" + "\t"
+								+ workers2.get(i).getAddress() + "\t" + "\t" + workers2.get(i).getSalary() + "\t" + "\t"
+								+ workers2.get(i).getPhone());
+				logger.log(Level.INFO, "");
 			}
 		}
 

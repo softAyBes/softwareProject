@@ -3,7 +3,7 @@ package carpetcleaning;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Customer extends Person {
+public class Customer extends Person{
 	private String id;
 	private String phone;
 	private String address;
