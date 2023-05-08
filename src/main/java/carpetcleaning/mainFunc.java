@@ -22,7 +22,8 @@ public class mainFunc {
 		Main.setCutomers();
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		String name, password;
+		String name;
+		String password;
 		int logged = 0;
 		String stat;
 		Logger logger = Logger.getLogger(mainFunc.class.getSimpleName());
@@ -34,7 +35,7 @@ public class mainFunc {
 
 		while (logged == 0) {
 			logger.log(Level.INFO, "");
-			logger.log(Level.INFO, "|\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tEnter you username\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t|");
+			logger.log(Level.INFO, "|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 			logger.log(Level.INFO,
 					"|_______________________________________________________________________________________________________________________________|");
 			name = input.nextLine();
