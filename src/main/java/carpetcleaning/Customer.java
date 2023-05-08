@@ -56,11 +56,6 @@ public class Customer extends Person {
 		return productsForCusomer;
 	}
 
-	public static void deleteProduct(String code, Customer customer) {
-		int index = customer.getIndexForProduct(code, customer.productsForCusomer);
-		customer.productsForCusomer.remove(index);
-	}
-
 	public void setProductsForCusomer(List<Product> productsForCusomer) {
 		this.productsForCusomer = productsForCusomer;
 	}

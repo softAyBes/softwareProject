@@ -17,8 +17,6 @@ snippets = SnippetType.CAMELCASE
 )
    
 public class testing {
-	testing(){
-		System.out.println("hiii");
-	}
+	
 
 }

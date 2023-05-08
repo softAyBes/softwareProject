@@ -27,3 +27,11 @@ Scenario: Update product picture
 Given that the user type is "customer"
 When customer want to Update product "12" with new picture "/imag" 
 Then product picture code "12" Update successfully
+
+Scenario: Update product Length
+Given that we want to update product "12" the new length is "30"
+Then product Length code "12" Update successfully
+
+Scenario: Update product Width
+Given that we want to update product "12" the new Width is "30"
+Then product Width code "12" Update successfully
