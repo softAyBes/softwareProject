@@ -178,17 +178,21 @@ public class Main {
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
 				if (customers2.get(i).getId().equalsIgnoreCase(id)) {
-					String value="\n";
-					
-					logger.log(Level.INFO, "Customer ID :	" + customers.get(i).getId());
+					String value1="\n";
+					String value;
+					value=customers.get(i).getId();
+					logger.log(Level.INFO, "Customer ID :	{}" ,value);
 					logger.log(Level.INFO, "\n");
-					logger.log(Level.INFO, "{}",value);
-					logger.log(Level.INFO, "Customer Name :   " + customers.get(i).getName());
-					logger.log(Level.INFO, "{}",value);
-					logger.log(Level.INFO, "Customer Address :" + customers.get(i).getAddress());
-					logger.log(Level.INFO, "{}",value);
-					logger.log(Level.INFO, "Customer Phone :  " + customers.get(i).getPhone());
-					logger.log(Level.INFO, "{}",value);
+					logger.log(Level.INFO, "{}",value1);
+					value= customers.get(i).getName();
+					logger.log(Level.INFO, "Customer Name :  {} ",value);
+					logger.log(Level.INFO, "{}",value1);
+					value=customers.get(i).getAddress();
+					logger.log(Level.INFO, "Customer Address : {}" ,value);
+					logger.log(Level.INFO, "{}",value1);
+					value=customers.get(i).getPhone();
+					logger.log(Level.INFO, "Customer Phone :  {}" ,value);
+					logger.log(Level.INFO, "{}",value1);
 					index = i;
 
 					for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
