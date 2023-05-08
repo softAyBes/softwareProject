@@ -14,6 +14,8 @@ public class Main {
 	protected static int autoId = 4;
 	private static final String CARPETWORD = "carpet";
 	static Logger logger = Logger.getLogger(Main.class.getSimpleName());
+	protected static String value1="\n";
+	protected static String value;
 
 	public static int setCutomers() {
 
@@ -178,8 +180,7 @@ public class Main {
 		if (!customers2.isEmpty()) {
 			for (int i = 0; i < customers2.size(); i++) {
 				if (customers2.get(i).getId().equalsIgnoreCase(id)) {
-					String value1="\n";
-					String value;
+					
 					value=customers.get(i).getId();
 					logger.log(Level.INFO, "Customer ID :	{}" ,value);
 					logger.log(Level.INFO, "\n");
@@ -197,19 +198,22 @@ public class Main {
 
 					for (int j = 0; j < customers2.get(i).getProductsForCusomer().size(); j++) {
 
-						logger.log(Level.INFO, "\n");
+						logger.log(Level.INFO, "{}",value1);
+						value=customers.get(i).getProductsForCusomer().get(j).getNamePro();
 						logger.log(Level.INFO,
-								"Product Name :    " + customers.get(i).getProductsForCusomer().get(j).getNamePro());
-						logger.log(Level.INFO, "\n");
+								"Product Name :    {}",value) ;
+						logger.log(Level.INFO, "{}",value1);
+						value= customers.get(i).getProductsForCusomer().get(j).getCode();
 						logger.log(Level.INFO,
-								"Product code :    " + customers.get(i).getProductsForCusomer().get(j).getCode());
-						logger.log(Level.INFO, "\n");
+								"Product code :   {} ",value );
+						logger.log(Level.INFO, "{}",value1);
 						String k = customers2.get(i).getProductsForCusomer().get(j).getCode();
-						int price = Customer.getPrice(k, customers2.get(i));
-						logger.log(Level.INFO, "Price of product :" + price);
-						logger.log(Level.INFO, "\n");
+						int price=Customer.getPrice(k, customers2.get(i));
+						value=Integer.toString(price);
+						logger.log(Level.INFO, "Price of product : {}",value);
+						logger.log(Level.INFO, "{}",value1);
 						totelPrice = totelPrice + price;
-						logger.log(Level.INFO, "\n");
+						logger.log(Level.INFO, "{}",value1);
 
 					}
 
