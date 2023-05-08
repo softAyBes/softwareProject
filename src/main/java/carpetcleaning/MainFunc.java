@@ -15,6 +15,7 @@ public class MainFunc {
 	static SendEmaill email = new SendEmaill();
 
 	public static void main(String[] args) {
+		 
 		final String validNum="Enter valid number";
 		int x;
 		String in;
