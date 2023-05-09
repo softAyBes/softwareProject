@@ -15,7 +15,7 @@ public class Person {
 		this.password = pass;
 		this.idPerson = id;
 	}
-
+	
 	public Person() {
 		this.logged = 0;
 	}
