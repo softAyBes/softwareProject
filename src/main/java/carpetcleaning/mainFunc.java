@@ -30,15 +30,15 @@ public class mainFunc {
 		
 		logger.log(Level.INFO,"\n");
 			
-			logger.log(Level.INFO,"|						Welcome to  carpet cleaning foundation						|");
+			logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\t\t\tWelcome to  carpet cleaning foundation\t\t\t\t\t\t\t\t\t\t\t\t|");
 			logger.log(Level.INFO,"\n");
 			
 			while(logged==0) {
 				logger.log(Level.INFO,"");
-				logger.log(Level.INFO,"|						        Enter you username						        |");
+				logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 				logger.log(Level.INFO,"|_______________________________________________________________________________________________________________________________|");
 			name=input.nextLine();
-			logger.log(Level.INFO,"|						        Enter you user password						        |");
+			logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tEnter you user password\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 			password=input.nextLine();
 			stat=Admin.login(name, password);
 			if(stat.equals("false")) {
