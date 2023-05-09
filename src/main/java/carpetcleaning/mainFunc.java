@@ -129,11 +129,11 @@ public class mainFunc {
 						}
 						
 						else if (x==3) {
-							logger.log(Level.INFO," 		enter 1 to get total number of products");
-							logger.log(Level.INFO," 		enter 2 to get total number of waiting products");
-							logger.log(Level.INFO," 		enter 3 to get total number of in treatment products");
-							logger.log(Level.INFO," 		enter 4 to get total number of Money");
-							logger.log(Level.INFO," 		enter 5 to get total number of debts");
+							logger.log(Level.INFO,"\t\t\t\t\tenter 1 to get total number of products");
+							logger.log(Level.INFO,"\t\t\t\t\tenter 2 to get total number of waiting products");
+							logger.log(Level.INFO,"\t\t\t\t\tenter 3 to get total number of in treatment products");
+							logger.log(Level.INFO,"\t\t\t\t\tenter 4 to get total number of Money");
+							logger.log(Level.INFO,"\t\t\t\t\tenter 5 to get total number of debts");
 
 							x=input.nextInt();
 							if (x==1) {
