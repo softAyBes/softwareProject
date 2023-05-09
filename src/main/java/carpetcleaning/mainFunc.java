@@ -30,7 +30,7 @@ public class mainFunc {
 		
 		logger.log(Level.INFO,"\n");
 			
-			logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\t\t\tWelcome to  carpet cleaning foundation\t\t\t\t\t\t\t\t\t\t\t\t|");
+			logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\t\tWelcome to  carpet cleaning foundation\t\t\t\t\t\t\t\t\t\t\t\t|");
 			logger.log(Level.INFO,"\n");
 			
 			while(logged==0) {
