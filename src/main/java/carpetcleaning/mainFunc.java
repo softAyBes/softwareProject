@@ -121,7 +121,8 @@ public class mainFunc {
 								logger.log(Level.INFO,"\n");
 									logger.log(Level.INFO,"\n");
 								}
-							else {
+							else 
+							{
 								Customer.deleteCustomer(in, Main.customers);
 								logger.log(Level.INFO," Deleted successfully");
 
