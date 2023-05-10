@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MainFunc {
 	static Person user = new Person();
-	final static String NOPRODUC = "No product with this id";
+	static final String NOPRODUC = "No product with this id";
 	Main main = new Main();
 
 	static SendEmaill email = new SendEmaill();
@@ -22,29 +22,29 @@ public class MainFunc {
 		Main.setCutomers();
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
-		String name, password;
+		String name;
+		String password;
 		int logged = 0;
 		String stat;
 		Logger logger = Logger.getLogger(MainFunc.class.getSimpleName());
 
 		logger.log(Level.INFO, "\n");
 
-		logger.log(Level.INFO, "|						Welcome to  carpet cleaning foundation						|");
+		logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\t\tWelcome to  carpet cleaning foundation\t\t\t\t\t\t\t\t\t\t\t\t|");
 		logger.log(Level.INFO, "\n");
 
 		while (logged == 0) {
 			logger.log(Level.INFO, "");
-			logger.log(Level.INFO, "|						        Enter you username						        |");
+			logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 			logger.log(Level.INFO,
 					"|_______________________________________________________________________________________________________________________________|");
 			name = input.nextLine();
-			logger.log(Level.INFO,
-					"|						        Enter you user password						        |");
+			logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 			password = input.nextLine();
 			stat = Admin.login(name, password, Main.persons);
 			if (stat.equals("false")) {
 				logged = 0;
-				logger.log(Level.INFO, "|						        Login faild						        |");
+				logger.log(Level.INFO, "|\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tLogin faild\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t|");
 
 			} else {
 				logged = 1;
@@ -52,7 +52,7 @@ public class MainFunc {
 				user.setIdPerson(Person.getIdFromName(name, Main.persons));
 				logger.log(Level.INFO,
 						"|______________________________________________________________________________________________________________________________|");
-				logger.logp(Level.INFO, "|                                                Welcome Back ",
+				logger.logp(Level.INFO, "|\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t Welcome Back\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t ",
 						user.getName(), "                                              |");
 				logger.log(Level.INFO, "\n");
 				logger.log(Level.INFO, "\n");
@@ -121,11 +121,11 @@ public class MainFunc {
 					}
 
 					else if (x == 3) {
-						logger.log(Level.INFO, " 		enter 1 to get total number of products");
-						logger.log(Level.INFO, " 		enter 2 to get total number of waiting products");
-						logger.log(Level.INFO, " 		enter 3 to get total number of in treatment products");
-						logger.log(Level.INFO, " 		enter 4 to get total number of Money");
-						logger.log(Level.INFO, " 		enter 5 to get total number of debts");
+						logger.log(Level.INFO,"\t\t\t\t\tenter 1 to get total number of products");
+						logger.log(Level.INFO,"\t\t\t\t\tenter 2 to get total number of waiting products");
+						logger.log(Level.INFO,"\t\t\t\t\tenter 3 to get total number of in treatment products");
+						logger.log(Level.INFO,"\t\t\t\t\tenter 4 to get total number of Money");
+						logger.log(Level.INFO,"\t\t\t\t\tenter 5 to get total number of debts");
 
 						x = input.nextInt();
 						if (x == 1) {
@@ -163,8 +163,8 @@ public class MainFunc {
 						}
 
 					} else if (x == 4) {
-						logger.log(Level.INFO, " 		enter 1 to generet report about worker details.");
-						logger.log(Level.INFO, " 		enter 2 to generet report about customer details.");
+						logger.log(Level.INFO, "\t \t enter 1 to generet report about worker details.");
+						logger.log(Level.INFO, "\t \t enter 2 to generet report about customer details.");
 
 						x = input.nextInt();
 						if (x == 1) {
