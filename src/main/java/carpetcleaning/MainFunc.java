@@ -16,6 +16,7 @@ public class MainFunc {
 
 	public static void main(String[] args) {
 
+		final String VALIDNUM = "Enter valid number";
 		int x;
 		String in;
 		Main.setCutomers();
@@ -28,18 +29,17 @@ public class MainFunc {
 
 		logger.log(Level.INFO, "\n");
 
-		logger.log(Level.INFO,
-				"|\t\t\t\t\t\t\t\t\t\t\t\t\t\tWelcome to  carpet cleaning foundation\t\t\t\t\t\t\t\t\t\t\t\t|");
+		logger.log(Level.INFO, "|						Welcome to  carpet cleaning foundation						|");
 		logger.log(Level.INFO, "\n");
 
 		while (logged == 0) {
 			logger.log(Level.INFO, "");
-			logger.log(Level.INFO, "|\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+			logger.log(Level.INFO, "|						        Enter you username						        |");
 			logger.log(Level.INFO,
 					"|_______________________________________________________________________________________________________________________________|");
 			name = input.nextLine();
 			logger.log(Level.INFO,
-					"|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tEnter you user password\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+					"|						        Enter you user password						        |");
 			password = input.nextLine();
 			stat = Admin.login(name, password, Main.persons);
 			if (stat.equals("false")) {
@@ -61,7 +61,6 @@ public class MainFunc {
 
 			if (stat.equalsIgnoreCase("admin")) {
 				while (logged == 1) {
-					x = 0;
 					logger.log(Level.INFO, "press 1. To add new customer ");
 					logger.log(Level.INFO, "\n");
 					logger.log(Level.INFO, "      2. To Delete customer ");
@@ -122,21 +121,21 @@ public class MainFunc {
 					}
 
 					else if (x == 3) {
-						logger.log(Level.INFO, "\t\t\t\tenter 1 to get total number of products");
-						logger.log(Level.INFO, "\t\t\t\tenter 2 to get total number of waiting products");
-						logger.log(Level.INFO, "\t\t\t\tenter 3 to get total number of in treatment products");
-						logger.log(Level.INFO, "\t\t\t\tenter 4 to get total number of Money");
-						logger.log(Level.INFO, "\t\t\t\tenter 5 to get total number of debts");
+						logger.log(Level.INFO, " 		enter 1 to get total number of products");
+						logger.log(Level.INFO, " 		enter 2 to get total number of waiting products");
+						logger.log(Level.INFO, " 		enter 3 to get total number of in treatment products");
+						logger.log(Level.INFO, " 		enter 4 to get total number of Money");
+						logger.log(Level.INFO, " 		enter 5 to get total number of debts");
 
 						x = input.nextInt();
 						if (x == 1) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of products  ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of products {}",
 									Main.itemsNum(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
 
 						} else if (x == 2) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of waiting products is  ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of waiting products is {} ",
 									Main.totalWaitingNum(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
@@ -144,19 +143,19 @@ public class MainFunc {
 						}
 
 						else if (x == 3) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of waiting products is ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of waiting products is {}",
 									Main.totalIntreatment(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
 
 						} else if (x == 4) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of Money ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of Money {}",
 									Main.totalMoney(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
 
 						} else if (x == 5) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of debts ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of debts {}",
 									Main.totalDebts(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
@@ -181,9 +180,9 @@ public class MainFunc {
 
 					} else if (x == 5) {
 						String z;
-						logger.log(Level.INFO, "         Enter id customer to generet invoice.");
+						logger.log(Level.INFO, "\\t\\t\\tEnter id customer to generet invoice.");
 						z = input.next();
-						logger.log(Level.INFO, "         Enter the amount you paid");
+						logger.log(Level.INFO, "\\t\\t\\tEnter the amount you paid");
 						x = input.nextInt();
 						Main.generateInvoice(z, x, Main.customers);
 						logger.log(Level.INFO, "\n");
@@ -196,7 +195,7 @@ public class MainFunc {
 						logged = 0;
 
 					} else {
-						logger.log(Level.INFO, "Enter valid number");
+						logger.log(Level.INFO, VALIDNUM);
 						logger.log(Level.INFO, "\n");
 					}
 
@@ -238,8 +237,7 @@ public class MainFunc {
 
 					else if (x == 2) {
 						String proId;
-						Customer cust = new Customer();
-						final String NOPRODUC = "No product with this id";
+						Customer cust;
 
 						logger.log(Level.INFO, "If yes please enter customer id");
 						in = input.nextLine();
@@ -270,7 +268,7 @@ public class MainFunc {
 											"Send email to notify customer that the product is ready ? Y/N");
 									in = input.nextLine();
 									if (in.equalsIgnoreCase("y")) {
-										int y = email.email(cust.getEmail(),
+										email.email(cust.getEmail(),
 												"your product is ready for more information visit us \n by: "
 														+ w.getName());
 									}
@@ -286,7 +284,7 @@ public class MainFunc {
 					else if (x == 0) {
 						logged = 0;
 					} else {
-						logger.log(Level.INFO, "Enter valid number");
+						logger.log(Level.INFO, VALIDNUM);
 						logger.log(Level.INFO, "\n");
 					}
 				}
@@ -294,8 +292,7 @@ public class MainFunc {
 			}
 
 			if (stat.equalsIgnoreCase("customer")) {
-				Customer cust = new Customer();
-
+				Customer cust;
 				cust = Main.customers.get(Customer.getIndexx(user.getIdPerson(), Main.customers));
 				while (logged == 1) {
 					x = 0;
@@ -321,7 +318,6 @@ public class MainFunc {
 						}
 
 						else if (!Customer.checkIsExist1(in, cust)) {
-							// cust.setId(in);
 							pro.setStatus("Waiting");
 							pro.setCode(in);
 							logger.log(Level.INFO, "Name");
@@ -449,7 +445,7 @@ public class MainFunc {
 						// logOut
 						logged = 0;
 					} else {
-						logger.log(Level.INFO, "Enter valid number");
+						logger.log(Level.INFO, VALIDNUM);
 						logger.log(Level.INFO, "\n");
 					}
 
