@@ -218,16 +218,16 @@ public class MainFunc {
 							logger.log(Level.INFO, "\n");
 						} else {
 							logger.log(Level.INFO,
-									" Code		::	 	Category	::		status		::	Customer ID	::	Customer Name	::		cusomerPhone	");
+									" Code\\t\\t::\t\tCategory	::\\t\\tstatus\\t\\t::\\t\\tCustomer ID	::	Customer Name	::\\t\\tcusomerPhone\\t\\t");
 
 							for (int i = 0; i < size; i++) {
 								Product proo = w.getProductsForWorker().get(i);
 								Customer cust = Main.customers
 										.get(Customer.getIndexx(proo.getCustId(), Main.customers));
 								logger.log(Level.INFO,
-										" " + proo.getCode() + "		::	 	" + proo.getCategory()
-												+ "		::		" + proo.getStatus() + "		::		" + cust.getId()
-												+ "	::		" + cust.getName() + "	::	" + cust.getPhone() + "		");
+										" " + proo.getCode() + "\\t\\t::\\t\\t" + proo.getCategory()
+												+ "	\\t\\t::\\t\\t" + proo.getStatus() + "\\t\\t::\\t\\t" + cust.getId()
+												+ "	::	\\t\\t" + cust.getName() + "\\t\\t::\\t\\t" + cust.getPhone() + "		");
 								logger.log(Level.INFO, "\n");
 
 							}
@@ -295,7 +295,6 @@ public class MainFunc {
 				Customer cust;
 				cust = Main.customers.get(Customer.getIndexx(user.getIdPerson(), Main.customers));
 				while (logged == 1) {
-					x = 0;
 					logger.log(Level.INFO, "press 1. to add new product ");
 					logger.log(Level.INFO, "\n");
 					logger.log(Level.INFO, "      2. to Update product ");
@@ -376,12 +375,11 @@ public class MainFunc {
 					}
 
 					else if (x == 2) {
-
-						System.out.println("press 1. to Update Length of product");
+						logger.log(Level.INFO, "press 1. to Update Length of product\"");
 						logger.log(Level.INFO, "\n");
-						System.out.println("      2. to Update Width of product ");
+						logger.log(Level.INFO, "\t\t2. to Update Width of product");
 						logger.log(Level.INFO, "\n");
-						logger.log(Level.INFO, "      3. to Update picture of product ");
+						logger.log(Level.INFO, "\t\t3. to Update picture of product ");
 						logger.log(Level.INFO, "\n");
 						String code;
 						x = input.nextInt();

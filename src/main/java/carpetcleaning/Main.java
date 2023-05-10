@@ -182,17 +182,17 @@ public class Main {
 				if (customers2.get(i).getId().equalsIgnoreCase(id)) {
 
 					value = customers.get(i).getId();
-					logger.log(Level.INFO, "Customer ID :	{}", value);
+					logger.log(Level.INFO, "Customer ID :\t{}", value);
 					logger.log(Level.INFO, "\n");
 					logger.log(Level.INFO, "{}", value1);
 					value = customers.get(i).getName();
-					logger.log(Level.INFO, "Customer Name :  {} ", value);
+					logger.log(Level.INFO, "Customer Name : \t{} ", value);
 					logger.log(Level.INFO, "{}", value1);
 					value = customers.get(i).getAddress();
-					logger.log(Level.INFO, "Customer Address : {}", value);
+					logger.log(Level.INFO, "Customer Address :\t{}", value);
 					logger.log(Level.INFO, "{}", value1);
 					value = customers.get(i).getPhone();
-					logger.log(Level.INFO, "Customer Phone :  {}", value);
+					logger.log(Level.INFO, "Customer Phone :\t{}", value);
 					logger.log(Level.INFO, "{}", value1);
 					index = i;
 
@@ -251,11 +251,16 @@ public class Main {
 		logger.log(Level.INFO, "");
 		logger.log(Level.INFO, "ID \t \tName \t \tAddress   \tSalary  \tPhone  ");
 		if (!workers2.isEmpty()) {
+			
 			for (int i = 0; i < workers2.size(); i++) {
-				logger.log(Level.INFO,
-						workers2.get(i).getId() + "\t" + "\t" + workers2.get(i).getName() + "\t" + "\t"
-								+ workers2.get(i).getAddress() + "\t" + "\t" + workers2.get(i).getSalary() + "\t" + "\t"
-								+ workers2.get(i).getPhone());
+				String val=workers2.get(i).getId();
+				String val1=workers2.get(i).getName();
+				String val2=workers2.get(i).getAddress();
+				String val3= workers2.get(i).getSalary();
+				String val4=workers2.get(i).getPhone();
+				
+				String str=String.format( "%s\t \t%s\t \t%s \t \t %s\t \t %s", val,val1,val2,val3,val4);
+				logger.log(Level.INFO,str);
 				logger.log(Level.INFO, "");
 			}
 		}
