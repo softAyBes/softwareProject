@@ -16,7 +16,7 @@ public class MainFunc {
 
 	public static void main(String[] args) {
 
-		final String validNum = "Enter valid number";
+		final String VALIDNUM = "Enter valid number";
 		int x;
 		String in;
 		Main.setCutomers();
@@ -61,7 +61,6 @@ public class MainFunc {
 
 			if (stat.equalsIgnoreCase("admin")) {
 				while (logged == 1) {
-					x = 0;
 					logger.log(Level.INFO, "press 1. To add new customer ");
 					logger.log(Level.INFO, "\n");
 					logger.log(Level.INFO, "      2. To Delete customer ");
@@ -130,13 +129,13 @@ public class MainFunc {
 
 						x = input.nextInt();
 						if (x == 1) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of products  ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of products {}",
 									Main.itemsNum(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
 
 						} else if (x == 2) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of waiting products is  ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of waiting products is {} ",
 									Main.totalWaitingNum(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
@@ -144,19 +143,19 @@ public class MainFunc {
 						}
 
 						else if (x == 3) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of waiting products is ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of waiting products is {}",
 									Main.totalIntreatment(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
 
 						} else if (x == 4) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of Money ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of Money {}",
 									Main.totalMoney(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
 
 						} else if (x == 5) {
-							logger.log(java.util.logging.Level.SEVERE, "Total number of debts ",
+							logger.log(java.util.logging.Level.SEVERE, "Total number of debts {}",
 									Main.totalDebts(Main.customers));
 							logger.log(Level.INFO, "\n");
 							logger.log(Level.INFO, "\n");
@@ -181,9 +180,9 @@ public class MainFunc {
 
 					} else if (x == 5) {
 						String z;
-						logger.log(Level.INFO, "         Enter id customer to generet invoice.");
+						logger.log(Level.INFO, "\\t\\t\\tEnter id customer to generet invoice.");
 						z = input.next();
-						logger.log(Level.INFO, "         Enter the amount you paid");
+						logger.log(Level.INFO, "\\t\\t\\tEnter the amount you paid");
 						x = input.nextInt();
 						Main.generateInvoice(z, x, Main.customers);
 						logger.log(Level.INFO, "\n");
@@ -196,7 +195,7 @@ public class MainFunc {
 						logged = 0;
 
 					} else {
-						logger.log(Level.INFO, validNum);
+						logger.log(Level.INFO, VALIDNUM);
 						logger.log(Level.INFO, "\n");
 					}
 
@@ -285,7 +284,7 @@ public class MainFunc {
 					else if (x == 0) {
 						logged = 0;
 					} else {
-						logger.log(Level.INFO, validNum);
+						logger.log(Level.INFO, VALIDNUM);
 						logger.log(Level.INFO, "\n");
 					}
 				}
@@ -446,7 +445,7 @@ public class MainFunc {
 						// logOut
 						logged = 0;
 					} else {
-						logger.log(Level.INFO, validNum);
+						logger.log(Level.INFO, VALIDNUM);
 						logger.log(Level.INFO, "\n");
 					}
 
