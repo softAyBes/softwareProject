@@ -220,18 +220,18 @@ public class Main {
 						int t = 0;
 						int money = 0;
 
-						logger.log(Level.INFO, "Totel Cash :" + paying);
+						logger.log(Level.INFO, "Totel Cash :{}",paying);
 						logger.log(Level.INFO, "\n");
 
-						logger.log(Level.INFO, "Totel Price :" + totelPrice);
+						logger.log(Level.INFO, "Totel Price :{}",totelPrice);
 						logger.log(Level.INFO, "\n");
 						money = Customer.getTotalPrice(customers2.get(index));
 						int moneyAfterDis = Customer.discount(money, 15);
-						logger.log(Level.INFO, "Totel Price after discount :" + moneyAfterDis);
+						logger.log(Level.INFO, "Totel Price after discount :{}",moneyAfterDis);
 
 						logger.log(Level.INFO, "\n");
 						t = moneyAfterDis - paying;
-						logger.log(Level.INFO, ("Total debts  :" + t));
+						logger.log(Level.INFO, "Total debts  :{}",t);
 						logger.log(Level.INFO, "\n");
 
 						Main.customers.get(index).setDebt(t);

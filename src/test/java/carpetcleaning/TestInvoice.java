@@ -1,6 +1,5 @@
 package carpetcleaning;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -10,14 +9,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Test_discount {
-	Customer Customer = new Customer();
+public class TestInvoice {
 
+	Admin admin = new Admin();
 	public static ArrayList<Customer> customers = new ArrayList<Customer>();
 
 	@Before
 	public void createOutputFile() {
-		Person pers1 = new Person("Ayabaara", "123456", "3");
+		Person pers1 = new Person("smai", "123456", "3");
 		Customer c2 = new Customer(pers1, "3", "059967", "Arsad");
 		Product pro1 = new Product();
 		pro1.setNamePro("nn");
@@ -42,32 +41,21 @@ public class Test_discount {
 		} else if (!Customer.isExistCustomer(c4.getId(), customers)) {
 			customers.add(c4);
 		}
+
 	}
 
-	@Given("that customer with id {string} is exist")
-	public void that_customer_with_id_is_exist(String id) {
-		int i = Customer.getIndexx(id, customers);
-		Customer = customers.get(i);
-		Customer.isExistCustomer(id, customers);
+	@Given("that the Admin is logged in is {string}.")
+	public void that_the_admin_is_logged_in_is(String status) {
+		if (status.equalsIgnoreCase("true")) {
+			admin.setStatus(true);
+		}
 	}
 
-	@When("the price with code {string} greater than or equal {string}")
-	public void the_price_with_code_greater_than_or_equal(String code, String price) {
+	@Then("generate invoice to customer with id {string} and paid {int} successfully.")
+	public void generate_invoice_to_customer_with_id_and_paid_successfully(String id, Integer paid) {
 
-		int price_product = Customer.getPrice(code, Customer);
-		Customer.checkPrice(price_product);
-	}
-
-	@Then("product with code {string} get a discount of {int}")
-	public void product_with_code_get_a_discount_of(String code, int dis) {
-
-		int price_ = Customer.getPrice(code, Customer);
-		int T = Customer.getTotalPrice(Customer);
-		int price_after_dis = Customer.discount(T, dis);
-		System.out.print(price_after_dis);
-		System.out.print(price_);
-
-		assertTrue(true);
+		Main.setCutomers();
+		Main.generateInvoice(id, paid, customers);
 	}
 
 }

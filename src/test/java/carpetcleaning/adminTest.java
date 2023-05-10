@@ -23,8 +23,8 @@ public class adminTest {
 		user = new Person();
 		Person adm1 = new Person("admin", "IamAdmin", "11");
 		adm1.setType("admin");
-		
-		Admin admin=new Admin(adm1);
+
+		Admin admin = new Admin(adm1);
 		admin.isStatus();
 		admin.setId("12");
 		admin.getId();
@@ -49,8 +49,7 @@ public class adminTest {
 		// Write code here that turns the phrase above into concrete actions
 		user.setLogged(0);
 		user.getLogged();
-		
-		
+
 	}
 
 	@When("username is {string} which type is admin")
@@ -85,7 +84,7 @@ public class adminTest {
 		// Write code here that turns the phrase above into concrete actions
 		expected = false;
 		user.setLogged(0);
-		assertEquals("false",actualType);
+		assertEquals("false", actualType);
 	}
 
 	@When("username is {string} which type is customer")
@@ -150,10 +149,11 @@ public class adminTest {
 
 	@Then("id is {int}")
 	public void idIs(Integer int1) {
-		assertTrue(actualType.equals("11"));
+		assertEquals(actualType, "11");
 	}
+
 	@Then("id is not valid")
 	public void idIsNotValid() {
-		assertTrue(actualType.equals("-1"));
+		assertEquals(actualType, "-1");
 	}
 }

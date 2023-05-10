@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test_product {
+public class TestProduct {
 
 	public boolean act;
 	public boolean predict;
@@ -84,15 +84,15 @@ public class Test_product {
 		pro.getIsspecial();
 		pro.getMaterial();
 		pro.getPicture();
-		
+
 		int index = Customer.getIndexx("3", customers);
 		Customer = customers.get(index);
-		Customer.addProduct(pro, Test_product.workers);
+		Customer.addProduct(pro, TestProduct.workers);
 	}
 
 	@Then("customer record product with code {string} successfully")
 	public void customer_record_product_with_code_successfully(String code) {
-		
+
 		assertTrue(Customer.checkIsExist1(code, Customer));
 	}
 
@@ -128,7 +128,7 @@ public class Test_product {
 		Customer = customers.get(index);
 		if (Customer.checkIsExist1(CODE, Customer)) {
 			Customer.deleteProduct(CODE, Customer, workers);
-			
+
 		}
 	}
 
