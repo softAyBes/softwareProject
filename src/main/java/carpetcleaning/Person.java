@@ -1,6 +1,5 @@
 package carpetcleaning;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
