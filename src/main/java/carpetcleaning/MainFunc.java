@@ -30,21 +30,23 @@ public class MainFunc {
 
 		logger.log(Level.INFO, "\n");
 
-		logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\t\tWelcome to  carpet cleaning foundation\t\t\t\t\t\t\t\t\t\t\t\t|");
+		logger.log(Level.INFO,
+				"|\t\t\t\t\t\t\t\t\t\t\t\t\tWelcome to  carpet cleaning foundation\t\t\t\t\t\t\t\t\t\t\t\t|");
 		logger.log(Level.INFO, "\n");
 
 		while (logged == 0) {
 			logger.log(Level.INFO, "");
-			logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+			logger.log(Level.INFO, "|\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 			logger.log(Level.INFO,
 					"|_______________________________________________________________________________________________________________________________|");
 			name = input.nextLine();
-			logger.log(Level.INFO,"|\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t|");
+			logger.log(Level.INFO, "|\t\t\t\t\t\t\t\t\t\t\t\tEnter you username\t\t\t\t\t\t\t\t\t\t\t\t\t|");
 			password = input.nextLine();
 			stat = Admin.login(name, password, Main.persons);
 			if (stat.equals("false")) {
 				logged = 0;
-				logger.log(Level.INFO, "|\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tLogin faild\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t|");
+				logger.log(Level.INFO,
+						"|\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tLogin faild\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t|");
 
 			} else {
 				logged = 1;
@@ -52,7 +54,8 @@ public class MainFunc {
 				user.setIdPerson(Person.getIdFromName(name, Main.persons));
 				logger.log(Level.INFO,
 						"|______________________________________________________________________________________________________________________________|");
-				logger.logp(Level.INFO, "|\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t Welcome Back\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t ",
+				logger.logp(Level.INFO,
+						"|\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t Welcome Back\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t ",
 						user.getName(), "                                              |");
 				logger.log(Level.INFO, "\n");
 				logger.log(Level.INFO, "\n");
@@ -121,11 +124,11 @@ public class MainFunc {
 					}
 
 					else if (x == 3) {
-						logger.log(Level.INFO,"\t\t\t\t\tenter 1 to get total number of products");
-						logger.log(Level.INFO,"\t\t\t\t\tenter 2 to get total number of waiting products");
-						logger.log(Level.INFO,"\t\t\t\t\tenter 3 to get total number of in treatment products");
-						logger.log(Level.INFO,"\t\t\t\t\tenter 4 to get total number of Money");
-						logger.log(Level.INFO,"\t\t\t\t\tenter 5 to get total number of debts");
+						logger.log(Level.INFO, "\t\t\t\t\tenter 1 to get total number of products");
+						logger.log(Level.INFO, "\t\t\t\t\tenter 2 to get total number of waiting products");
+						logger.log(Level.INFO, "\t\t\t\t\tenter 3 to get total number of in treatment products");
+						logger.log(Level.INFO, "\t\t\t\t\tenter 4 to get total number of Money");
+						logger.log(Level.INFO, "\t\t\t\t\tenter 5 to get total number of debts");
 
 						x = input.nextInt();
 						if (x == 1) {
@@ -218,16 +221,23 @@ public class MainFunc {
 							logger.log(Level.INFO, "\n");
 						} else {
 							logger.log(Level.INFO,
-									" Code\\t\\t::\t\tCategory	::\\t\\tstatus\\t\\t::\\t\\tCustomer ID	::	Customer Name	::\\t\\tcusomerPhone\\t\\t");
+									" Code\\t\\t::\t\tCategory::\\t\\tstatus\\t\\t::\\t\\tCustomer ID\t::\tCustomer Name::\\t\\tcusomerPhone\\t\\t");
 
 							for (int i = 0; i < size; i++) {
 								Product proo = w.getProductsForWorker().get(i);
 								Customer cust = Main.customers
 										.get(Customer.getIndexx(proo.getCustId(), Main.customers));
-								logger.log(Level.INFO,
-										" " + proo.getCode() + "\\t\\t::\\t\\t" + proo.getCategory()
-												+ "	\\t\\t::\\t\\t" + proo.getStatus() + "\\t\\t::\\t\\t" + cust.getId()
-												+ "	::	\\t\\t" + cust.getName() + "\\t\\t::\\t\\t" + cust.getPhone() + "		");
+								String val = proo.getCode();
+								String val1 = proo.getCategory();
+								String val2 = proo.getStatus();
+								String val3 = cust.getId();
+								String val4 = cust.getName();
+								String val5 = cust.getPhone();
+								String str = String.format(
+										" %s \\t\\t::\\t\\t %s \\t\\t::\\t\\t %s\\t\\t::\\t\\t %s ::\\t\\t %s \\t\\t::\\t\\t%S\t",
+										val, val1, val2, val3, val4, val5);
+
+								logger.log(Level.INFO, str);
 								logger.log(Level.INFO, "\n");
 
 							}
@@ -363,7 +373,6 @@ public class MainFunc {
 					else if (x == 3) {
 
 						logger.log(Level.INFO, " What Code you want to delete");
-						in = input.nextLine();
 						in = input.nextLine();
 						if (!Customer.checkIsExist1(in, cust)) {
 							logger.log(Level.INFO, "No product with this Code");
