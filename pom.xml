@@ -123,6 +123,8 @@
           <include>**/Test*.java</include>
           <include>**/Tests*.java</include>
         </includes>
+        <reuseForks>false</reuseForks>
+        <forkMode>always</forkMode>
       </configuration>
     </plugin>
   

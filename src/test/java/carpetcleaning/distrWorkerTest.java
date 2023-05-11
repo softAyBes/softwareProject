@@ -58,6 +58,7 @@ public class distrWorkerTest {
 		}
 
 	}
+	
 
 	@Given("worker id {string} has the least number of products in treatment")
 	public void worker_id_has_the_least_number_of_products_in_treatment(String string) {
@@ -71,8 +72,8 @@ public class distrWorkerTest {
 	@Then("new order added to him")
 	public void new_order_added_to_him() {
 		actual = "9";
+		
 		assertEquals(actual, expected);
-
 	}
 
 	@Given("product id {string} for worker id {string} deleted")
@@ -81,7 +82,6 @@ public class distrWorkerTest {
 		Product pro = new Product("nn", code);
 		Worker.deleteProductToWorker(pro, WID, workers);
 	}
-
 	@Then("product deleted successfully")
 	public void product_deleted_successfully() {
 		int windex = Worker.getIndexOfWorker("7", workers);
