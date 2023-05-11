@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.Test;
+
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -107,7 +109,7 @@ public class adminTest {
 		user.setName("admin");
 		user.setPassword("IamAdmin");
 	}
-
+	
 	@Then("type is admin")
 	public void typeIsAdmin() {
 		assertTrue("admin".equalsIgnoreCase(Admin.login(user.getName(), "IamAdmin", persons)));
@@ -121,7 +123,7 @@ public class adminTest {
 		persons.add(user);
 
 	}
-
+	
 	@Then("type is worker")
 	public void typeIsWorker() {
 		assertTrue("worker".equalsIgnoreCase(Admin.login(user.getName(), "123", persons)));
@@ -135,7 +137,7 @@ public class adminTest {
 		user.setPassword("123");
 		persons.add(user);
 	}
-
+	
 	@Then("type is customer")
 	public void typeIsCustomer() {
 		assertTrue("worker".equalsIgnoreCase(Admin.login(user.getName(), "123", persons)));
@@ -146,12 +148,12 @@ public class adminTest {
 		actualType = Person.getIdFromName(string, persons);
 
 	}
-
+	
 	@Then("id is {int}")
 	public void idIs(Integer int1) {
 		assertEquals(actualType, "11");
 	}
-
+	
 	@Then("id is not valid")
 	public void idIsNotValid() {
 		assertEquals(actualType, "-1");
